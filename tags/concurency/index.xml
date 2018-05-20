@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Concurency on HuangYefei&#39;s Blog</title>
+    <link>https://yefeihonours.github.io/tags/concurency/</link>
+    <description>Recent content in Concurency on HuangYefei&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 19 Jan 2018 12:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yefeihonours.github.io/tags/concurency/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python3 Filter_Map_Reduce In Library</title>
+      <link>https://yefeihonours.github.io/post/python/filter_map_reduce/</link>
+      <pubDate>Fri, 19 Jan 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/filter_map_reduce/</guid>
+      <description>&lt;h2 id=&#34;filter&#34;&gt;Filter&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;filter(function, iterable)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;filter&lt;/strong&gt; 函数接收一个函数和一个 可迭代对象, 并返回可迭代对象 &lt;em&gt;iterable&lt;/em&gt; 中的每一个元素在 &lt;em&gt;function&lt;/em&gt; 函数中运算返回 &lt;em&gt;True&lt;/em&gt; 的元素组成的新的迭代器. &lt;em&gt;iterable&lt;/em&gt; 可以是队列, 或者支持迭代的容器, 或者是一个迭代器. 如果 &lt;em&gt;function&lt;/em&gt; 函数为空( None ), 那么将 &lt;em&gt;function&lt;/em&gt; 设定为假定的函数, 这样, 对 &lt;em&gt;iterable&lt;/em&gt; 可迭代对象中的元素都会被认为返回 &lt;em&gt;False&lt;/em&gt; , 会在返回的迭代器中移除.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;iter = [1, 2, 3, 4, 5, 6, 7, 8]
+list(filter(lambda i: i%2, iter))
+# Output: [1, 3, 5, 7]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python3 Task and Coroutines</title>
+      <link>https://yefeihonours.github.io/post/python/asyncio/</link>
+      <pubDate>Fri, 22 Dec 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/asyncio/</guid>
+      <description>&lt;h4 id=&#34;1-coroutines-协程&#34;&gt;1. Coroutines 协程&lt;/h4&gt;
+
+&lt;p&gt;Python3 中协程使用标准库中 &lt;code&gt;asyncio&lt;/code&gt; 中的 &lt;code&gt;async def&lt;/code&gt; 方法声明或者使用装饰器 &lt;code&gt;@asyncio.coroutine&lt;/code&gt; . 在Python3.5之后开始使用 &lt;code&gt;async def&lt;/code&gt; 形式的协程, 并且如果不是需要兼容以前版本的话，尽量使用这种形式.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

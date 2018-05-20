@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Zookeeper安装与集群部署 - HuangYefei&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tyrodw" />
+  <meta name="description" content="Zookeeper 稳定版下载 zookeeper-3.4.10.tar.gz
+
+" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<link rel="canonical" href="https://yefeihonours.github.io/post/linux/zookeeper/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+
+
+
+
+
+<meta property="og:title" content="Zookeeper安装与集群部署" />
+<meta property="og:description" content="Zookeeper 稳定版下载
+
+zookeeper-3.4.10.tar.gz
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/linux/zookeeper/" />
+
+
+
+<meta property="article:published_time" content="2017-11-05T13:00:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-11-05T13:00:00&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Zookeeper安装与集群部署">
+<meta itemprop="description" content="Zookeeper 稳定版下载
+
+zookeeper-3.4.10.tar.gz
+
+">
+
+
+<meta itemprop="datePublished" content="2017-11-05T13:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2017-11-05T13:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="957">
+
+
+
+<meta itemprop="keywords" content="linux,zookeeper," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Zookeeper安装与集群部署"/>
+<meta name="twitter:description" content="Zookeeper 稳定版下载
+
+zookeeper-3.4.10.tar.gz
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HuangYefei</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HuangYefei</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Zookeeper安装与集群部署</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-11-05 </span>
+        <div class="post-category">
+            
+              <a href="/categories/linux/"> Linux </a>
+            
+          </div>
+        <span class="more-meta"> 约 957 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#zookeeper-稳定版下载">Zookeeper 稳定版下载</a></li>
+<li><a href="#zookeeper-简介">Zookeeper 简介</a></li>
+<li><a href="#单机模式">单机模式</a>
+<ul>
+<li><a href="#创建zoo-cfg文件">创建zoo.cfg文件</a></li>
+<li><a href="#zookeeper-配置文件内容如下">zookeeper 配置文件内容如下</a></li>
+<li><a href="#启动与连接">启动与连接</a></li>
+</ul></li>
+<li><a href="#伪集群模式-单机多实例">伪集群模式(单机多实例)</a>
+<ul>
+<li><a href="#创建目录结构">创建目录结构</a></li>
+<li><a href="#创建-myid-文件">创建 myid 文件</a></li>
+<li><a href="#配置-zookeeper-3-4-10-conf-zoo-cfg">配置 zookeeper-3.4.10/conf/zoo.cfg</a></li>
+<li><a href="#启动三个实例-在zookeeper最外层目录下">启动三个实例, 在zookeeper最外层目录下</a></li>
+<li><a href="#java连接配置">java连接配置</a></li>
+</ul></li>
+<li><a href="#集群部署">集群部署</a>
+<ul>
+<li><a href="#创建目录结构-1">创建目录结构</a></li>
+<li><a href="#创建-myid-文件-每台主机写入不同的id">创建 myid 文件, 每台主机写入不同的id</a></li>
+<li><a href="#配置-zookeeper-3-4-10-conf-zoo-cfg-1">配置 zookeeper-3.4.10/conf/zoo.cfg</a></li>
+<li><a href="#启动三个实例-在zookeeper最外层目录下-1">启动三个实例, 在zookeeper最外层目录下</a></li>
+<li><a href="#java连接配置-1">java连接配置</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="zookeeper-稳定版下载">Zookeeper 稳定版下载</h2>
+
+<p><a href="http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz">zookeeper-3.4.10.tar.gz</a></p>
+
+<p></p>
+
+<p>项目下载后直接解压就可以使用
+    tar -zxvf zookeeper-3.4.10.tar.gz</p>
+
+<h2 id="zookeeper-简介">Zookeeper 简介</h2>
+
+<p>Zookeeper 分布式服务框架是 Apache Hadoop 的一个子项目，它主要是用来解决分布式应用中经常遇到的一些数据管理问题，如：统一命名服务、状态同步服务、集群管理、分布式应用配置项的管理等.
+Zookeeper 在开发和部署中一共有三种运行模式: 单机模式, 伪集群模式(单机多实例), 集群模式.</p>
+
+<h2 id="单机模式">单机模式</h2>
+
+<h3 id="创建zoo-cfg文件">创建zoo.cfg文件</h3>
+
+<pre><code># zookeeper config
+cd zookeeper-3.4.10/conf/
+cp zoo_sample.cfg zoo.cfg
+</code></pre>
+
+<h3 id="zookeeper-配置文件内容如下">zookeeper 配置文件内容如下</h3>
+
+<pre><code># zookeeper-3.4.10/conf/zoo.cfg
+#
+# The number of milliseconds of each tick
+tickTime=2000
+# The number of ticks that the initial 
+# synchronization phase can take
+initLimit=10
+# The number of ticks that can pass between 
+# sending a request and getting an acknowledgement
+syncLimit=5
+# the directory where the snapshot is stored.
+# do not use /tmp for storage, /tmp here is just 
+# example sakes.
+dataDir=/tmp/zookeeper
+# the port at which the clients will connect
+clientPort=2181
+# the maximum number of client connections.
+# increase this if you need to handle more clients
+#maxClientCnxns=60
+#
+# Be sure to read the maintenance section of the 
+# administrator guide before turning on autopurge.
+#
+#http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance
+#
+# The number of snapshots to retain in dataDir
+#autopurge.snapRetainCount=3
+# Purge task interval in hours
+# Set to &quot;0&quot; to disable auto purge feature
+#autopurge.purgeInterval=1
+</code></pre>
+
+<h3 id="启动与连接">启动与连接</h3>
+
+<pre><code># 启动服务
+cd zookeeper-3.4.10/bin/
+chmod a+x zkServer.sh zkCli.sh
+./zkServer.sh start
+#
+# 连接zookeeper
+./zkCli.sh -server 127.0.0.1:2181
+#
+# 其他命令
+# ./zkServer.sh status 查看状态
+# ./zkServer.sh stop   停止服务
+</code></pre>
+
+<p>java 连接配置</p>
+
+<pre><code>&lt;dubbo:registry address=&quot;zookeeper://127.0.0.1:2181&quot; /&gt;
+</code></pre>
+
+<h2 id="伪集群模式-单机多实例">伪集群模式(单机多实例)</h2>
+
+<p>Zookeeper 在使用的时候一般使用单机模式和集群模式, 但是在只有一台机器, 并且希望测试集群式部署时, 则会使用为集群模式, 即在一台机器上创建多个 zookeeper 实例.</p>
+
+<h3 id="创建目录结构">创建目录结构</h3>
+
+<pre><code class="language-bash">.
+├── zkServer0
+│   ├── data
+│   ├── logs
+│   └── zookeeper-3.4.10
+├── zkServer1
+│   ├── data
+│   ├── logs
+│   └── zookeeper-3.4.10
+├── zkServer2
+│   ├── data
+│   ├── logs
+│   └── zookeeper-3.4.10
+</code></pre>
+
+<p>zookeeper-3.4.10为下载解压的zookeeper文件</p>
+
+<h3 id="创建-myid-文件">创建 myid 文件</h3>
+
+<pre><code class="language-bash">echo 0 &gt; zkServer0/data/myid
+echo 1 &gt; zkServer1/data/myid
+echo 2 &gt; zkServer2/data/myid
+</code></pre>
+
+<h3 id="配置-zookeeper-3-4-10-conf-zoo-cfg">配置 zookeeper-3.4.10/conf/zoo.cfg</h3>
+
+<p>示例为 zkServer0 下面的配置文件, zkServer1和zkServer只需要clientPort不同</p>
+
+<pre><code class="language-bash">#
+tickTime=2000
+#
+initLimit=10
+#
+syncLimit=5
+#
+dataDir=zookeeper/zkServer0/data
+dataLogDir=zookeeper/zkServer0/logs
+# 2181, 2182, 2183
+clientPort=2181
+#
+server.0=127.0.0.1:7881:8881
+server.1=127.0.0.1:7882:8882
+server.2=127.0.0.1:7883:8883
+</code></pre>
+
+<h3 id="启动三个实例-在zookeeper最外层目录下">启动三个实例, 在zookeeper最外层目录下</h3>
+
+<pre><code class="language-bash">./zkServer0/zookeeper-3.4.10/bin/zkServer.sh start
+./zkServer1/zookeeper-3.4.10/bin/zkServer.sh start
+./zkServer2/zookeeper-3.4.10/bin/zkServer.sh start
+</code></pre>
+
+<h3 id="java连接配置">java连接配置</h3>
+
+<pre><code class="language-bash">&lt;dubbo:registry address=&quot;zookeeper://127.0.0.1:2181?backup=127.0.0.1:2182,127.0.0.1:2183&quot; /&gt;
+</code></pre>
+
+<h2 id="集群部署">集群部署</h2>
+
+<p>集群式部署需要多台服务器设备, 没有主机可以使用虚拟机实现.
+假设现在有三台主机 , IP分别为: 192.168.0.101, 192.168.0.102, 192.168.0.103</p>
+
+<h3 id="创建目录结构-1">创建目录结构</h3>
+
+<p>每一个主机上都需要有一个文件目录</p>
+
+<pre><code class="language-bash">. 
+├── zkServer
+│   ├── data
+│   ├── logs
+│   └── zookeeper-3.4.10
+</code></pre>
+
+<p>zookeeper-3.4.10为下载解压的zookeeper文件</p>
+
+<h3 id="创建-myid-文件-每台主机写入不同的id">创建 myid 文件, 每台主机写入不同的id</h3>
+
+<pre><code class="language-bash">echo 0 &gt; zkServer/data/myid
+</code></pre>
+
+<h3 id="配置-zookeeper-3-4-10-conf-zoo-cfg-1">配置 zookeeper-3.4.10/conf/zoo.cfg</h3>
+
+<p>示例为 zkServer0 下面的配置文件, zkServer1和zkServer只需要clientPort不同</p>
+
+<pre><code class="language-bash">#
+tickTime=2000
+#
+initLimit=10
+#
+syncLimit=5
+#
+dataDir=zookeeper/zkServer0/data
+dataLogDir=zookeeper/zkServer0/logs
+# 每台主机都设置相同端口
+clientPort=2181
+# 实际为不同的主机IP
+server.0=192.168.0.101:7881:8881
+server.1=192.168.0.102:7881:8881
+server.2=192.168.0.103:7881:8881
+</code></pre>
+
+<h3 id="启动三个实例-在zookeeper最外层目录下-1">启动三个实例, 在zookeeper最外层目录下</h3>
+
+<pre><code class="language-bash">./zkServer0/zookeeper-3.4.10/bin/zkServer.sh start
+./zkServer1/zookeeper-3.4.10/bin/zkServer.sh start
+./zkServer2/zookeeper-3.4.10/bin/zkServer.sh start
+</code></pre>
+
+<h3 id="java连接配置-1">java连接配置</h3>
+
+<pre><code class="language-bash">&lt;dubbo:registry address=&quot;zookeeper://192.168.0.101:2181?backup=192.168.0.101:2181,192.168.0.101:2181&quot; /&gt;
+</code></pre>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">tyrodw</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2017-11-05</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/linux/">linux</a>
+          
+          <a href="/tags/zookeeper/">zookeeper</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/javascript/use/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Javascript 好用的方法</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/linux/nginx_tcp/">
+            <span class="next-text nav-default">Nginx安装并支持TCP</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://yefeihonours.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangyefei</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

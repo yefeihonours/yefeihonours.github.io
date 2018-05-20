@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>MongoDB配置用户权限 - HuangYefei&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tyrodw" />
+  <meta name="description" content="启动MongoDb实例  本文以Docker启动MongoDB为例，省略服务器上MongoDB安装过程
+ # Docker启动MongoDB实例，使用前确保电脑上已经安装docker $ docker pull mongo:3.0 ... # --auth 参数表示以权限验证模式启动 $ docker run --name mongo_instance -p 0.0.0.0:27017:27017 -d mongo --auth d18d1d4fd831...a5bc378178  
+" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<link rel="canonical" href="https://yefeihonours.github.io/post/mongo/auth/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+
+
+
+
+
+<meta property="og:title" content="MongoDB配置用户权限" />
+<meta property="og:description" content="启动MongoDb实例
+
+
+本文以Docker启动MongoDB为例，省略服务器上MongoDB安装过程
+
+
+# Docker启动MongoDB实例，使用前确保电脑上已经安装docker
+
+$ docker pull mongo:3.0
+...
+
+# --auth 参数表示以权限验证模式启动
+$ docker run --name mongo_instance -p 0.0.0.0:27017:27017 -d mongo --auth
+d18d1d4fd831...a5bc378178
+
+
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/mongo/auth/" />
+
+
+
+<meta property="article:published_time" content="2017-11-30T12:00:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-11-30T12:00:00&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="MongoDB配置用户权限">
+<meta itemprop="description" content="启动MongoDb实例
+
+
+本文以Docker启动MongoDB为例，省略服务器上MongoDB安装过程
+
+
+# Docker启动MongoDB实例，使用前确保电脑上已经安装docker
+
+$ docker pull mongo:3.0
+...
+
+# --auth 参数表示以权限验证模式启动
+$ docker run --name mongo_instance -p 0.0.0.0:27017:27017 -d mongo --auth
+d18d1d4fd831...a5bc378178
+
+
+
+">
+
+
+<meta itemprop="datePublished" content="2017-11-30T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2017-11-30T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="830">
+
+
+
+<meta itemprop="keywords" content="mongosb," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MongoDB配置用户权限"/>
+<meta name="twitter:description" content="启动MongoDb实例
+
+
+本文以Docker启动MongoDB为例，省略服务器上MongoDB安装过程
+
+
+# Docker启动MongoDB实例，使用前确保电脑上已经安装docker
+
+$ docker pull mongo:3.0
+...
+
+# --auth 参数表示以权限验证模式启动
+$ docker run --name mongo_instance -p 0.0.0.0:27017:27017 -d mongo --auth
+d18d1d4fd831...a5bc378178
+
+
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HuangYefei</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HuangYefei</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">MongoDB配置用户权限</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-11-30 </span>
+        <div class="post-category">
+            
+              <a href="/categories/mongodb/"> MongoDB </a>
+            
+          </div>
+        <span class="more-meta"> 约 830 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#启动mongodb实例">启动MongoDb实例</a></li>
+<li><a href="#连接mongodb-创建管理账号">连接MongoDB，创建管理账号</a></li>
+<li><a href="#创建数据库-添加用户并配置权限">创建数据库，添加用户并配置权限</a></li>
+<li><a href="#常用mongo用户权限">常用Mongo用户权限</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h3 id="启动mongodb实例">启动MongoDb实例</h3>
+
+<blockquote>
+<p>本文以<code>Docker</code>启动<code>MongoDB</code>为例，省略服务器上MongoDB安装过程</p>
+</blockquote>
+
+<pre><code># Docker启动MongoDB实例，使用前确保电脑上已经安装docker
+
+$ docker pull mongo:3.0
+...
+
+# --auth 参数表示以权限验证模式启动
+$ docker run --name mongo_instance -p 0.0.0.0:27017:27017 -d mongo --auth
+d18d1d4fd831...a5bc378178
+
+</code></pre>
+
+<p></p>
+
+<p>此时，mongo实例已经启动了，可以通过<code>docker ps</code>命令查看启动状态。</p>
+
+<pre><code>$ docker ps
+CONTAINER ID    IMAGE       ...   PORTS                      NAMES
+d18d1d4fd831    mongo:3.0   ...   0.0.0.0:27017-&gt;27017/tcp   mongo_instance
+</code></pre>
+
+<h3 id="连接mongodb-创建管理账号">连接MongoDB，创建管理账号</h3>
+
+<pre><code>$ docker exec -it mongo_instance mongo admin
+MongoDB shell version: 3.0.15
+connecting to: admin
+Welcome to the MongoDB shell.
+For interactive help, type &quot;help&quot;.
+For more comprehensive documentation, see
+	http://docs.mongodb.org/
+Questions? Try the support group
+	http://groups.google.com/group/mongodb-user
+&gt;
+&quot;&quot;&quot;
+# 创建管理员账户，拥有对Mongo所有数据库的管理权限
+# userAdminAnyDatabase 允许用户授予任何用户（包括他们自己）的任何权限
+
+&gt; db.createUser({
+    user: 'root_user',
+    pwd: 'password',
+    roles: [{ role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; }]
+});
+Successfully added user: {
+	&quot;user&quot; : &quot;root_user&quot;,
+	&quot;roles&quot; : [
+		{
+			&quot;role&quot; : &quot;userAdminAnyDatabase&quot;,
+			&quot;db&quot; : &quot;admin&quot;
+		}
+	]
+}
+&quot;&quot;&quot;
+</code></pre>
+
+<h3 id="创建数据库-添加用户并配置权限">创建数据库，添加用户并配置权限</h3>
+
+<pre><code># 添加新的数据库[选择数据库]
+&gt; use mydb
+# 创建新用户，赋予&quot;读写&quot;权限
+&gt; db.createUser({
+    user: 'user',
+    pwd: 'password',
+    roles: [ { role: &quot;readWrite&quot;, db: &quot;mydb&quot; } ]
+});
+Successfully added user: {
+	&quot;user&quot; : &quot;user&quot;,
+	&quot;roles&quot; : [
+		{
+			&quot;role&quot; : &quot;readWrite&quot;,
+			&quot;db&quot; : &quot;mydb&quot;
+		}
+	]
+# 验证用户权限
+&gt; db.auth('dunwei', 'password')
+1
+</code></pre>
+
+<p>验证用户通过，此时就可以通过图形化工具连接MongoDB的实例了。</p>
+
+<p>图形化工具推荐使用 <code>Studio 3T MongoDB Chef</code> (<a href="https://studio3t.com/download/">点此下载</a>)。</p>
+
+<h3 id="常用mongo用户权限">常用Mongo用户权限</h3>
+
+<pre><code># 数据库用户权限
+read                提供对当前数据库所有&quot;读取&quot;数据的权限
+readWrite           提供对当前数据库所有&quot;读写&quot;数据的权限
+
+# 数据库管理权限
+dbAdmin             提供对当前数据库&quot;管理&quot;的权限，与模式相关的任务，索引，收集统计信息
+dbOwner             提供对当前数据库执行&quot;任何管理操作&quot;的能力[readWrite,dbAdmin,userAdmin]
+userAdmin           提供在数据库上&quot;创建和修改角色和用户&quot;的能力
+
+# 所有数据库权限
+readAnyDatabase         提供对&quot;全部&quot;数据库&quot;read&quot;的权限
+readWriteAnyDatabase    提供对&quot;全部&quot;数据库&quot;readWrite&quot;的权限
+userAdminAnyDatabase    提供对&quot;全部&quot;数据库&quot;userAdmin&quot;的权限
+</code></pre>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">tyrodw</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2017-11-30</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/mongosb/">mongosb</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/mysql/opt2/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">MySQL 性能优化笔记 [2]</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/python/use/">
+            <span class="next-text nav-default">Python3 中有用的方法</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://yefeihonours.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangyefei</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

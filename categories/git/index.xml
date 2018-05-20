@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on HuangYefei&#39;s Blog</title>
+    <link>https://yefeihonours.github.io/categories/git/</link>
+    <description>Recent content in Git on HuangYefei&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 01 Nov 2017 12:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yefeihonours.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git操作入门</title>
+      <link>https://yefeihonours.github.io/post/git/start/</link>
+      <pubDate>Wed, 01 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/git/start/</guid>
+      <description>&lt;h2 id=&#34;一-准备环境&#34;&gt;一、准备环境&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;首先，安装好Git。不同的操作系统，安装的方式有所区别&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git --version
+git version 2.11.0 (Apple Git-81)
+
+# 配置用户信息
+$ git config --global user.name &amp;quot;name&amp;quot;
+$ git config --global user.email &amp;quot;name@mail.com&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

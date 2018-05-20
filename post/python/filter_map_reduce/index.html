@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Python3 Filter_Map_Reduce In Library - HuangYefei&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tyrodw" />
+  <meta name="description" content="Filter  filter(function, iterable)
+ filter 函数接收一个函数和一个 可迭代对象, 并返回可迭代对象 iterable 中的每一个元素在 function 函数中运算返回 True 的元素组成的新的迭代器. iterable 可以是队列, 或者支持迭代的容器, 或者是一个迭代器. 如果 function 函数为空( None ), 那么将 function 设定为假定的函数, 这样, 对 iterable 可迭代对象中的元素都会被认为返回 False , 会在返回的迭代器中移除.
+iter = [1, 2, 3, 4, 5, 6, 7, 8] list(filter(lambda i: i%2, iter)) # Output: [1, 3, 5, 7]  
+" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<link rel="canonical" href="https://yefeihonours.github.io/post/python/filter_map_reduce/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+
+
+
+
+
+<meta property="og:title" content="Python3 Filter_Map_Reduce In Library" />
+<meta property="og:description" content="Filter
+
+
+filter(function, iterable)
+
+
+filter 函数接收一个函数和一个 可迭代对象, 并返回可迭代对象 iterable 中的每一个元素在 function 函数中运算返回 True 的元素组成的新的迭代器. iterable 可以是队列, 或者支持迭代的容器, 或者是一个迭代器. 如果 function 函数为空( None ), 那么将 function 设定为假定的函数, 这样, 对 iterable 可迭代对象中的元素都会被认为返回 False , 会在返回的迭代器中移除.
+
+iter = [1, 2, 3, 4, 5, 6, 7, 8]
+list(filter(lambda i: i%2, iter))
+# Output: [1, 3, 5, 7]
+
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/python/filter_map_reduce/" />
+
+
+
+<meta property="article:published_time" content="2018-01-19T12:00:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-01-19T12:00:00&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Python3 Filter_Map_Reduce In Library">
+<meta itemprop="description" content="Filter
+
+
+filter(function, iterable)
+
+
+filter 函数接收一个函数和一个 可迭代对象, 并返回可迭代对象 iterable 中的每一个元素在 function 函数中运算返回 True 的元素组成的新的迭代器. iterable 可以是队列, 或者支持迭代的容器, 或者是一个迭代器. 如果 function 函数为空( None ), 那么将 function 设定为假定的函数, 这样, 对 iterable 可迭代对象中的元素都会被认为返回 False , 会在返回的迭代器中移除.
+
+iter = [1, 2, 3, 4, 5, 6, 7, 8]
+list(filter(lambda i: i%2, iter))
+# Output: [1, 3, 5, 7]
+
+
+">
+
+
+<meta itemprop="datePublished" content="2018-01-19T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-01-19T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="756">
+
+
+
+<meta itemprop="keywords" content="python,concurency," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python3 Filter_Map_Reduce In Library"/>
+<meta name="twitter:description" content="Filter
+
+
+filter(function, iterable)
+
+
+filter 函数接收一个函数和一个 可迭代对象, 并返回可迭代对象 iterable 中的每一个元素在 function 函数中运算返回 True 的元素组成的新的迭代器. iterable 可以是队列, 或者支持迭代的容器, 或者是一个迭代器. 如果 function 函数为空( None ), 那么将 function 设定为假定的函数, 这样, 对 iterable 可迭代对象中的元素都会被认为返回 False , 会在返回的迭代器中移除.
+
+iter = [1, 2, 3, 4, 5, 6, 7, 8]
+list(filter(lambda i: i%2, iter))
+# Output: [1, 3, 5, 7]
+
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HuangYefei</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HuangYefei</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Python3 Filter_Map_Reduce In Library</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-01-19 </span>
+        <div class="post-category">
+            
+              <a href="/categories/python/"> Python </a>
+            
+          </div>
+        <span class="more-meta"> 约 756 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#filter">Filter</a></li>
+<li><a href="#map">Map</a></li>
+<li><a href="#reduce">Reduce</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="filter">Filter</h2>
+
+<blockquote>
+<p>filter(function, iterable)</p>
+</blockquote>
+
+<p><strong>filter</strong> 函数接收一个函数和一个 可迭代对象, 并返回可迭代对象 <em>iterable</em> 中的每一个元素在 <em>function</em> 函数中运算返回 <em>True</em> 的元素组成的新的迭代器. <em>iterable</em> 可以是队列, 或者支持迭代的容器, 或者是一个迭代器. 如果 <em>function</em> 函数为空( None ), 那么将 <em>function</em> 设定为假定的函数, 这样, 对 <em>iterable</em> 可迭代对象中的元素都会被认为返回 <em>False</em> , 会在返回的迭代器中移除.</p>
+
+<pre><code class="language-python">iter = [1, 2, 3, 4, 5, 6, 7, 8]
+list(filter(lambda i: i%2, iter))
+# Output: [1, 3, 5, 7]
+</code></pre>
+
+<p></p>
+
+<p><strong>注意</strong>, <em>filter(filter(function, iterable))</em>, 如果 <em>function</em> 为 <em>None</em>, 等价于生成器推导式 <em>(item for item in iterable if function(item))</em>. 如果 <em>function</em> 不为 <em>None</em>, 等价于 <em>(item for item in iterable if item)</em>.</p>
+
+<p>在 <strong>itertools.filterfalse(predicate, iterable)</strong> 函数中提供了对内置函数 <em>filter</em> 的补充扩展, 可以返回 <em>predicate</em> 结果为_ False_ 的元素列表.</p>
+
+<pre><code class="language-python"># itertools.filterfalse 实现如下
+
+def filterfalse(predicate, iterable):
+    # filterfalse(lambda x: x%2, range(10)) --&gt; 0 2 4 6 8
+    if predicate is None:
+        predicate = bool
+    for x in iterable:
+        if not predicate(x):    # 如果 predicate 结果为 False, 返回 x
+            yield x
+</code></pre>
+
+<h2 id="map">Map</h2>
+
+<blockquote>
+<p>map(function, iterable, &hellip;)</p>
+</blockquote>
+
+<p>将可迭代对象 <em>iterable</em> 的每一个元素都应用的到 <em>function</em> 中, 并返回一个生成器, 生成结果集. 如果有另外的可迭代对象作为参数, 那么 <em>function</em> 必须也要添加一个参数位置, 并迭代执行所有的参数. 当使用多个参数进行迭代时, 迭代次数参照最短可迭代对象参数的长度.</p>
+
+<pre><code class="language-python">a = [1, 2, 3, 4, 5]
+b = [10, 20, 30]
+
+list(map(lambda x,y: x+y, a, b))
+# Output: [11, 22, 33]
+
+</code></pre>
+
+<p><strong>注意</strong>, 如果 <em>function</em> 的参数是元组的列表集合, 可以参照 <strong>itertools.starmap()</strong>.</p>
+
+<pre><code class="language-python"># itertools.starmap 实现如下
+
+def starmap(function, iterable):
+    # starmap(pow, [(2,5), (3,2), (10,3)]) --&gt; 32 9 1000
+    for args in iterable:
+        yield function(*args)
+</code></pre>
+
+<p><em>map()</em> 与 <em>itertools.starmap()</em> 之间的区别在于传入 <em>function</em> 参数是否被预先压缩.</p>
+
+<pre><code class="language-python">from itertools import starmap
+
+# 下面两个函数使用是等价的
+list(map(lambda x,y: x+y, a, b))            # Output: [11, 22, 33]
+list(starmap(lambda x,y: x+y, zip(a, b)))   # Output: [11, 22, 33]
+
+</code></pre>
+
+<h2 id="reduce">Reduce</h2>
+
+<blockquote>
+<p>functools.reduce(function, iterable[, initializer ])</p>
+</blockquote>
+
+<p><strong>reduce</strong> 函数在 <em>Python2.7</em> 中属于内置函数, 而在 <em>Python3.x</em> 中被放到 <strong>functools</strong> 中.</p>
+
+<p><em>iterable</em> 的每一个元素从左到右累积的应用于 <em>function</em> 的两个参数中, 直到队列中只有一个值为止.</p>
+
+<pre><code class="language-python"># For Example: 
+
+reduce(lambda x, y: x+y, [1, 2, 3, 4, 5])
+# 运算过程等价于 ==&gt;  ((((1+2)+3)+4)+5)
+</code></pre>
+
+<p>左边的参数 <em>x</em>, 是函数计算的累计结果, 右边的参数 <em>y</em>, 是 <em>iterable</em> 序列中新的元素值. 如果 <em>initializer</em> 初始项不为 <em>None</em>, 则将 <em>initializer</em> 放在计算序列的最前面, 如果 <em>iterable</em> 序列为空, 则被设置为默认值. 如果 <em>initializer</em> 没有值, 且 <em>iterable</em> 序列只有一个元素, 则返回第一个元素.</p>
+
+<pre><code class="language-python"># functools.reduce 实现如下
+
+def reduce(function, iterable, initializer=None):
+    it = iter(iterable)
+    if initializer is None:
+        value = next(it)
+    else:
+        value = initializer
+    for element in it:
+        value = function(value, element)
+    return value
+</code></pre>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">tyrodw</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-01-19</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/python/">python</a>
+          
+          <a href="/tags/concurency/">concurency</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/python/asyncio/">
+            <span class="next-text nav-default">Python3 Task and Coroutines</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://yefeihonours.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangyefei</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

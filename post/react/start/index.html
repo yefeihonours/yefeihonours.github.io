@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>React 入门教程 - HuangYefei&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tyrodw" />
+  <meta name="description" content="在线测试 在线测试地址:https://jsfiddle.net/
+
+" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<link rel="canonical" href="https://yefeihonours.github.io/post/react/start/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+
+
+
+
+
+<meta property="og:title" content="React 入门教程" />
+<meta property="og:description" content="在线测试
+
+在线测试地址:https://jsfiddle.net/
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/react/start/" />
+
+
+
+<meta property="article:published_time" content="2017-11-03T12:00:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-11-03T12:00:00&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="React 入门教程">
+<meta itemprop="description" content="在线测试
+
+在线测试地址:https://jsfiddle.net/
+
+">
+
+
+<meta itemprop="datePublished" content="2017-11-03T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2017-11-03T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="3267">
+
+
+
+<meta itemprop="keywords" content="react,javascript," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="React 入门教程"/>
+<meta name="twitter:description" content="在线测试
+
+在线测试地址:https://jsfiddle.net/
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HuangYefei</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HuangYefei</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">React 入门教程</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-11-03 </span>
+        <div class="post-category">
+            
+              <a href="/categories/react/"> React </a>
+            
+          </div>
+        <span class="more-meta"> 约 3267 字 </span>
+        <span class="more-meta"> 预计阅读 7 分钟 </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#在线测试">在线测试</a></li>
+<li><a href="#组件们">组件们</a></li>
+<li><a href="#jsx">JSX</a></li>
+<li><a href="#使用-jsx">使用 JSX</a></li>
+<li><a href="#将变量用在属性上">将变量用在属性上</a></li>
+<li><a href="#一个组件的基础">一个组件的基础</a>
+<ul>
+<li><a href="#属性">属性</a></li>
+<li><a href="#状态">状态</a></li>
+</ul></li>
+<li><a href="#组件的生命周期">组件的生命周期</a>
+<ul>
+<li><a href="#componentwillmount">componentWillMount</a></li>
+<li><a href="#componentdidmount">componentDidMount</a></li>
+<li><a href="#componentwillunmount">componentWillUnmount</a></li>
+</ul></li>
+<li><a href="#组件方法">组件方法</a>
+<ul>
+<li><a href="#getdefaultprops">getDefaultProps</a></li>
+<li><a href="#proptypes">propTypes</a></li>
+<li><a href="#mixins">mixins</a></li>
+</ul></li>
+<li><a href="#遍历循环">遍历循环</a></li>
+<li><a href="#混编">混编</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="在线测试">在线测试</h2>
+
+<p>在线测试地址:<a href="https://jsfiddle.net/">https://jsfiddle.net/</a></p>
+
+<p></p>
+
+<h2 id="组件们">组件们</h2>
+
+<p>每个组件都有一个功能叫 <strong>render</strong> ， 它可以高效的返回要映射到浏览器上 <strong>HTML</strong>。</p>
+
+<h2 id="jsx">JSX</h2>
+
+<p>SX允许我们在Javascript中写HTML，而不是用HTML包含Javascript。</p>
+
+<h2 id="使用-jsx">使用 JSX</h2>
+
+<p>如前面所说，JSX每一个组件都有一个 <strong>render</strong> 方法，这个方法产生一个”<strong>ViewModel</strong>(视图模型)” – 在返回 <strong>HTML</strong> 到组件之前，你可以将这个模型(<strong>ViewModel</strong>)的信息放入视图中，意味着你的 <strong>HTML</strong> 会根据这个模型动态改变(例如一个动态列表)。</p>
+
+<p>一旦你完成了操作，就可以返回你想渲染(<strong>render</strong>)的东西，我们使用JSX来做是如此简单</p>
+
+<h2 id="将变量用在属性上">将变量用在属性上</h2>
+
+<p>如果你想动态改变组件的样式类(或者任何其他的属性值),你可以使用变量. 不过你不能只是传进去一个变量名称，你还要将其用一对<strong>大括弧</strong>包起来, 这样JSX就能知道这是一个外部的变量了.</p>
+
+<pre><code>var ExampleComponent = React.createClass({
+render: function () {
+    var navigationClass = 'navigation';
+    return (
+        &lt;div className={ navigationClass }&gt;
+            Hello World!
+        &lt;/div&gt;
+        );
+}
+});
+
+React.render(&lt;ExampleContent /&gt;, document.body);
+</code></pre>
+
+<p>函数 <strong>React.render()</strong> 表示要渲染组件，<strong>document.body</strong> 表示在 body 上渲染组件</p>
+
+<p>如果你希望的话，可以使用 render 函数许多次,</p>
+
+<h2 id="一个组件的基础">一个组件的基础</h2>
+
+<p>组件可以拥有其自己的<strong>状态</strong>。这使我们能够重复多次使用相同的组件但却让它们看起来完全不同，因为每个组件实例的状态是唯一的。</p>
+
+<p>当你通过传递属性到一个组件时这些被称为属性。不要只局限于 <strong>HTML</strong> 属性，你可以传递任何你想传递的东西，并在组件内通过 <strong>this.props</strong> 访问它。这样使得我们能够重复使用相同的组件但传递一组不同的属性，比如组件的 <strong>配置</strong> 。</p>
+
+<h3 id="属性">属性</h3>
+
+<p>在 HTML 节点上有 <strong>className</strong> 的属性。在组件内部，我们可以使用 <strong>this.props.classname</strong> 访问这个值</p>
+
+<pre><code>// 配置项
+var navigationConfig = [];
+
+var ExampleComponent = React.createClass({
+	render: function () {
+		return (
+			&lt;div className=&quot;navigation&quot;&gt;
+				Hello World!
+			&lt;/div&gt;
+			);
+	}
+});
+ 
+React.render(&lt;ExampleComponent config={ navigationConfig } /&gt;, document.body);
+</code></pre>
+
+<p>如果现在能访问 this.props.config 的话，我们会收到一个空数组（<strong>navigationConfig</strong> 的值）。</p>
+
+<h3 id="状态">状态</h3>
+
+<p>每一个组件都有其自己的<strong>状态</strong>。当要使用状态时，你要定义初始状态，让后才可以使用 <strong>this.setState</strong> 来更新状态。无论何时状态得到了更新，组件都会再一次调用 <strong>render</strong> 函数，拿新的值去替换或者改变之前渲染的值。</p>
+
+<p>加一个 <strong>getInitialState</strong> 函数到类配置对象上，并返回带有我们想要的初始状态的对象。</p>
+
+<pre><code>...
+var Navigation = React.createClass({
+    getInitialState: function () {
+        return {
+            openDropdown: -1
+        };
+    },
+    ...
+    
+});
+
+React.render(&lt;Navigation config={ navigationConfig } /&gt;, document.body);
+</code></pre>
+
+<p>你会发现我们将其设置成了 <strong>-1</strong> 。当我们准备去打开一个下拉菜单时，将使用状态里面的配置数组中的导航项的位置，而由于数组索引开始于<strong>0</strong>，我们就得使用 <strong>-1</strong> 来表示还没有指向一个导航项。</p>
+
+<p>我们可以使用 <strong>this.state</strong> 来访问状态，因此如果我们去观察 <strong>atthis.state.openDropdown</strong>，应该会有 -1 被返回。</p>
+
+<h2 id="组件的生命周期">组件的生命周期</h2>
+
+<p>每个组件都有其 <strong>生命周期</strong> —这是一系列你可以在 <strong>组件配置</strong> 里定义的函数，它们将在部件生命周期内被调用。我们已经看过了 <strong>getinitialstate</strong> 一它只被调用一次，在组件被挂载时调用。</p>
+
+<h3 id="componentwillmount">componentWillMount</h3>
+
+<p>当组件要被挂载时这个函数被调用。这意味着我们可以在此运行组件功能必须的代码。为由于 <strong>render</strong> 在组件生命周期里被多次调用，我们一般会把只需要执行一次的代码放在这里，比如 XHR 请求。</p>
+
+<pre><code>var ExampleComponent = React.createClass({
+    componentWillMount: function () {
+        // xhr request here to get data
+    },
+    render: function () {
+        // this gets called many times in a components life
+        return (
+            &lt;div&gt;
+                Hello World!
+            &lt;/div&gt;
+            );
+    }
+});
+</code></pre>
+
+<h3 id="componentdidmount">componentDidMount</h3>
+
+<p>一旦你的组件已经运行了 <strong>render</strong> 函数，并实际将组件渲染到了 DOM 中，<strong>componentDidMount</strong> 就会被调用。我们可以在这儿做任何需要做的 DOM 操作，已经任何需要依赖于组件已经实际存在于 DOM 之后才能做的事情, 例如渲染一个图表。你可以通过调用 <strong>this.getDOMNode</strong> 在内部访问到 DOM 节点。</p>
+
+<pre><code>var ExampleComponent = React.createClass({
+    componentDidMount: function () {
+        var node = this.getDOMNode();
+        // render a chart on the DOM node
+    },
+    render: function () {
+        return (
+            &lt;div&gt;
+                Hello World!
+            &lt;/div&gt;
+            );
+    }
+});
+</code></pre>
+
+<h3 id="componentwillunmount">componentWillUnmount</h3>
+
+<p>如果你准备吧组件从 DOM  移除时，这个函数将会被调用。这让我们可以在组件背后进行清理，比如移除任何我们已经绑定的事件监听器。</p>
+
+<p>如果我们没有在自身背后做清理，而当其中一个事件被触发时，就会尝试去计算一个没有载入的组件，<strong>React</strong> 就会抛出一个错误。</p>
+
+<pre><code>var ExampleComponent = React.createClass({
+    componentWillUnmount: function () {
+        // unbind any event listeners specific to this component
+    },
+    render: function () {
+        return (
+            &lt;div&gt;
+                Hello World!
+            &lt;/div&gt;
+            );
+    }
+});
+</code></pre>
+
+<h2 id="组件方法">组件方法</h2>
+
+<p>React 也为组件提供了更方便我们工作的方法。它们会在组件的创建过程中被调用到。例如 <strong>getInitialState</strong>，能让我们定义一个默认的状态，这样我们不用担心在代码里面对状态项目是否存在做进一步的检查了。</p>
+
+<h3 id="getdefaultprops">getDefaultProps</h3>
+
+<p>当我们创建组件时，可以按照我们的想法为组件的属性定义默认值。这意味着我们在调用组件时，如果给这些属性设置值，组件会有一个默认的&rdquo;<strong>配置</strong>&ldquo;，而我们就不用操心在下一行代码中检查属性这类事情了。</p>
+
+<p>当你定义了组件时，这些默认的属性会被<strong>缓存</strong>起来，因而针对每个组件的实例它们都是一样的，并且不能被改变。对于导航组件，我们将配置指定为一个空的数组，因而就算没有传入配置，<strong>render</strong> 方法内也不会发生错误。</p>
+
+<pre><code>var Navigation = React.createClass({
+    getInitialState: function () {
+        ...
+    },
+    getDefaultProps: function () {
+        return {
+            config: []
+        }
+    },
+    render: function () {
+        ...
+    }
+});
+
+React.render(...);
+</code></pre>
+
+<h3 id="proptypes">propTypes</h3>
+
+<p>我们也可以随意为每一个<strong>属性指定类型</strong>。这对于我们检查和处理属性的意外赋值非常有用。如下面的<strong>dropdown</strong>，我们指定只有数组才能放入配置。</p>
+
+<pre><code>var Navigation = React.createClass({
+    ...
+    propTypes: {
+        config: React.PropTypes.array
+    },
+    render: function () {
+        ...
+    }
+});
+
+React.render(...);
+</code></pre>
+
+<h3 id="mixins">mixins</h3>
+
+<p>这是一个独立于 React 的基本组件（只是一个对象类型的配置）。这意味着，如果我们有两个<strong>功能类似</strong>的组件，就可以共享一个配置了（<strong>如果初始状态相同</strong>）。我们可以抽象化地在 <strong>mixin</strong> 中建立一个方法，这样就不用把相同的代码写上两次了。</p>
+
+<pre><code>var ExampleMixin = {
+    componentDidMount: function () {
+        // bind some event listeners here
+    },
+    componentWillUnmount: function () {
+        // unbind those events here!
+    }
+};
+
+var ExampleComponent = React.createClass({
+    mixins: [ExampleMixin],
+    render: function () {
+        ...
+    }
+});
+
+var AnotherComponent = React.createClass({
+    mixins: [ExampleMixin],
+    render: function () {
+        ...
+    }
+});
+
+</code></pre>
+
+<p>这样全部组件都有一样的 <strong>componentDidMount</strong> 和 <strong>componentWillUnmount</strong> 方法了，保存我们重写的代码。无论如何，你不能 <strong>override</strong>（覆盖）这些属性，如果这个属性是在mixin里设置的，它在这个组件中是不可覆盖的。</p>
+
+<h2 id="遍历循环">遍历循环</h2>
+
+<p>当我们有一个包含对象的数组，如何循环这个数组并渲染每一个对象到列表项中？JSX 允许你在任意 Javascript 文件中使用它，你可以映射这个数组并返回 JSX，然后使用 React 去渲染。</p>
+
+<pre><code>var navigationConfig = [
+    {
+        href: 'http://ryanclark.me',
+        text: 'My Website'
+    }
+];
+var Navigation = React.createClass({
+    getInitialState: function () {
+        return {
+            openDropdown: -1
+        };
+    },
+    getDefaultProps: function () {
+        return {
+            config: []
+        }
+    },
+    propTypes: {
+        config: React.PropTypes.array
+    },
+    render: function () {
+        var config = this.props.config;
+        var items = config.map(function (item) {
+            return (
+                &lt;li className=&quot;navigation__item&quot;&gt;
+                    &lt;a className=&quot;navigation__link&quot; href={ item.href }&gt;
+                        { item.text }
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                );
+        });
+        return (
+            &lt;div className=&quot;navigation&quot;&gt;
+                { items }
+            &lt;/div&gt;
+            );
+    }
+});
+React.render(&lt;Navigation config={ navigationConfig } /&gt;, document.body);
+</code></pre>
+
+<p>导航配置由数组和对象组成，包括一个指向超链接的 <strong>href</strong> 属性和一个用于显示的 <strong>text</strong> 属性。当我们映射的时候，它会一个个依次通过这个数组去取得对象。我们可以访问 <strong>href</strong> 和 <strong>text</strong>，并在 <strong>HTML</strong> 中使用。当返回列表时，这个数组里的列表项都将被替换，所以我们把它放入 <strong>React</strong> 中处理时它将知道怎么去渲染了！</p>
+
+<h2 id="混编">混编</h2>
+
+<p>到目前位置，我们已经做到了所有下拉列表的展开。我们需要知道被下来的项目是哪个，我们将使用 <strong>.children</strong> 属性去遍历我们的 <strong>navigationConfig</strong> 数组。接下来，我们可以通过循环来操作下拉的子元素条目。</p>
+
+<pre><code>var navigationConfig = [
+    {
+        href: 'http://ryanclark.me',
+        text: 'My Website',
+        children: [
+            {
+                href: 'http://ryanclark.me/how-angularjs-implements-dirty-checking/',
+                text: 'Angular Dirty Checking'
+            },
+            {
+                href: 'http://ryanclark.me/getting-started-with-react/',
+                text: 'React'
+            }
+        ]
+    }
+];
+var Navigation = React.createClass({
+    ...
+    render: function () {
+        var config = this.props.config;
+        var items = config.map(function (item) {
+            var children, dropdown;
+            if (item.children) {
+                children = item.children.map(function (child) {
+                    return (
+                        &lt;li className=&quot;navigation__dropdown__item&quot;&gt;
+                            &lt;a className=&quot;navigation__dropdown__link&quot; 
+                                href={ child.href }&gt;
+                                { child.text }
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                    );
+                });
+                dropdown = (
+                    &lt;ul className=&quot;navigation__dropdown&quot;&gt;
+                        { children }
+                    &lt;/ul&gt;
+                );
+            }
+            return (
+                &lt;li className=&quot;navigation__item&quot;&gt;
+                    &lt;a className=&quot;navigation__link&quot; href={ item.href }&gt;
+                        { item.text }
+                    &lt;/a&gt;
+                    { dropdown }
+                &lt;/li&gt;
+                );
+        });
+        return (
+            &lt;div className=&quot;navigation&quot;&gt;
+                { items }
+            &lt;/div&gt;
+            );
+    }
+});
+React.render(...);
+</code></pre>
+
+<p>但是我们还是能看见下来条目，尽管我们将 <strong>openDropdown</strong> 设置成为了 <strong>-1</strong> 。
+我们可以通过在组件中访问 <strong>this.state</strong> ，来判断下拉是否被打开了，并且，我们可以为其添加一个新的 <strong>css</strong> 样式 <strong>class</strong> 来展现鼠标 <strong>hover</strong> 的效果。</p>
+
+<pre><code>var navigationConfig = [
+    {
+        href: 'http://ryanclark.me',
+        text: 'My Website',
+        children: [
+            {
+                href: 'http://ryanclark.me/how-angularjs-implements-dirty-checking/',
+                text: 'Angular Dirty Checking'
+            },
+            {
+                href: 'http://ryanclark.me/getting-started-with-react/',
+                text: 'React'
+            }
+        ]
+    }
+];
+var Navigation = React.createClass({
+    getInitialState: function () {
+        return {
+            openDropdown: -1
+        };
+    },
+    getDefaultProps: function () {
+        return {
+            config: []
+        }
+    },
+    openDropdown: function (id) {
+        this.setState({
+            openDropdown: id
+        });
+    },
+    closeDropdown: function () {
+        this.setState({
+            openDropdown: -1
+        });
+    },
+    propTypes: {
+        config: React.PropTypes.array
+    },
+    render: function () {
+        var config = this.props.config;
+        var items = config.map(function (item, index) {
+            var children, dropdown;
+            if (item.children) {
+                children = item.children.map(function (child) {
+                    return (
+                        &lt;li className=&quot;navigation__dropdown__item&quot;&gt;
+                            &lt;a className=&quot;navigation__dropdown__link&quot; 
+                                href={ child.href }&gt;
+                                { child.text }
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                    );
+                });
+                var dropdownClass = 'navigation__dropdown';
+                if (this.state.openDropdown === index) {
+                    dropdownClass += ' navigation__dropdown--open';
+                }
+                console.log(this.state.openDropdown, index);
+                dropdown = (
+                    &lt;ul className={ dropdownClass }&gt;
+                        { children }
+                    &lt;/ul&gt;
+                );
+            }
+            return (
+                &lt;li className=&quot;navigation__item&quot; 
+                onMouseOut={ this.closeDropdown } 
+                onMouseOver={ this.openDropdown.bind(this, index) }&gt;
+                    &lt;a className=&quot;navigation__link&quot; href={ item.href }&gt;
+                        { item.text }
+                    &lt;/a&gt;
+                    { dropdown }
+                &lt;/li&gt;
+                );
+        }, this);
+        return (
+            &lt;div className=&quot;navigation&quot;&gt;
+                { items }
+            &lt;/div&gt;
+            );
+    }
+});
+React.render(...);
+</code></pre>
+
+<p>鼠标划过&rdquo;<strong>My Website</strong>&ldquo;，下拉即会展现。
+在前面，我已经给每个列表项添加了鼠标事件。如你所见，我用的是 .bind (绑定) 调用，而非其它的方式调用。</p>
+
+<p>这是因为，当用户的鼠标划出元素区域，我们并不用关注光标在哪里，所有我们需要知晓的是，将下拉关闭掉，所以我们可以将它的值设置成为 <strong>-1</strong> 。</p>
+
+<p>但是，我们需要知晓的是当用户鼠标划入的时候哪个元素被下拉展开了，所以我们需要知道该参数(元素的索引)。</p>
+
+<p>我们使用绑定的方式去调用而非简单的透过函数（<strong>function</strong>）去调用是因为我们需要通过 <strong>React</strong> 去调用。如果我们直接调用，那我们就需要一直调用，而不是在事件中调用他。</p>
+
+<p>现在我们可以添加很多的条目到 <strong>navigationConfig</strong> 当中，而且我们也可以给他添加样式到下来功能当中。</p>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">tyrodw</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2017-11-03</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/react/">react</a>
+          
+          <a href="/tags/javascript/">javascript</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/linux/nginx_tcp/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Nginx安装并支持TCP</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/git/start/">
+            <span class="next-text nav-default">Git操作入门</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://yefeihonours.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangyefei</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

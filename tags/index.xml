@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on HuangYefei&#39;s Blog</title>
+    <link>https://yefeihonours.github.io/tags/</link>
+    <description>Recent content in Tags on HuangYefei&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 19 Jan 2018 12:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yefeihonours.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Concurency</title>
+      <link>https://yefeihonours.github.io/tags/concurency/</link>
+      <pubDate>Fri, 19 Jan 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/tags/concurency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Const</title>
+      <link>https://yefeihonours.github.io/tags/const/</link>
+      <pubDate>Tue, 28 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/tags/const/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://yefeihonours.github.io/tags/git/</link>
+      <pubDate>Wed, 01 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://yefeihonours.github.io/tags/javascript/</link>
+      <pubDate>Tue, 07 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://yefeihonours.github.io/tags/linux/</link>
+      <pubDate>Sun, 05 Nov 2017 13:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mongosb</title>
+      <link>https://yefeihonours.github.io/tags/mongosb/</link>
+      <pubDate>Thu, 30 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/tags/mongosb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>https://yefeihonours.github.io/tags/mysql/</link>
+      <pubDate>Fri, 15 Dec 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>https://yefeihonours.github.io/tags/nginx/</link>
+      <pubDate>Sun, 05 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://yefeihonours.github.io/tags/python/</link>
+      <pubDate>Fri, 19 Jan 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React</title>
+      <link>https://yefeihonours.github.io/tags/react/</link>
+      <pubDate>Fri, 03 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Switch</title>
+      <link>https://yefeihonours.github.io/tags/switch/</link>
+      <pubDate>Thu, 21 Dec 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/tags/switch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zookeeper</title>
+      <link>https://yefeihonours.github.io/tags/zookeeper/</link>
+      <pubDate>Sun, 05 Nov 2017 13:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/tags/zookeeper/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>HuangYefei&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="huangyefei" />
+  <meta name="description" content="HuangYefei&#39;s personal blog." />
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<link rel="canonical" href="https://yefeihonours.github.io/" />
+<link href="https://yefeihonours.github.io/index.xml" rel="alternate" type="application/rss+xml" title="HuangYefei&#39;s Blog" />
+  <link href="https://yefeihonours.github.io/index.xml" rel="feed" type="application/rss+xml" title="HuangYefei&#39;s Blog" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+
+
+
+
+
+<meta property="og:title" content="HuangYefei&#39;s Blog" />
+<meta property="og:description" content="HuangYefei&#39;s personal blog." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yefeihonours.github.io/" />
+
+
+
+<meta property="og:updated_time" content="2017-08-20T21:38:52&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="HuangYefei&#39;s Blog">
+<meta itemprop="description" content="HuangYefei&#39;s personal blog.">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HuangYefei&#39;s Blog"/>
+<meta name="twitter:description" content="HuangYefei&#39;s personal blog."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HuangYefei</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HuangYefei</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          
+  <section id="posts" class="posts">
+    
+    
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/filter_map_reduce/">Python3 Filter_Map_Reduce In Library</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-01-19 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 756 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="filter">Filter</h2>
+
+<blockquote>
+<p>filter(function, iterable)</p>
+</blockquote>
+
+<p><strong>filter</strong> 函数接收一个函数和一个 可迭代对象, 并返回可迭代对象 <em>iterable</em> 中的每一个元素在 <em>function</em> 函数中运算返回 <em>True</em> 的元素组成的新的迭代器. <em>iterable</em> 可以是队列, 或者支持迭代的容器, 或者是一个迭代器. 如果 <em>function</em> 函数为空( None ), 那么将 <em>function</em> 设定为假定的函数, 这样, 对 <em>iterable</em> 可迭代对象中的元素都会被认为返回 <em>False</em> , 会在返回的迭代器中移除.</p>
+
+<pre><code class="language-python">iter = [1, 2, 3, 4, 5, 6, 7, 8]
+list(filter(lambda i: i%2, iter))
+# Output: [1, 3, 5, 7]
+</code></pre>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/filter_map_reduce/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/asyncio/">Python3 Task and Coroutines</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-12-22 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 1021 字 </span>
+      <span class="more-meta"> 预计阅读 3 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h4 id="1-coroutines-协程">1. Coroutines 协程</h4>
+
+<p>Python3 中协程使用标准库中 <code>asyncio</code> 中的 <code>async def</code> 方法声明或者使用装饰器 <code>@asyncio.coroutine</code> . 在Python3.5之后开始使用 <code>async def</code> 形式的协程, 并且如果不是需要兼容以前版本的话，尽量使用这种形式.</p>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/asyncio/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/conf/">Python3 读取 .conf 文件配置信息</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-12-21 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 190 字 </span>
+      <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <blockquote>
+<p>读取 .conf 文件配置信息</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/conf/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/import/">Python3 动态导入模块</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-12-20 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 362 字 </span>
+      <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <blockquote>
+<p>使用字符串名称导入模块</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/import/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/singleton/">Python3 单例模式简单实现</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-12-19 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 153 字 </span>
+      <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <blockquote>
+<p>使用装饰器实现单例模式</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/singleton/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/mysql/opt1/">MySQL 性能优化笔记 [1]</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-12-15 </span>
+      <div class="post-category">
+          
+            <a href="/categories/mysql/"> MySQL </a>
+          
+        </div>
+      <span class="more-meta"> 约 3852 字 </span>
+      <span class="more-meta"> 预计阅读 8 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h4 id="0-数据库优化可以从下面几个方面着手">0. 数据库优化可以从下面几个方面着手</h4>
+
+<ul>
+<li>SQL及索引</li>
+<li>数据库表结构</li>
+<li>系统配置</li>
+<li>硬件</li>
+</ul>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/mysql/opt1/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/mysql/opt2/">MySQL 性能优化笔记 [2]</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-12-15 </span>
+      <div class="post-category">
+          
+            <a href="/categories/mysql/"> MySQL </a>
+          
+        </div>
+      <span class="more-meta"> 约 919 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h4 id="0-数据库优化可以从下面几个方面着手">0. 数据库优化可以从下面几个方面着手</h4>
+
+<ul>
+<li>SQL及索引</li>
+<li>数据库表结构</li>
+<li>系统配置</li>
+<li>硬件</li>
+</ul>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/mysql/opt2/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/mongo/auth/">MongoDB配置用户权限</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-11-30 </span>
+      <div class="post-category">
+          
+            <a href="/categories/mongodb/"> MongoDB </a>
+          
+        </div>
+      <span class="more-meta"> 约 830 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h3 id="启动mongodb实例">启动MongoDb实例</h3>
+
+<blockquote>
+<p>本文以<code>Docker</code>启动<code>MongoDB</code>为例，省略服务器上MongoDB安装过程</p>
+</blockquote>
+
+<pre><code># Docker启动MongoDB实例，使用前确保电脑上已经安装docker
+
+$ docker pull mongo:3.0
+...
+
+# --auth 参数表示以权限验证模式启动
+$ docker run --name mongo_instance -p 0.0.0.0:27017:27017 -d mongo --auth
+d18d1d4fd831...a5bc378178
+
+</code></pre>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/mongo/auth/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/use/">Python3 中有用的方法</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-11-28 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 345 字 </span>
+      <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <blockquote>
+<p>让目录或者zip文件成为可运行的脚本</p>
+
+<p>在书写python脚本的时候，往往会使用不止一个 python 代码文件，而将多个文件放在一个目录下或者zip包中，使目录或者zip包可以直接运行，这样使得多个python简脚本运行变得非常方便</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/use/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/const/">Python中const实现</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-11-28 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 219 字 </span>
+      <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <blockquote>
+<p>在Python开发过程中，经常会有用到不可变常量的时候，但一般都是直接定义Python数据类型。但这并不安全，在以后的编码过程中，我们很有可能在自己不知道的情况下修改这个变量的值，但事实上并不希望如此。</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/const/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+  </section>
+  
+  <nav class="pagination">
+    
+    
+      <a class="next" href="/page/2/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+  </nav>
+
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://yefeihonours.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangyefei</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

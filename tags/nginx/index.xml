@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nginx on HuangYefei&#39;s Blog</title>
+    <link>https://yefeihonours.github.io/tags/nginx/</link>
+    <description>Recent content in Nginx on HuangYefei&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 05 Nov 2017 12:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yefeihonours.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nginx安装并支持TCP</title>
+      <link>https://yefeihonours.github.io/post/linux/nginx_tcp/</link>
+      <pubDate>Sun, 05 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/nginx_tcp/</guid>
+      <description>&lt;h2 id=&#34;安装nginx&#34;&gt;安装Nginx&lt;/h2&gt;
+
+&lt;h3 id=&#34;需要软件包&#34;&gt;需要软件包&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;nginx-1.10.3.tar.gz&lt;/li&gt;
+&lt;li&gt;pcre-8.40.tar.gz&lt;/li&gt;
+&lt;li&gt;nginx_tcp_proxy_module.zip&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

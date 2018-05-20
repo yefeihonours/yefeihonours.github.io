@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on HuangYefei&#39;s Blog</title>
+    <link>https://yefeihonours.github.io/post/</link>
+    <description>Recent content in Posts on HuangYefei&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 19 Jan 2018 12:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yefeihonours.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python3 Filter_Map_Reduce In Library</title>
+      <link>https://yefeihonours.github.io/post/python/filter_map_reduce/</link>
+      <pubDate>Fri, 19 Jan 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/filter_map_reduce/</guid>
+      <description>&lt;h2 id=&#34;filter&#34;&gt;Filter&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;filter(function, iterable)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;filter&lt;/strong&gt; 函数接收一个函数和一个 可迭代对象, 并返回可迭代对象 &lt;em&gt;iterable&lt;/em&gt; 中的每一个元素在 &lt;em&gt;function&lt;/em&gt; 函数中运算返回 &lt;em&gt;True&lt;/em&gt; 的元素组成的新的迭代器. &lt;em&gt;iterable&lt;/em&gt; 可以是队列, 或者支持迭代的容器, 或者是一个迭代器. 如果 &lt;em&gt;function&lt;/em&gt; 函数为空( None ), 那么将 &lt;em&gt;function&lt;/em&gt; 设定为假定的函数, 这样, 对 &lt;em&gt;iterable&lt;/em&gt; 可迭代对象中的元素都会被认为返回 &lt;em&gt;False&lt;/em&gt; , 会在返回的迭代器中移除.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;iter = [1, 2, 3, 4, 5, 6, 7, 8]
+list(filter(lambda i: i%2, iter))
+# Output: [1, 3, 5, 7]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python3 Task and Coroutines</title>
+      <link>https://yefeihonours.github.io/post/python/asyncio/</link>
+      <pubDate>Fri, 22 Dec 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/asyncio/</guid>
+      <description>&lt;h4 id=&#34;1-coroutines-协程&#34;&gt;1. Coroutines 协程&lt;/h4&gt;
+
+&lt;p&gt;Python3 中协程使用标准库中 &lt;code&gt;asyncio&lt;/code&gt; 中的 &lt;code&gt;async def&lt;/code&gt; 方法声明或者使用装饰器 &lt;code&gt;@asyncio.coroutine&lt;/code&gt; . 在Python3.5之后开始使用 &lt;code&gt;async def&lt;/code&gt; 形式的协程, 并且如果不是需要兼容以前版本的话，尽量使用这种形式.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python3 读取 .conf 文件配置信息</title>
+      <link>https://yefeihonours.github.io/post/python/conf/</link>
+      <pubDate>Thu, 21 Dec 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/conf/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;读取 .conf 文件配置信息&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python3 动态导入模块</title>
+      <link>https://yefeihonours.github.io/post/python/import/</link>
+      <pubDate>Wed, 20 Dec 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/import/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;使用字符串名称导入模块&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python3 单例模式简单实现</title>
+      <link>https://yefeihonours.github.io/post/python/singleton/</link>
+      <pubDate>Tue, 19 Dec 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/singleton/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;使用装饰器实现单例模式&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MySQL 性能优化笔记 [1]</title>
+      <link>https://yefeihonours.github.io/post/mysql/opt1/</link>
+      <pubDate>Fri, 15 Dec 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/mysql/opt1/</guid>
+      <description>&lt;h4 id=&#34;0-数据库优化可以从下面几个方面着手&#34;&gt;0. 数据库优化可以从下面几个方面着手&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;SQL及索引&lt;/li&gt;
+&lt;li&gt;数据库表结构&lt;/li&gt;
+&lt;li&gt;系统配置&lt;/li&gt;
+&lt;li&gt;硬件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MySQL 性能优化笔记 [2]</title>
+      <link>https://yefeihonours.github.io/post/mysql/opt2/</link>
+      <pubDate>Fri, 15 Dec 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/mysql/opt2/</guid>
+      <description>&lt;h4 id=&#34;0-数据库优化可以从下面几个方面着手&#34;&gt;0. 数据库优化可以从下面几个方面着手&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;SQL及索引&lt;/li&gt;
+&lt;li&gt;数据库表结构&lt;/li&gt;
+&lt;li&gt;系统配置&lt;/li&gt;
+&lt;li&gt;硬件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MongoDB配置用户权限</title>
+      <link>https://yefeihonours.github.io/post/mongo/auth/</link>
+      <pubDate>Thu, 30 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/mongo/auth/</guid>
+      <description>&lt;h3 id=&#34;启动mongodb实例&#34;&gt;启动MongoDb实例&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;本文以&lt;code&gt;Docker&lt;/code&gt;启动&lt;code&gt;MongoDB&lt;/code&gt;为例，省略服务器上MongoDB安装过程&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;# Docker启动MongoDB实例，使用前确保电脑上已经安装docker
+
+$ docker pull mongo:3.0
+...
+
+# --auth 参数表示以权限验证模式启动
+$ docker run --name mongo_instance -p 0.0.0.0:27017:27017 -d mongo --auth
+d18d1d4fd831...a5bc378178
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python3 中有用的方法</title>
+      <link>https://yefeihonours.github.io/post/python/use/</link>
+      <pubDate>Tue, 28 Nov 2017 12:03:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/use/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;让目录或者zip文件成为可运行的脚本&lt;/p&gt;
+
+&lt;p&gt;在书写python脚本的时候，往往会使用不止一个 python 代码文件，而将多个文件放在一个目录下或者zip包中，使目录或者zip包可以直接运行，这样使得多个python简脚本运行变得非常方便&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python中const实现</title>
+      <link>https://yefeihonours.github.io/post/python/const/</link>
+      <pubDate>Tue, 28 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/const/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;在Python开发过程中，经常会有用到不可变常量的时候，但一般都是直接定义Python数据类型。但这并不安全，在以后的编码过程中，我们很有可能在自己不知道的情况下修改这个变量的值，但事实上并不希望如此。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python中switch实现</title>
+      <link>https://yefeihonours.github.io/post/python/switch/</link>
+      <pubDate>Tue, 28 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/switch/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;在Python开发过程中，很多时候都需要使用到&lt;code&gt;switch&lt;/code&gt;的结构形式，而大多在遇到这种情况的时候，开发人员都是使用&lt;code&gt;if...else...&lt;/code&gt;结构来代替，但是过多的重复判断，会导致程序的可读性变差。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Javascript 好用的方法</title>
+      <link>https://yefeihonours.github.io/post/javascript/use/</link>
+      <pubDate>Tue, 07 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/javascript/use/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;数字金额转化大写&lt;/li&gt;
+&lt;li&gt;计算字符串日期对应星期几&lt;/li&gt;
+&lt;li&gt;字符串格式化[四舍五入]&lt;/li&gt;
+&lt;li&gt;日期格式化&lt;/li&gt;
+&lt;li&gt;连字符转驼峰-驼峰转连字符&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Zookeeper安装与集群部署</title>
+      <link>https://yefeihonours.github.io/post/linux/zookeeper/</link>
+      <pubDate>Sun, 05 Nov 2017 13:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/zookeeper/</guid>
+      <description>&lt;h2 id=&#34;zookeeper-稳定版下载&#34;&gt;Zookeeper 稳定版下载&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz&#34;&gt;zookeeper-3.4.10.tar.gz&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nginx安装并支持TCP</title>
+      <link>https://yefeihonours.github.io/post/linux/nginx_tcp/</link>
+      <pubDate>Sun, 05 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/nginx_tcp/</guid>
+      <description>&lt;h2 id=&#34;安装nginx&#34;&gt;安装Nginx&lt;/h2&gt;
+
+&lt;h3 id=&#34;需要软件包&#34;&gt;需要软件包&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;nginx-1.10.3.tar.gz&lt;/li&gt;
+&lt;li&gt;pcre-8.40.tar.gz&lt;/li&gt;
+&lt;li&gt;nginx_tcp_proxy_module.zip&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>React 入门教程</title>
+      <link>https://yefeihonours.github.io/post/react/start/</link>
+      <pubDate>Fri, 03 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/react/start/</guid>
+      <description>&lt;h2 id=&#34;在线测试&#34;&gt;在线测试&lt;/h2&gt;
+
+&lt;p&gt;在线测试地址:&lt;a href=&#34;https://jsfiddle.net/&#34;&gt;https://jsfiddle.net/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git操作入门</title>
+      <link>https://yefeihonours.github.io/post/git/start/</link>
+      <pubDate>Wed, 01 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/git/start/</guid>
+      <description>&lt;h2 id=&#34;一-准备环境&#34;&gt;一、准备环境&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;首先，安装好Git。不同的操作系统，安装的方式有所区别&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git --version
+git version 2.11.0 (Apple Git-81)
+
+# 配置用户信息
+$ git config --global user.name &amp;quot;name&amp;quot;
+$ git config --global user.email &amp;quot;name@mail.com&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yefeihonours.github.io/post/elk/start/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/elk/start/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
