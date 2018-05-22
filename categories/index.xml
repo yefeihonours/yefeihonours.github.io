@@ -2,74 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on HuangYefei&#39;s Blog</title>
-    <link>https://tyrodw.github.io/categories/</link>
+    <link>https://yefeihonours.github.io/categories/</link>
     <description>Recent content in Categories on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     
-	<atom:link href="https://tyrodw.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yefeihonours.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Git</title>
-      <link>https://tyrodw.github.io/categories/git/</link>
+      <link>https://yefeihonours.github.io/categories/git/</link>
       <pubDate>Wed, 01 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/categories/git/</guid>
+      <guid>https://yefeihonours.github.io/categories/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>https://tyrodw.github.io/categories/javascript/</link>
+      <link>https://yefeihonours.github.io/categories/javascript/</link>
       <pubDate>Tue, 07 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/categories/javascript/</guid>
+      <guid>https://yefeihonours.github.io/categories/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>https://tyrodw.github.io/categories/linux/</link>
+      <link>https://yefeihonours.github.io/categories/linux/</link>
       <pubDate>Sun, 05 Nov 2017 13:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/categories/linux/</guid>
+      <guid>https://yefeihonours.github.io/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MongoDB</title>
-      <link>https://tyrodw.github.io/categories/mongodb/</link>
+      <link>https://yefeihonours.github.io/categories/mongodb/</link>
       <pubDate>Thu, 30 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/categories/mongodb/</guid>
+      <guid>https://yefeihonours.github.io/categories/mongodb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MySQL</title>
-      <link>https://tyrodw.github.io/categories/mysql/</link>
+      <link>https://yefeihonours.github.io/categories/mysql/</link>
       <pubDate>Fri, 15 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/categories/mysql/</guid>
+      <guid>https://yefeihonours.github.io/categories/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://tyrodw.github.io/categories/python/</link>
+      <link>https://yefeihonours.github.io/categories/python/</link>
       <pubDate>Tue, 22 May 2018 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/categories/python/</guid>
+      <guid>https://yefeihonours.github.io/categories/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>React</title>
-      <link>https://tyrodw.github.io/categories/react/</link>
+      <link>https://yefeihonours.github.io/categories/react/</link>
       <pubDate>Fri, 03 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/categories/react/</guid>
+      <guid>https://yefeihonours.github.io/categories/react/</guid>
       <description></description>
     </item>
     

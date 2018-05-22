@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Python3 __init__.py和__init__函数的作用 - HuangYefei&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="honour" />
+  <meta name="description" content="一.__init__.py文件  原来在python模块的每一个包中，都有一个__init__.py文件（这个文件定义了包的属性和方法）然后是一些模块文件和子目录，假如子目录中也有 __init__.py 那么它就是这个包的子包了。当你将一个包作为模块导入（比如从 xml 导入 dom ）的时候，实际上导入了它的 __init__.py 文件。
+一个包是一个带有特殊文件 __init__.py 的目录。__init__.py 文件定义了包的属性和方法。其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 __init__.py 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。
+在python中， module(也即python的模块)是一个单独的文件来实现的，要把是py文件，或者pyc文件，甚至是C扩展的dll文件。而对于package, Python使用了文件夹来实现它，可以说，一个文件夹就是一个package,里面容纳了一些py、pyc或dll文件，这种方式就是把module聚合成一个package的具体实现。
+在引入package的过程中，init.py会运行，因此，如果某些变量或方法需要常驻内存，可以将它们写入init.py文件中。
+__init__.py 中还有一个重要的变量，叫做__all__。我们有时会使出一招“全部导入”，也就是这样：
+from PackageName import * 这时 import 就会把注册在包 __init__.py 文件中 __all__列表中的子模块和子包导入到当前作用域中来。比如：
+#文件 init.py
+__all__ = [&amp;ldquo;Module1&amp;rdquo;, &amp;ldquo;Module2&amp;rdquo;, &amp;ldquo;subPackage1&amp;rdquo;, &amp;ldquo;subPackage2&amp;rdquo;]
+ 
+" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<link rel="canonical" href="https://yefeihonours.github.io/post/python/init/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+
+
+
+
+
+<meta property="og:title" content="Python3 __init__.py和__init__函数的作用" />
+<meta property="og:description" content="一.__init__.py文件
+
+
+原来在python模块的每一个包中，都有一个__init__.py文件（这个文件定义了包的属性和方法）然后是一些模块文件和子目录，假如子目录中也有 __init__.py 那么它就是这个包的子包了。当你将一个包作为模块导入（比如从 xml 导入 dom ）的时候，实际上导入了它的 __init__.py 文件。
+
+一个包是一个带有特殊文件 __init__.py 的目录。__init__.py 文件定义了包的属性和方法。其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 __init__.py 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。
+
+在python中， module(也即python的模块)是一个单独的文件来实现的，要把是py文件，或者pyc文件，甚至是C扩展的dll文件。而对于package, Python使用了文件夹来实现它，可以说，一个文件夹就是一个package,里面容纳了一些py、pyc或dll文件，这种方式就是把module聚合成一个package的具体实现。
+
+在引入package的过程中，init.py会运行，因此，如果某些变量或方法需要常驻内存，可以将它们写入init.py文件中。
+
+__init__.py 中还有一个重要的变量，叫做__all__。我们有时会使出一招“全部导入”，也就是这样：
+
+from PackageName import *
+这时 import 就会把注册在包 __init__.py 文件中 __all__列表中的子模块和子包导入到当前作用域中来。比如：
+
+#文件 init.py
+
+__all__ = [&ldquo;Module1&rdquo;, &ldquo;Module2&rdquo;, &ldquo;subPackage1&rdquo;, &ldquo;subPackage2&rdquo;]
+
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/python/init/" />
+
+
+
+<meta property="article:published_time" content="2018-05-22T12:00:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-05-22T12:00:00&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Python3 __init__.py和__init__函数的作用">
+<meta itemprop="description" content="一.__init__.py文件
+
+
+原来在python模块的每一个包中，都有一个__init__.py文件（这个文件定义了包的属性和方法）然后是一些模块文件和子目录，假如子目录中也有 __init__.py 那么它就是这个包的子包了。当你将一个包作为模块导入（比如从 xml 导入 dom ）的时候，实际上导入了它的 __init__.py 文件。
+
+一个包是一个带有特殊文件 __init__.py 的目录。__init__.py 文件定义了包的属性和方法。其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 __init__.py 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。
+
+在python中， module(也即python的模块)是一个单独的文件来实现的，要把是py文件，或者pyc文件，甚至是C扩展的dll文件。而对于package, Python使用了文件夹来实现它，可以说，一个文件夹就是一个package,里面容纳了一些py、pyc或dll文件，这种方式就是把module聚合成一个package的具体实现。
+
+在引入package的过程中，init.py会运行，因此，如果某些变量或方法需要常驻内存，可以将它们写入init.py文件中。
+
+__init__.py 中还有一个重要的变量，叫做__all__。我们有时会使出一招“全部导入”，也就是这样：
+
+from PackageName import *
+这时 import 就会把注册在包 __init__.py 文件中 __all__列表中的子模块和子包导入到当前作用域中来。比如：
+
+#文件 init.py
+
+__all__ = [&ldquo;Module1&rdquo;, &ldquo;Module2&rdquo;, &ldquo;subPackage1&rdquo;, &ldquo;subPackage2&rdquo;]
+
+
+">
+
+
+<meta itemprop="datePublished" content="2018-05-22T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-05-22T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="889">
+
+
+
+<meta itemprop="keywords" content="python," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python3 __init__.py和__init__函数的作用"/>
+<meta name="twitter:description" content="一.__init__.py文件
+
+
+原来在python模块的每一个包中，都有一个__init__.py文件（这个文件定义了包的属性和方法）然后是一些模块文件和子目录，假如子目录中也有 __init__.py 那么它就是这个包的子包了。当你将一个包作为模块导入（比如从 xml 导入 dom ）的时候，实际上导入了它的 __init__.py 文件。
+
+一个包是一个带有特殊文件 __init__.py 的目录。__init__.py 文件定义了包的属性和方法。其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 __init__.py 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。
+
+在python中， module(也即python的模块)是一个单独的文件来实现的，要把是py文件，或者pyc文件，甚至是C扩展的dll文件。而对于package, Python使用了文件夹来实现它，可以说，一个文件夹就是一个package,里面容纳了一些py、pyc或dll文件，这种方式就是把module聚合成一个package的具体实现。
+
+在引入package的过程中，init.py会运行，因此，如果某些变量或方法需要常驻内存，可以将它们写入init.py文件中。
+
+__init__.py 中还有一个重要的变量，叫做__all__。我们有时会使出一招“全部导入”，也就是这样：
+
+from PackageName import *
+这时 import 就会把注册在包 __init__.py 文件中 __all__列表中的子模块和子包导入到当前作用域中来。比如：
+
+#文件 init.py
+
+__all__ = [&ldquo;Module1&rdquo;, &ldquo;Module2&rdquo;, &ldquo;subPackage1&rdquo;, &ldquo;subPackage2&rdquo;]
+
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HuangYefei</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HuangYefei</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Python3 __init__.py和__init__函数的作用</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-05-22 </span>
+        <div class="post-category">
+            
+              <a href="/categories/python/"> Python </a>
+            
+          </div>
+        <span class="more-meta"> 约 889 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#一-init-py文件">一.__<strong><em>init</em></strong>__.py文件</a></li>
+<li><a href="#二-init-函数">二.__<strong><em>init</em></strong>__函数</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h4 id="一-init-py文件">一.__<strong><em>init</em></strong>__.py文件</h4>
+
+<blockquote>
+<p>原来在python模块的每一个包中，都有一个<code>__init__.py</code>文件（这个文件定义了包的属性和方法）然后是一些模块文件和子目录，假如子目录中也有 <code>__init__.py</code> 那么它就是这个包的子包了。当你将一个包作为模块导入（比如从 xml 导入 dom ）的时候，实际上导入了它的 <code>__init__.py</code> 文件。</p>
+
+<p>一个包是一个带有特殊文件 <code>__init__.py</code> 的目录。<code>__init__.py</code> 文件定义了包的属性和方法。其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 <code>__init__.py</code> 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。</p>
+
+<p>在python中， module(也即python的模块)是一个单独的文件来实现的，要把是py文件，或者pyc文件，甚至是C扩展的dll文件。而对于package, Python使用了文件夹来实现它，可以说，一个文件夹就是一个package,里面容纳了一些py、pyc或dll文件，这种方式就是把module聚合成一个package的具体实现。</p>
+
+<p>在引入package的过程中，init.py会运行，因此，如果某些变量或方法需要常驻内存，可以将它们写入init.py文件中。</p>
+
+<p><code>__init__.py</code> 中还有一个重要的变量，叫做<code>__all__</code>。我们有时会使出一招“全部导入”，也就是这样：</p>
+
+<p>from PackageName import *
+这时 import 就会把注册在包 <code>__init__.py</code> 文件中 <code>__all__</code>列表中的子模块和子包导入到当前作用域中来。比如：</p>
+
+<p>#文件 <strong>init</strong>.py</p>
+
+<p><code>__all__</code> = [&ldquo;Module1&rdquo;, &ldquo;Module2&rdquo;, &ldquo;subPackage1&rdquo;, &ldquo;subPackage2&rdquo;]</p>
+</blockquote>
+
+<p></p>
+
+<h4 id="二-init-函数">二.__<strong><em>init</em></strong>__函数</h4>
+
+<p><strong>父类A:</strong></p>
+
+<pre><code class="language-python">class A(object):
+    def __init__(self, name):
+        self.name=name
+        print(&quot;name:&quot;, self.name)
+    def getName(self):
+        return 'A ' + self.name
+</code></pre>
+
+<p>1.子类不重写<code>__init__</code>，实例化子类时，会自动调用父类定义的<code>__init__</code>子类B继承父类A</p>
+
+<pre><code class="language-python">class B(A):
+    def getName(self):
+        return 'B '+self.name
+ 
+if __name__=='__main__':
+    b=B('hello')
+    print b.getName()
+</code></pre>
+
+<p>输出结果为：</p>
+
+<p>name: hello
+B hello</p>
+
+<p>2.子类重写了<code>__init__</code>时，实例化子类，就不会调用父类已经定义的<code>__init__</code>方法</p>
+
+<p>3.子类为了能使用或扩展父类的行为，最好显示调用父类的<code>__init__</code>方法</p>
+
+<p><strong>class 子类:</strong></p>
+
+<pre><code>def __init__(self,参数) :
+
+    super(子类,self).__init__(参数)  #执行父类的__init__方法
+</code></pre>
+
+<pre><code class="language-python">class A(object):
+    def __init__(self, name):
+        self.name=name
+        print(&quot;name:&quot;, self.name)
+    def getName(self):
+        return 'A ' + self.name
+
+class B(A):
+    def __init__(self, name):
+        super(B, self).__init__(name)
+        print &quot;hi&quot;
+        self.name =  name
+    def getName(self):
+        return 'B '+self.name
+
+if __name__=='__main__':
+    b=B('hello')
+    print(b.getName())
+</code></pre>
+
+<p>输出结果：</p>
+
+<p>name: hello
+hi
+B hello</p>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">honour</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-05-22</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/python/">python</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/python/filter_map_reduce/">
+            <span class="next-text nav-default">Python3 Filter_Map_Reduce In Library</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://yefeihonours.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangyefei</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

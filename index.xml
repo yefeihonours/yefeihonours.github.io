@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HuangYefei&#39;s Blog</title>
-    <link>https://tyrodw.github.io/</link>
+    <link>https://yefeihonours.github.io/</link>
     <description>Recent content on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 20 Aug 2017 21:38:52 +0800</lastBuildDate>
     
-	<atom:link href="https://tyrodw.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yefeihonours.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>https://tyrodw.github.io/about/</link>
+      <link>https://yefeihonours.github.io/about/</link>
       <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/about/</guid>
+      <guid>https://yefeihonours.github.io/about/</guid>
       <description>求知路上攀行者一枚. 学如逆水行舟，不进则退. My: Github https://github.com/yefeihonours Gmail yefeihonours@gmail.com Tags 90后 js Python Linux 服务端开发 前后端都想学星人</description>
     </item>
     
     <item>
       <title>Python3 __init__.py和__init__函数的作用</title>
-      <link>https://tyrodw.github.io/post/python/__init__/</link>
+      <link>https://yefeihonours.github.io/post/python/init/</link>
       <pubDate>Tue, 22 May 2018 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/python/__init__/</guid>
+      <guid>https://yefeihonours.github.io/post/python/init/</guid>
       <description>&lt;h4 id=&#34;一-init-py文件&#34;&gt;一.__&lt;strong&gt;&lt;em&gt;init&lt;/em&gt;&lt;/strong&gt;__.py文件&lt;/h4&gt;
 
 &lt;blockquote&gt;
@@ -52,10 +52,10 @@
     
     <item>
       <title>Python3 Filter_Map_Reduce In Library</title>
-      <link>https://tyrodw.github.io/post/python/filter_map_reduce/</link>
+      <link>https://yefeihonours.github.io/post/python/filter_map_reduce/</link>
       <pubDate>Fri, 19 Jan 2018 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/python/filter_map_reduce/</guid>
+      <guid>https://yefeihonours.github.io/post/python/filter_map_reduce/</guid>
       <description>&lt;h2 id=&#34;filter&#34;&gt;Filter&lt;/h2&gt;
 
 &lt;blockquote&gt;
@@ -74,10 +74,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>Python3 Task and Coroutines</title>
-      <link>https://tyrodw.github.io/post/python/asyncio/</link>
+      <link>https://yefeihonours.github.io/post/python/asyncio/</link>
       <pubDate>Fri, 22 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/python/asyncio/</guid>
+      <guid>https://yefeihonours.github.io/post/python/asyncio/</guid>
       <description>&lt;h4 id=&#34;1-coroutines-协程&#34;&gt;1. Coroutines 协程&lt;/h4&gt;
 
 &lt;p&gt;Python3 中协程使用标准库中 &lt;code&gt;asyncio&lt;/code&gt; 中的 &lt;code&gt;async def&lt;/code&gt; 方法声明或者使用装饰器 &lt;code&gt;@asyncio.coroutine&lt;/code&gt; . 在Python3.5之后开始使用 &lt;code&gt;async def&lt;/code&gt; 形式的协程, 并且如果不是需要兼容以前版本的话，尽量使用这种形式.&lt;/p&gt;
@@ -87,10 +87,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>Python3 读取 .conf 文件配置信息</title>
-      <link>https://tyrodw.github.io/post/python/conf/</link>
+      <link>https://yefeihonours.github.io/post/python/conf/</link>
       <pubDate>Thu, 21 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/python/conf/</guid>
+      <guid>https://yefeihonours.github.io/post/python/conf/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;读取 .conf 文件配置信息&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -100,10 +100,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>Python3 动态导入模块</title>
-      <link>https://tyrodw.github.io/post/python/import/</link>
+      <link>https://yefeihonours.github.io/post/python/import/</link>
       <pubDate>Wed, 20 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/python/import/</guid>
+      <guid>https://yefeihonours.github.io/post/python/import/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;使用字符串名称导入模块&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -113,10 +113,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>Python3 单例模式简单实现</title>
-      <link>https://tyrodw.github.io/post/python/singleton/</link>
+      <link>https://yefeihonours.github.io/post/python/singleton/</link>
       <pubDate>Tue, 19 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/python/singleton/</guid>
+      <guid>https://yefeihonours.github.io/post/python/singleton/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;使用装饰器实现单例模式&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -126,10 +126,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>MySQL 性能优化笔记 [1]</title>
-      <link>https://tyrodw.github.io/post/mysql/opt1/</link>
+      <link>https://yefeihonours.github.io/post/mysql/opt1/</link>
       <pubDate>Fri, 15 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/mysql/opt1/</guid>
+      <guid>https://yefeihonours.github.io/post/mysql/opt1/</guid>
       <description>&lt;h4 id=&#34;0-数据库优化可以从下面几个方面着手&#34;&gt;0. 数据库优化可以从下面几个方面着手&lt;/h4&gt;
 
 &lt;ul&gt;
@@ -144,10 +144,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>MySQL 性能优化笔记 [2]</title>
-      <link>https://tyrodw.github.io/post/mysql/opt2/</link>
+      <link>https://yefeihonours.github.io/post/mysql/opt2/</link>
       <pubDate>Fri, 15 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/mysql/opt2/</guid>
+      <guid>https://yefeihonours.github.io/post/mysql/opt2/</guid>
       <description>&lt;h4 id=&#34;0-数据库优化可以从下面几个方面着手&#34;&gt;0. 数据库优化可以从下面几个方面着手&lt;/h4&gt;
 
 &lt;ul&gt;
@@ -162,10 +162,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>MongoDB配置用户权限</title>
-      <link>https://tyrodw.github.io/post/mongo/auth/</link>
+      <link>https://yefeihonours.github.io/post/mongo/auth/</link>
       <pubDate>Thu, 30 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/mongo/auth/</guid>
+      <guid>https://yefeihonours.github.io/post/mongo/auth/</guid>
       <description>&lt;h3 id=&#34;启动mongodb实例&#34;&gt;启动MongoDb实例&lt;/h3&gt;
 
 &lt;blockquote&gt;
@@ -188,10 +188,10 @@ d18d1d4fd831...a5bc378178
     
     <item>
       <title>Python3 中有用的方法</title>
-      <link>https://tyrodw.github.io/post/python/use/</link>
+      <link>https://yefeihonours.github.io/post/python/use/</link>
       <pubDate>Tue, 28 Nov 2017 12:03:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/python/use/</guid>
+      <guid>https://yefeihonours.github.io/post/python/use/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;让目录或者zip文件成为可运行的脚本&lt;/p&gt;
 
@@ -203,10 +203,10 @@ d18d1d4fd831...a5bc378178
     
     <item>
       <title>Python中const实现</title>
-      <link>https://tyrodw.github.io/post/python/const/</link>
+      <link>https://yefeihonours.github.io/post/python/const/</link>
       <pubDate>Tue, 28 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/python/const/</guid>
+      <guid>https://yefeihonours.github.io/post/python/const/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;在Python开发过程中，经常会有用到不可变常量的时候，但一般都是直接定义Python数据类型。但这并不安全，在以后的编码过程中，我们很有可能在自己不知道的情况下修改这个变量的值，但事实上并不希望如此。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -216,10 +216,10 @@ d18d1d4fd831...a5bc378178
     
     <item>
       <title>Python中switch实现</title>
-      <link>https://tyrodw.github.io/post/python/switch/</link>
+      <link>https://yefeihonours.github.io/post/python/switch/</link>
       <pubDate>Tue, 28 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/python/switch/</guid>
+      <guid>https://yefeihonours.github.io/post/python/switch/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;在Python开发过程中，很多时候都需要使用到&lt;code&gt;switch&lt;/code&gt;的结构形式，而大多在遇到这种情况的时候，开发人员都是使用&lt;code&gt;if...else...&lt;/code&gt;结构来代替，但是过多的重复判断，会导致程序的可读性变差。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -229,10 +229,10 @@ d18d1d4fd831...a5bc378178
     
     <item>
       <title>Javascript 好用的方法</title>
-      <link>https://tyrodw.github.io/post/javascript/use/</link>
+      <link>https://yefeihonours.github.io/post/javascript/use/</link>
       <pubDate>Tue, 07 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/javascript/use/</guid>
+      <guid>https://yefeihonours.github.io/post/javascript/use/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;数字金额转化大写&lt;/li&gt;
 &lt;li&gt;计算字符串日期对应星期几&lt;/li&gt;
@@ -246,10 +246,10 @@ d18d1d4fd831...a5bc378178
     
     <item>
       <title>Zookeeper安装与集群部署</title>
-      <link>https://tyrodw.github.io/post/linux/zookeeper/</link>
+      <link>https://yefeihonours.github.io/post/linux/zookeeper/</link>
       <pubDate>Sun, 05 Nov 2017 13:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/linux/zookeeper/</guid>
+      <guid>https://yefeihonours.github.io/post/linux/zookeeper/</guid>
       <description>&lt;h2 id=&#34;zookeeper-稳定版下载&#34;&gt;Zookeeper 稳定版下载&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz&#34;&gt;zookeeper-3.4.10.tar.gz&lt;/a&gt;&lt;/p&gt;
@@ -259,10 +259,10 @@ d18d1d4fd831...a5bc378178
     
     <item>
       <title>Nginx安装并支持TCP</title>
-      <link>https://tyrodw.github.io/post/linux/nginx_tcp/</link>
+      <link>https://yefeihonours.github.io/post/linux/nginx_tcp/</link>
       <pubDate>Sun, 05 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/linux/nginx_tcp/</guid>
+      <guid>https://yefeihonours.github.io/post/linux/nginx_tcp/</guid>
       <description>&lt;h2 id=&#34;安装nginx&#34;&gt;安装Nginx&lt;/h2&gt;
 
 &lt;h3 id=&#34;需要软件包&#34;&gt;需要软件包&lt;/h3&gt;
@@ -278,10 +278,10 @@ d18d1d4fd831...a5bc378178
     
     <item>
       <title>React 入门教程</title>
-      <link>https://tyrodw.github.io/post/react/start/</link>
+      <link>https://yefeihonours.github.io/post/react/start/</link>
       <pubDate>Fri, 03 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/react/start/</guid>
+      <guid>https://yefeihonours.github.io/post/react/start/</guid>
       <description>&lt;h2 id=&#34;在线测试&#34;&gt;在线测试&lt;/h2&gt;
 
 &lt;p&gt;在线测试地址:&lt;a href=&#34;https://jsfiddle.net/&#34;&gt;https://jsfiddle.net/&lt;/a&gt;&lt;/p&gt;
@@ -291,10 +291,10 @@ d18d1d4fd831...a5bc378178
     
     <item>
       <title>Git操作入门</title>
-      <link>https://tyrodw.github.io/post/git/start/</link>
+      <link>https://yefeihonours.github.io/post/git/start/</link>
       <pubDate>Wed, 01 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/git/start/</guid>
+      <guid>https://yefeihonours.github.io/post/git/start/</guid>
       <description>&lt;h2 id=&#34;一-准备环境&#34;&gt;一、准备环境&lt;/h2&gt;
 
 &lt;blockquote&gt;
@@ -314,10 +314,10 @@ $ git config --global user.email &amp;quot;name@mail.com&amp;quot;
     
     <item>
       <title></title>
-      <link>https://tyrodw.github.io/post/elk/start/</link>
+      <link>https://yefeihonours.github.io/post/elk/start/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tyrodw.github.io/post/elk/start/</guid>
+      <guid>https://yefeihonours.github.io/post/elk/start/</guid>
       <description></description>
     </item>
     

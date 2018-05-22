@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Const on HuangYefei&#39;s Blog</title>
-    <link>https://tyrodw.github.io/tags/const/</link>
+    <link>https://yefeihonours.github.io/tags/const/</link>
     <description>Recent content in Const on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 28 Nov 2017 12:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://tyrodw.github.io/tags/const/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yefeihonours.github.io/tags/const/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Python中const实现</title>
-      <link>https://tyrodw.github.io/post/python/const/</link>
+      <link>https://yefeihonours.github.io/post/python/const/</link>
       <pubDate>Tue, 28 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/python/const/</guid>
+      <guid>https://yefeihonours.github.io/post/python/const/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;在Python开发过程中，经常会有用到不可变常量的时候，但一般都是直接定义Python数据类型。但这并不安全，在以后的编码过程中，我们很有可能在自己不知道的情况下修改这个变量的值，但事实上并不希望如此。&lt;/p&gt;
 &lt;/blockquote&gt;

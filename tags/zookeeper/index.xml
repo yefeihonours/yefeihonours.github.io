@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zookeeper on HuangYefei&#39;s Blog</title>
-    <link>https://tyrodw.github.io/tags/zookeeper/</link>
+    <link>https://yefeihonours.github.io/tags/zookeeper/</link>
     <description>Recent content in Zookeeper on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 05 Nov 2017 13:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://tyrodw.github.io/tags/zookeeper/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yefeihonours.github.io/tags/zookeeper/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Zookeeper安装与集群部署</title>
-      <link>https://tyrodw.github.io/post/linux/zookeeper/</link>
+      <link>https://yefeihonours.github.io/post/linux/zookeeper/</link>
       <pubDate>Sun, 05 Nov 2017 13:00:00 +0800</pubDate>
       
-      <guid>https://tyrodw.github.io/post/linux/zookeeper/</guid>
+      <guid>https://yefeihonours.github.io/post/linux/zookeeper/</guid>
       <description>&lt;h2 id=&#34;zookeeper-稳定版下载&#34;&gt;Zookeeper 稳定版下载&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz&#34;&gt;zookeeper-3.4.10.tar.gz&lt;/a&gt;&lt;/p&gt;
