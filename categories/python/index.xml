@@ -2,21 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on HuangYefei&#39;s Blog</title>
-    <link>https://yefeihonours.github.io/categories/python/</link>
+    <link>https://tyrodw.github.io/categories/python/</link>
     <description>Recent content in Python on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 19 Jan 2018 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 22 May 2018 12:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://yefeihonours.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tyrodw.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Python3 __init__.py和__init__函数的作用</title>
+      <link>https://tyrodw.github.io/post/python/__init__/</link>
+      <pubDate>Tue, 22 May 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://tyrodw.github.io/post/python/__init__/</guid>
+      <description>&lt;h4 id=&#34;一-init-py文件&#34;&gt;一.__&lt;strong&gt;&lt;em&gt;init&lt;/em&gt;&lt;/strong&gt;__.py文件&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;原来在python模块的每一个包中，都有一个&lt;code&gt;__init__.py&lt;/code&gt;文件（这个文件定义了包的属性和方法）然后是一些模块文件和子目录，假如子目录中也有 &lt;code&gt;__init__.py&lt;/code&gt; 那么它就是这个包的子包了。当你将一个包作为模块导入（比如从 xml 导入 dom ）的时候，实际上导入了它的 &lt;code&gt;__init__.py&lt;/code&gt; 文件。&lt;/p&gt;
+
+&lt;p&gt;一个包是一个带有特殊文件 &lt;code&gt;__init__.py&lt;/code&gt; 的目录。&lt;code&gt;__init__.py&lt;/code&gt; 文件定义了包的属性和方法。其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 &lt;code&gt;__init__.py&lt;/code&gt; 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。&lt;/p&gt;
+
+&lt;p&gt;在python中， module(也即python的模块)是一个单独的文件来实现的，要把是py文件，或者pyc文件，甚至是C扩展的dll文件。而对于package, Python使用了文件夹来实现它，可以说，一个文件夹就是一个package,里面容纳了一些py、pyc或dll文件，这种方式就是把module聚合成一个package的具体实现。&lt;/p&gt;
+
+&lt;p&gt;在引入package的过程中，init.py会运行，因此，如果某些变量或方法需要常驻内存，可以将它们写入init.py文件中。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;__init__.py&lt;/code&gt; 中还有一个重要的变量，叫做&lt;code&gt;__all__&lt;/code&gt;。我们有时会使出一招“全部导入”，也就是这样：&lt;/p&gt;
+
+&lt;p&gt;from PackageName import *
+这时 import 就会把注册在包 &lt;code&gt;__init__.py&lt;/code&gt; 文件中 &lt;code&gt;__all__&lt;/code&gt;列表中的子模块和子包导入到当前作用域中来。比如：&lt;/p&gt;
+
+&lt;p&gt;#文件 &lt;strong&gt;init&lt;/strong&gt;.py&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;__all__&lt;/code&gt; = [&amp;ldquo;Module1&amp;rdquo;, &amp;ldquo;Module2&amp;rdquo;, &amp;ldquo;subPackage1&amp;rdquo;, &amp;ldquo;subPackage2&amp;rdquo;]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Python3 Filter_Map_Reduce In Library</title>
-      <link>https://yefeihonours.github.io/post/python/filter_map_reduce/</link>
+      <link>https://tyrodw.github.io/post/python/filter_map_reduce/</link>
       <pubDate>Fri, 19 Jan 2018 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/python/filter_map_reduce/</guid>
+      <guid>https://tyrodw.github.io/post/python/filter_map_reduce/</guid>
       <description>&lt;h2 id=&#34;filter&#34;&gt;Filter&lt;/h2&gt;
 
 &lt;blockquote&gt;
@@ -35,10 +65,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>Python3 Task and Coroutines</title>
-      <link>https://yefeihonours.github.io/post/python/asyncio/</link>
+      <link>https://tyrodw.github.io/post/python/asyncio/</link>
       <pubDate>Fri, 22 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/python/asyncio/</guid>
+      <guid>https://tyrodw.github.io/post/python/asyncio/</guid>
       <description>&lt;h4 id=&#34;1-coroutines-协程&#34;&gt;1. Coroutines 协程&lt;/h4&gt;
 
 &lt;p&gt;Python3 中协程使用标准库中 &lt;code&gt;asyncio&lt;/code&gt; 中的 &lt;code&gt;async def&lt;/code&gt; 方法声明或者使用装饰器 &lt;code&gt;@asyncio.coroutine&lt;/code&gt; . 在Python3.5之后开始使用 &lt;code&gt;async def&lt;/code&gt; 形式的协程, 并且如果不是需要兼容以前版本的话，尽量使用这种形式.&lt;/p&gt;
@@ -48,10 +78,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>Python3 读取 .conf 文件配置信息</title>
-      <link>https://yefeihonours.github.io/post/python/conf/</link>
+      <link>https://tyrodw.github.io/post/python/conf/</link>
       <pubDate>Thu, 21 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/python/conf/</guid>
+      <guid>https://tyrodw.github.io/post/python/conf/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;读取 .conf 文件配置信息&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -61,10 +91,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>Python3 动态导入模块</title>
-      <link>https://yefeihonours.github.io/post/python/import/</link>
+      <link>https://tyrodw.github.io/post/python/import/</link>
       <pubDate>Wed, 20 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/python/import/</guid>
+      <guid>https://tyrodw.github.io/post/python/import/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;使用字符串名称导入模块&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -74,10 +104,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>Python3 单例模式简单实现</title>
-      <link>https://yefeihonours.github.io/post/python/singleton/</link>
+      <link>https://tyrodw.github.io/post/python/singleton/</link>
       <pubDate>Tue, 19 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/python/singleton/</guid>
+      <guid>https://tyrodw.github.io/post/python/singleton/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;使用装饰器实现单例模式&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -87,10 +117,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>Python3 中有用的方法</title>
-      <link>https://yefeihonours.github.io/post/python/use/</link>
+      <link>https://tyrodw.github.io/post/python/use/</link>
       <pubDate>Tue, 28 Nov 2017 12:03:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/python/use/</guid>
+      <guid>https://tyrodw.github.io/post/python/use/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;让目录或者zip文件成为可运行的脚本&lt;/p&gt;
 
@@ -102,10 +132,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>Python中const实现</title>
-      <link>https://yefeihonours.github.io/post/python/const/</link>
+      <link>https://tyrodw.github.io/post/python/const/</link>
       <pubDate>Tue, 28 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/python/const/</guid>
+      <guid>https://tyrodw.github.io/post/python/const/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;在Python开发过程中，经常会有用到不可变常量的时候，但一般都是直接定义Python数据类型。但这并不安全，在以后的编码过程中，我们很有可能在自己不知道的情况下修改这个变量的值，但事实上并不希望如此。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -115,10 +145,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>Python中switch实现</title>
-      <link>https://yefeihonours.github.io/post/python/switch/</link>
+      <link>https://tyrodw.github.io/post/python/switch/</link>
       <pubDate>Tue, 28 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/python/switch/</guid>
+      <guid>https://tyrodw.github.io/post/python/switch/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;在Python开发过程中，很多时候都需要使用到&lt;code&gt;switch&lt;/code&gt;的结构形式，而大多在遇到这种情况的时候，开发人员都是使用&lt;code&gt;if...else...&lt;/code&gt;结构来代替，但是过多的重复判断，会导致程序的可读性变差。&lt;/p&gt;
 &lt;/blockquote&gt;

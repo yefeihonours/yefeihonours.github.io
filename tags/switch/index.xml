@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Switch on HuangYefei&#39;s Blog</title>
-    <link>https://yefeihonours.github.io/tags/switch/</link>
+    <link>https://tyrodw.github.io/tags/switch/</link>
     <description>Recent content in Switch on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 21 Dec 2017 12:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://yefeihonours.github.io/tags/switch/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tyrodw.github.io/tags/switch/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Python3 读取 .conf 文件配置信息</title>
-      <link>https://yefeihonours.github.io/post/python/conf/</link>
+      <link>https://tyrodw.github.io/post/python/conf/</link>
       <pubDate>Thu, 21 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/python/conf/</guid>
+      <guid>https://tyrodw.github.io/post/python/conf/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;读取 .conf 文件配置信息&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -26,10 +26,10 @@
     
     <item>
       <title>Python3 动态导入模块</title>
-      <link>https://yefeihonours.github.io/post/python/import/</link>
+      <link>https://tyrodw.github.io/post/python/import/</link>
       <pubDate>Wed, 20 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/python/import/</guid>
+      <guid>https://tyrodw.github.io/post/python/import/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;使用字符串名称导入模块&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -39,10 +39,10 @@
     
     <item>
       <title>Python中switch实现</title>
-      <link>https://yefeihonours.github.io/post/python/switch/</link>
+      <link>https://tyrodw.github.io/post/python/switch/</link>
       <pubDate>Tue, 28 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/python/switch/</guid>
+      <guid>https://tyrodw.github.io/post/python/switch/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;在Python开发过程中，很多时候都需要使用到&lt;code&gt;switch&lt;/code&gt;的结构形式，而大多在遇到这种情况的时候，开发人员都是使用&lt;code&gt;if...else...&lt;/code&gt;结构来代替，但是过多的重复判断，会导致程序的可读性变差。&lt;/p&gt;
 &lt;/blockquote&gt;

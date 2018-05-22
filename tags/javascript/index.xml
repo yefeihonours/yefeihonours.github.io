@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on HuangYefei&#39;s Blog</title>
-    <link>https://yefeihonours.github.io/tags/javascript/</link>
+    <link>https://tyrodw.github.io/tags/javascript/</link>
     <description>Recent content in Javascript on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 07 Nov 2017 12:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://yefeihonours.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tyrodw.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Javascript 好用的方法</title>
-      <link>https://yefeihonours.github.io/post/javascript/use/</link>
+      <link>https://tyrodw.github.io/post/javascript/use/</link>
       <pubDate>Tue, 07 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/javascript/use/</guid>
+      <guid>https://tyrodw.github.io/post/javascript/use/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;数字金额转化大写&lt;/li&gt;
 &lt;li&gt;计算字符串日期对应星期几&lt;/li&gt;
@@ -30,10 +30,10 @@
     
     <item>
       <title>React 入门教程</title>
-      <link>https://yefeihonours.github.io/post/react/start/</link>
+      <link>https://tyrodw.github.io/post/react/start/</link>
       <pubDate>Fri, 03 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/react/start/</guid>
+      <guid>https://tyrodw.github.io/post/react/start/</guid>
       <description>&lt;h2 id=&#34;在线测试&#34;&gt;在线测试&lt;/h2&gt;
 
 &lt;p&gt;在线测试地址:&lt;a href=&#34;https://jsfiddle.net/&#34;&gt;https://jsfiddle.net/&lt;/a&gt;&lt;/p&gt;

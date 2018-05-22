@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Concurency on HuangYefei&#39;s Blog</title>
-    <link>https://yefeihonours.github.io/tags/concurency/</link>
+    <link>https://tyrodw.github.io/tags/concurency/</link>
     <description>Recent content in Concurency on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 19 Jan 2018 12:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://yefeihonours.github.io/tags/concurency/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tyrodw.github.io/tags/concurency/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Python3 Filter_Map_Reduce In Library</title>
-      <link>https://yefeihonours.github.io/post/python/filter_map_reduce/</link>
+      <link>https://tyrodw.github.io/post/python/filter_map_reduce/</link>
       <pubDate>Fri, 19 Jan 2018 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/python/filter_map_reduce/</guid>
+      <guid>https://tyrodw.github.io/post/python/filter_map_reduce/</guid>
       <description>&lt;h2 id=&#34;filter&#34;&gt;Filter&lt;/h2&gt;
 
 &lt;blockquote&gt;
@@ -35,10 +35,10 @@ list(filter(lambda i: i%2, iter))
     
     <item>
       <title>Python3 Task and Coroutines</title>
-      <link>https://yefeihonours.github.io/post/python/asyncio/</link>
+      <link>https://tyrodw.github.io/post/python/asyncio/</link>
       <pubDate>Fri, 22 Dec 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/python/asyncio/</guid>
+      <guid>https://tyrodw.github.io/post/python/asyncio/</guid>
       <description>&lt;h4 id=&#34;1-coroutines-协程&#34;&gt;1. Coroutines 协程&lt;/h4&gt;
 
 &lt;p&gt;Python3 中协程使用标准库中 &lt;code&gt;asyncio&lt;/code&gt; 中的 &lt;code&gt;async def&lt;/code&gt; 方法声明或者使用装饰器 &lt;code&gt;@asyncio.coroutine&lt;/code&gt; . 在Python3.5之后开始使用 &lt;code&gt;async def&lt;/code&gt; 形式的协程, 并且如果不是需要兼容以前版本的话，尽量使用这种形式.&lt;/p&gt;

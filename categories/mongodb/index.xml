@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MongoDB on HuangYefei&#39;s Blog</title>
-    <link>https://yefeihonours.github.io/categories/mongodb/</link>
+    <link>https://tyrodw.github.io/categories/mongodb/</link>
     <description>Recent content in MongoDB on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 30 Nov 2017 12:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://yefeihonours.github.io/categories/mongodb/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tyrodw.github.io/categories/mongodb/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>MongoDB配置用户权限</title>
-      <link>https://yefeihonours.github.io/post/mongo/auth/</link>
+      <link>https://tyrodw.github.io/post/mongo/auth/</link>
       <pubDate>Thu, 30 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/mongo/auth/</guid>
+      <guid>https://tyrodw.github.io/post/mongo/auth/</guid>
       <description>&lt;h3 id=&#34;启动mongodb实例&#34;&gt;启动MongoDb实例&lt;/h3&gt;
 
 &lt;blockquote&gt;
