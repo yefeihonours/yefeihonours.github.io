@@ -6,10 +6,28 @@
     <description>Recent content in Mysql on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 15 Dec 2017 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 03 Jun 2018 12:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://yefeihonours.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Getting Flask-Migrate to Ignore SQL Views that are mapped as Flask-SQLAlchemy Models</title>
+      <link>https://yefeihonours.github.io/post/python/ignore_sql_views/</link>
+      <pubDate>Sun, 03 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/ignore_sql_views/</guid>
+      <description>&lt;h4 id=&#34;flask-migrate&#34;&gt;&lt;strong&gt;Flask-Migrate&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;在使用Flask-SQLAlchemy来定义模型，然后使用Flask-Migrate自动生成迁移脚本以部署到MySQL数据库过程中，我们可能会在应用程序中使用的数据库中定义许多SQL Views辅助查询。
+&lt;/br&gt;
+&lt;/br&gt;
+但是在迁移命令migrate后，Flask-Migrate现在会为该视图生成一个迁移文件，因为它认为它是一个表格。如何在迁移过程中让Flask-Migrate忽略视图？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>MySQL 性能优化笔记 [1]</title>

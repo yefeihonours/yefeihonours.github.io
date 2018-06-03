@@ -6,10 +6,28 @@
     <description>Recent content in Python on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 22 May 2018 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 03 Jun 2018 12:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://yefeihonours.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Getting Flask-Migrate to Ignore SQL Views that are mapped as Flask-SQLAlchemy Models</title>
+      <link>https://yefeihonours.github.io/post/python/ignore_sql_views/</link>
+      <pubDate>Sun, 03 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/ignore_sql_views/</guid>
+      <description>&lt;h4 id=&#34;flask-migrate&#34;&gt;&lt;strong&gt;Flask-Migrate&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;在使用Flask-SQLAlchemy来定义模型，然后使用Flask-Migrate自动生成迁移脚本以部署到MySQL数据库过程中，我们可能会在应用程序中使用的数据库中定义许多SQL Views辅助查询。
+&lt;/br&gt;
+&lt;/br&gt;
+但是在迁移命令migrate后，Flask-Migrate现在会为该视图生成一个迁移文件，因为它认为它是一个表格。如何在迁移过程中让Flask-Migrate忽略视图？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Python3 __init__.py和__init__函数的作用</title>
@@ -20,22 +38,13 @@
       <description>&lt;h4 id=&#34;一-init-py文件&#34;&gt;一.__&lt;strong&gt;&lt;em&gt;init&lt;/em&gt;&lt;/strong&gt;__.py文件&lt;/h4&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;原来在python模块的每一个包中，都有一个&lt;code&gt;__init__.py&lt;/code&gt;文件（这个文件定义了包的属性和方法）然后是一些模块文件和子目录，假如子目录中也有 &lt;code&gt;__init__.py&lt;/code&gt; 那么它就是这个包的子包了。当你将一个包作为模块导入（比如从 xml 导入 dom ）的时候，实际上导入了它的 &lt;code&gt;__init__.py&lt;/code&gt; 文件。&lt;/p&gt;
-
-&lt;p&gt;一个包是一个带有特殊文件 &lt;code&gt;__init__.py&lt;/code&gt; 的目录。&lt;code&gt;__init__.py&lt;/code&gt; 文件定义了包的属性和方法。其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 &lt;code&gt;__init__.py&lt;/code&gt; 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。&lt;/p&gt;
-
-&lt;p&gt;在python中， module(也即python的模块)是一个单独的文件来实现的，要把是py文件，或者pyc文件，甚至是C扩展的dll文件。而对于package, Python使用了文件夹来实现它，可以说，一个文件夹就是一个package,里面容纳了一些py、pyc或dll文件，这种方式就是把module聚合成一个package的具体实现。&lt;/p&gt;
-
-&lt;p&gt;在引入package的过程中，init.py会运行，因此，如果某些变量或方法需要常驻内存，可以将它们写入init.py文件中。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;__init__.py&lt;/code&gt; 中还有一个重要的变量，叫做&lt;code&gt;__all__&lt;/code&gt;。我们有时会使出一招“全部导入”，也就是这样：&lt;/p&gt;
-
-&lt;p&gt;from PackageName import *
-这时 import 就会把注册在包 &lt;code&gt;__init__.py&lt;/code&gt; 文件中 &lt;code&gt;__all__&lt;/code&gt;列表中的子模块和子包导入到当前作用域中来。比如：&lt;/p&gt;
-
-&lt;p&gt;#文件 &lt;strong&gt;init&lt;/strong&gt;.py&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;__all__&lt;/code&gt; = [&amp;ldquo;Module1&amp;rdquo;, &amp;ldquo;Module2&amp;rdquo;, &amp;ldquo;subPackage1&amp;rdquo;, &amp;ldquo;subPackage2&amp;rdquo;]&lt;/p&gt;
+&lt;p&gt;在python模块的每一个包中，都有一个&lt;code&gt;__init__.py&lt;/code&gt;文件（这个文件定义了包的属性和方法）然后是一些模块文件和子目录，假如子目录中也有 &lt;code&gt;__init__.py&lt;/code&gt; 那么它就是这个包的子包了。当你将一个包作为模块导入（比如从 xml 导入 dom ）的时候，实际上导入了它的 &lt;code&gt;__init__.py&lt;/code&gt; 文件。
+&lt;/br&gt;
+&lt;/br&gt;
+一个包是一个带有特殊文件 &lt;code&gt;__init__.py&lt;/code&gt; 的目录。&lt;code&gt;__init__.py&lt;/code&gt; 文件定义了包的属性和方法。其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 &lt;code&gt;__init__.py&lt;/code&gt; 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。
+&lt;/br&gt;
+&lt;/br&gt;
+在python中， module(也即python的模块)是一个单独的文件来实现的，要把是py文件，或者pyc文件，甚至是C扩展的dll文件。而对于package, Python使用了文件夹来实现它，可以说，一个文件夹就是一个package,里面容纳了一些py、pyc或dll文件，这种方式就是把module聚合成一个package的具体实现。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>

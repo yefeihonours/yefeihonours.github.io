@@ -144,6 +144,41 @@
     
       <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/ignore_sql_views/">Getting Flask-Migrate to Ignore SQL Views that are mapped as Flask-SQLAlchemy Models</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-03 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 374 字 </span>
+      <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h4 id="flask-migrate"><strong>Flask-Migrate</strong></h4>
+
+<blockquote>
+<p>在使用Flask-SQLAlchemy来定义模型，然后使用Flask-Migrate自动生成迁移脚本以部署到MySQL数据库过程中，我们可能会在应用程序中使用的数据库中定义许多SQL Views辅助查询。
+</br>
+</br>
+但是在迁移命令migrate后，Flask-Migrate现在会为该视图生成一个迁移文件，因为它认为它是一个表格。如何在迁移过程中让Flask-Migrate忽略视图？</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/ignore_sql_views/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/python/init/">Python3 __init__.py和__init__函数的作用</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-05-22 </span>
@@ -152,7 +187,7 @@
             <a href="/categories/python/"> Python </a>
           
         </div>
-      <span class="more-meta"> 约 889 字 </span>
+      <span class="more-meta"> 约 888 字 </span>
       <span class="more-meta"> 预计阅读 2 分钟 </span>
     </div>
   </header>
@@ -162,22 +197,13 @@
       <h4 id="一-init-py文件">一.__<strong><em>init</em></strong>__.py文件</h4>
 
 <blockquote>
-<p>原来在python模块的每一个包中，都有一个<code>__init__.py</code>文件（这个文件定义了包的属性和方法）然后是一些模块文件和子目录，假如子目录中也有 <code>__init__.py</code> 那么它就是这个包的子包了。当你将一个包作为模块导入（比如从 xml 导入 dom ）的时候，实际上导入了它的 <code>__init__.py</code> 文件。</p>
-
-<p>一个包是一个带有特殊文件 <code>__init__.py</code> 的目录。<code>__init__.py</code> 文件定义了包的属性和方法。其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 <code>__init__.py</code> 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。</p>
-
-<p>在python中， module(也即python的模块)是一个单独的文件来实现的，要把是py文件，或者pyc文件，甚至是C扩展的dll文件。而对于package, Python使用了文件夹来实现它，可以说，一个文件夹就是一个package,里面容纳了一些py、pyc或dll文件，这种方式就是把module聚合成一个package的具体实现。</p>
-
-<p>在引入package的过程中，init.py会运行，因此，如果某些变量或方法需要常驻内存，可以将它们写入init.py文件中。</p>
-
-<p><code>__init__.py</code> 中还有一个重要的变量，叫做<code>__all__</code>。我们有时会使出一招“全部导入”，也就是这样：</p>
-
-<p>from PackageName import *
-这时 import 就会把注册在包 <code>__init__.py</code> 文件中 <code>__all__</code>列表中的子模块和子包导入到当前作用域中来。比如：</p>
-
-<p>#文件 <strong>init</strong>.py</p>
-
-<p><code>__all__</code> = [&ldquo;Module1&rdquo;, &ldquo;Module2&rdquo;, &ldquo;subPackage1&rdquo;, &ldquo;subPackage2&rdquo;]</p>
+<p>在python模块的每一个包中，都有一个<code>__init__.py</code>文件（这个文件定义了包的属性和方法）然后是一些模块文件和子目录，假如子目录中也有 <code>__init__.py</code> 那么它就是这个包的子包了。当你将一个包作为模块导入（比如从 xml 导入 dom ）的时候，实际上导入了它的 <code>__init__.py</code> 文件。
+</br>
+</br>
+一个包是一个带有特殊文件 <code>__init__.py</code> 的目录。<code>__init__.py</code> 文件定义了包的属性和方法。其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 <code>__init__.py</code> 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。
+</br>
+</br>
+在python中， module(也即python的模块)是一个单独的文件来实现的，要把是py文件，或者pyc文件，甚至是C扩展的dll文件。而对于package, Python使用了文件夹来实现它，可以说，一个文件夹就是一个package,里面容纳了一些py、pyc或dll文件，这种方式就是把module聚合成一个package的具体实现。</p>
 </blockquote>
 
 <p></p>
@@ -456,38 +482,6 @@ d18d1d4fd831...a5bc378178
     </div>
     <div class="read-more">
       <a href="/post/mongo/auth/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/use/">Python3 中有用的方法</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-11-28 </span>
-      <div class="post-category">
-          
-            <a href="/categories/python/"> Python </a>
-          
-        </div>
-      <span class="more-meta"> 约 345 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <blockquote>
-<p>让目录或者zip文件成为可运行的脚本</p>
-
-<p>在书写python脚本的时候，往往会使用不止一个 python 代码文件，而将多个文件放在一个目录下或者zip包中，使目录或者zip包可以直接运行，这样使得多个python简脚本运行变得非常方便</p>
-</blockquote>
-
-<p></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/python/use/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
