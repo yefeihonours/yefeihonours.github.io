@@ -96,7 +96,7 @@
 
 <meta itemprop="datePublished" content="2018-06-03T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-06-03T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="374">
+<meta itemprop="wordCount" content="522">
 
 
 
@@ -188,8 +188,8 @@
               <a href="/categories/python/"> Python </a>
             
           </div>
-        <span class="more-meta"> 约 374 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
+        <span class="more-meta"> 约 522 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
     </header>
@@ -230,9 +230,12 @@
 
 <p></p>
 
-<p>数据库视图: vw_report_high_level_count ，两列: id 和 rowcount.</p>
-
-<p>module定义如下：</p>
+<blockquote>
+<p>数据库视图: vw_report_high_level_count ，两列: id 和 rowcount
+</br>
+</br>
+module定义如下：</p>
+</blockquote>
 
 <pre><code class="language-python">class ViewSampleView(db.Model):
     __tablename__ = 'vw_report_high_level_count'
@@ -246,7 +249,12 @@
 
 <p><strong>解决思路:</strong></p>
 
-<p>在/migrations/env.py文件中添加如下内容，请务必确保run_migrations_offline() 和 run_migrations_online()的context.configure中都有添加include_object。</p>
+<blockquote>
+<p>初次执行python3 manage.py db init命令·后·会在项目根目录下生成migrations文件夹。
+</br>
+</br>
+在/migrations/env.py文件中添加如下内容，请务必确保run_migrations_offline() 和 run_migrations_online()的context.configure中都有添加include_object。</p>
+</blockquote>
 
 <pre><code class="language-python">def include_object(object, name, type_, reflected, compare_to):
     &quot;&quot;&quot;
@@ -259,6 +267,13 @@
 
 context.configure(url=url,include_object = include_object)
 </code></pre>
+
+<blockquote>
+<p>修改完毕后，执行 python3 manage.py db migrate 命令将不再创建和数据库视图同名的table，后续python3 manage.py db upgrade也可以成功执行.
+</br>
+</br>
+随后即可通过ViewSampleView.query.all()查询数据库视图的数据</p>
+</blockquote>
     </div>
 
     
