@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>基于 docker 打包部署 python web 项目至 linux 服务器 - HuangYefei&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="honour" />
+  <meta name="description" content="将Python Web应用容器化  本文将讨论如何让“容器化”的Python Web应用跑在安全的沙箱里，严格的坚守在其各自的环境中（当然，除非你指定它们与其他应用进行“连接”）。   以下将介绍两站方法如何创建一个Docker容器，如何用这个容器来跑我们的Python Web应用，以及如何用一个Dockerfile来描述整个构建过程以实现完整的自动化。
+ 
+" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<link rel="canonical" href="https://yefeihonours.github.io/post/python/docker_python_web/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+
+
+
+
+
+<meta property="og:title" content="基于 docker 打包部署 python web 项目至 linux 服务器" />
+<meta property="og:description" content="将Python Web应用容器化
+
+
+本文将讨论如何让“容器化”的Python Web应用跑在安全的沙箱里，严格的坚守在其各自的环境中（当然，除非你指定它们与其他应用进行“连接”）。
+
+
+以下将介绍两站方法如何创建一个Docker容器，如何用这个容器来跑我们的Python Web应用，以及如何用一个Dockerfile来描述整个构建过程以实现完整的自动化。
+
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/python/docker_python_web/" />
+
+
+
+<meta property="article:published_time" content="2018-06-13T12:00:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-06-13T12:00:00&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="基于 docker 打包部署 python web 项目至 linux 服务器">
+<meta itemprop="description" content="将Python Web应用容器化
+
+
+本文将讨论如何让“容器化”的Python Web应用跑在安全的沙箱里，严格的坚守在其各自的环境中（当然，除非你指定它们与其他应用进行“连接”）。
+
+
+以下将介绍两站方法如何创建一个Docker容器，如何用这个容器来跑我们的Python Web应用，以及如何用一个Dockerfile来描述整个构建过程以实现完整的自动化。
+
+
+">
+
+
+<meta itemprop="datePublished" content="2018-06-13T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-06-13T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="794">
+
+
+
+<meta itemprop="keywords" content="python,python web,docker," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="基于 docker 打包部署 python web 项目至 linux 服务器"/>
+<meta name="twitter:description" content="将Python Web应用容器化
+
+
+本文将讨论如何让“容器化”的Python Web应用跑在安全的沙箱里，严格的坚守在其各自的环境中（当然，除非你指定它们与其他应用进行“连接”）。
+
+
+以下将介绍两站方法如何创建一个Docker容器，如何用这个容器来跑我们的Python Web应用，以及如何用一个Dockerfile来描述整个构建过程以实现完整的自动化。
+
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HuangYefei</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HuangYefei</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">基于 docker 打包部署 python web 项目至 linux 服务器</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-06-13 </span>
+        <div class="post-category">
+            
+              <a href="/categories/python/"> Python </a>
+            
+          </div>
+        <span class="more-meta"> 约 794 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#将python-web应用容器化"><strong>将Python Web应用容器化</strong></a></li>
+<li><a href="#方法一"><strong>方法一</strong></a></li>
+<li><a href="#方法二"><strong>方法二</strong></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h3 id="将python-web应用容器化"><strong>将Python Web应用容器化</strong></h3>
+
+<blockquote>
+<p>本文将讨论如何让“容器化”的Python Web应用跑在安全的沙箱里，严格的坚守在其各自的环境中（当然，除非你指定它们与其他应用进行“连接”）。
+</br>
+</br>
+以下将介绍两站方法如何创建一个Docker容器，如何用这个容器来跑我们的Python Web应用，以及如何用一个Dockerfile来描述整个构建过程以实现完整的自动化。</p>
+</blockquote>
+
+<p></p>
+
+<h3 id="方法一"><strong>方法一</strong></h3>
+
+<p>我们这个flask python web应用的文件组织结构是这样的：</p>
+
+<pre><code>|-app/
+    |-templates/  # 用于存储渲染的模板
+    |-static/  # 用来存储静态文件
+    |-main/
+        |-__init__.py
+        |-errors.py
+        |-forms.py
+        |-views.py
+    |-__init__.py
+    |-email.py
+    |-models.py
+|-migrations/   # 包含数据库迁移脚本
+|-tests/  # 单元测试编写在 tests 包中
+    |-__init__.py
+    |-test*.py
+|-venv/  # venv 文件夹包含 Python 虚拟环境
+|-requirements.txt  # 描述依赖项的文件
+|-config.py  # 存储配置
+|-manage.py  # 用于启动程序以及其他的程序任务
+</code></pre>
+
+<p>初次打包，请在程序入口文件manage.py路径下打开终端，键入以下命令（注意，请将命令最后一行替换为入口文件的名称，以及，请确requirements.txt中没有多余的包，以节约打包时间以及避免打包冲突）</p>
+
+<pre><code>docker run —rm \
+    -v &quot;${PWD}:/src&quot; \
+    tyrodw/pyinstaller-alpine \
+    —noconfirm \
+    —onefile \
+    —log-level DEBUG \
+    —clean \
+    manage.py
+</code></pre>
+
+<p>因为网络原因下载依赖包可能会花费较长时间请耐心等待，打包完成后会在项目入口文件路径下生成dist、build文件夹和manage.spec文件以及<code>__pycache__</code>文件夹，其中在dist文件夹中会有打包后的单个可执行文件，文件名和web应用入口文件名一致，此处为manage。在下次执行打包命令前请务必删除打包生成的相关文件。Mac用户可保存以下指令至脚本执行即可清理。</p>
+
+<pre><code>#!/bin/bash
+
+find ./ -name '__py*' | xargs rm -rf
+rm -rf dist build *.spec
+
+</code></pre>
+
+<p></br>
+</br>
+至此，请将打包出的单个可执行文件，此处为manage移动至任意文件夹，在此路径下创建Dockerfile文件，内容如下：</p>
+
+<pre><code>FROM alpine:3.7
+
+WORKDIR /appa
+
+ADD . /appa
+
+EXPOSE 5000
+
+CMD [&quot;./manage&quot;]
+</code></pre>
+
+<p>在此路径打开终端，键入<code>docker build -t python-test:first .</code>即可打包至本地的docker，镜像名python-test，版本号tag为first
+</br>
+</br></p>
+
+<h3 id="方法二"><strong>方法二</strong></h3>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">honour</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-06-13</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/python/">python</a>
+          
+          <a href="/tags/python-web/">python web</a>
+          
+          <a href="/tags/docker/">docker</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/docker/docker_beginner/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">docker基本使用教程</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/python/ignore_sql_views/">
+            <span class="next-text nav-default">Getting Flask-Migrate to Ignore SQL Views that are mapped as Flask-SQLAlchemy Models</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://yefeihonours.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangyefei</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

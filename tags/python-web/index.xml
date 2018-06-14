@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python web on HuangYefei&#39;s Blog</title>
+    <link>https://yefeihonours.github.io/tags/python-web/</link>
+    <description>Recent content in Python web on HuangYefei&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 13 Jun 2018 12:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yefeihonours.github.io/tags/python-web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>基于 docker 打包部署 python web 项目至 linux 服务器</title>
+      <link>https://yefeihonours.github.io/post/python/docker_python_web/</link>
+      <pubDate>Wed, 13 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/docker_python_web/</guid>
+      <description>&lt;h3 id=&#34;将python-web应用容器化&#34;&gt;&lt;strong&gt;将Python Web应用容器化&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;本文将讨论如何让“容器化”的Python Web应用跑在安全的沙箱里，严格的坚守在其各自的环境中（当然，除非你指定它们与其他应用进行“连接”）。
+&lt;/br&gt;
+&lt;/br&gt;
+以下将介绍两站方法如何创建一个Docker容器，如何用这个容器来跑我们的Python Web应用，以及如何用一个Dockerfile来描述整个构建过程以实现完整的自动化。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

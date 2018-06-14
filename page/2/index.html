@@ -57,7 +57,7 @@
 
 
 
-<meta property="og:updated_time" content="2017-11-28T12:03:00&#43;08:00"/>
+<meta property="og:updated_time" content="2017-12-15T12:00:00&#43;08:00"/>
 
 
 
@@ -141,6 +141,84 @@
   <section id="posts" class="posts">
     
     
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/mysql/opt2/">MySQL 性能优化笔记 [2]</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-12-15 </span>
+      <div class="post-category">
+          
+            <a href="/categories/mysql/"> MySQL </a>
+          
+        </div>
+      <span class="more-meta"> 约 919 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h4 id="0-数据库优化可以从下面几个方面着手">0. 数据库优化可以从下面几个方面着手</h4>
+
+<ul>
+<li>SQL及索引</li>
+<li>数据库表结构</li>
+<li>系统配置</li>
+<li>硬件</li>
+</ul>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/mysql/opt2/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/mongo/auth/">MongoDB配置用户权限</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-11-30 </span>
+      <div class="post-category">
+          
+            <a href="/categories/mongodb/"> MongoDB </a>
+          
+        </div>
+      <span class="more-meta"> 约 830 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h3 id="启动mongodb实例">启动MongoDb实例</h3>
+
+<blockquote>
+<p>本文以<code>Docker</code>启动<code>MongoDB</code>为例，省略服务器上MongoDB安装过程</p>
+</blockquote>
+
+<pre><code># Docker启动MongoDB实例，使用前确保电脑上已经安装docker
+
+$ docker pull mongo:3.0
+...
+
+# --auth 参数表示以权限验证模式启动
+$ docker run --name mongo_instance -p 0.0.0.0:27017:27017 -d mongo --auth
+d18d1d4fd831...a5bc378178
+
+</code></pre>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/mongo/auth/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     
       <article class="post">
   <header class="post-header">
@@ -404,28 +482,6 @@ $ git config --global user.email &quot;name@mail.com&quot;
 </article>
 
     
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/elk/start/"></a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 0001-01-01 </span>
-      
-      <span class="more-meta"> 约 0 字 </span>
-      <span class="more-meta"> 预计阅读 0 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      
-    </div>
-    <div class="read-more">
-      <a href="/post/elk/start/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
   </section>
   
   <nav class="pagination">
@@ -435,6 +491,10 @@ $ git config --global user.email &quot;name@mail.com&quot;
         <span class="prev-text">上一页</span>
       </a>
     
+      <a class="next" href="/page/3/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
   </nav>
 
         </div>
