@@ -96,7 +96,7 @@
 
 <meta itemprop="datePublished" content="2018-06-13T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-06-13T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="794">
+<meta itemprop="wordCount" content="978">
 
 
 
@@ -188,7 +188,7 @@
               <a href="/categories/python/"> Python </a>
             
           </div>
-        <span class="more-meta"> 约 794 字 </span>
+        <span class="more-meta"> 约 978 字 </span>
         <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
@@ -259,10 +259,10 @@
 <pre><code>docker run —rm \
     -v &quot;${PWD}:/src&quot; \
     tyrodw/pyinstaller-alpine \
-    —noconfirm \
-    —onefile \
-    —log-level DEBUG \
-    —clean \
+    --noconfirm \
+    --onefile \
+    --log-level DEBUG \
+    --clean \
     manage.py
 </code></pre>
 
@@ -275,9 +275,7 @@ rm -rf dist build *.spec
 
 </code></pre>
 
-<p></br>
-</br>
-至此，请将打包出的单个可执行文件，此处为manage移动至任意文件夹，在此路径下创建Dockerfile文件，内容如下：</p>
+<p>至此，请将打包出的单个可执行文件，此处为manage移动至任意文件夹，在此路径下创建Dockerfile文件，内容如下：</p>
 
 <pre><code>FROM alpine:3.7
 
@@ -290,11 +288,31 @@ EXPOSE 5000
 CMD [&quot;./manage&quot;]
 </code></pre>
 
-<p>在此路径打开终端，键入<code>docker build -t python-test:first .</code>即可打包至本地的docker，镜像名python-test，版本号tag为first
-</br>
-</br></p>
+<p>在此路径打开终端，键入<code>docker build -t python-test:first .</code>即可打包至本地的docker，镜像名python-test，版本号tag为first</p>
 
 <h3 id="方法二"><strong>方法二</strong></h3>
+
+<p>在项目入门文件manage.py路径下，创建Dockerfile文件，内容如下：</p>
+
+<pre><code>FROM python:3.6
+
+WORKDIR /app
+
+ADD . /app
+
+ENV http_proxy 0.0.0.0:5000
+
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
+EXPOSE 5000
+
+CMD [&quot;python&quot;,&quot;manage.py&quot;,&quot;runserver&quot;]
+</code></pre>
+
+<p>在此路径打开终端，键入<code>docker build -t python-test:first .</code>即可打包至本地的docker，镜像名python-test，版本号tag为first
+</br>
+</br>
+注意：由于网络原因以及python3镜像较大（约1G左右），以及项目依赖包可能较多等原因，打包过程可能比较慢请耐心等待，固在此推荐使用方法一进行打包，alpine镜像&lt;10M</p>
     </div>
 
     
