@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>docker基本使用教程 - HuangYefei&#39;s Blog</title>
+  <title>mac 在终端如何进入名称带空格的目录 - HuangYefei&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,9 @@
 
 
 <meta name="author" content="honour" />
-  <meta name="description" content="本文将介绍docker的常用基本命令。  " />
+  <meta name="description" content=" 当你在终端中cd的时候，如果这个目录名中间带空格，那么你cd就会失败，但是mkdir，mv，cp等都没有影响。
+ 
+" />
 
   <meta name="keywords" content="Hugo, theme, even" />
 
@@ -29,7 +31,7 @@
 <meta name="generator" content="Hugo 0.40.3" />
 
 
-<link rel="canonical" href="https://yefeihonours.github.io/post/docker/docker_beginner/" />
+<link rel="canonical" href="https://yefeihonours.github.io/post/mac/space_in_directory/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -49,22 +51,20 @@
 
 
 
-<meta property="og:title" content="docker基本使用教程" />
-<meta property="og:description" content="本文将介绍docker的常用基本命令。
+<meta property="og:title" content="mac 在终端如何进入名称带空格的目录" />
+<meta property="og:description" content="
+当你在终端中cd的时候，如果这个目录名中间带空格，那么你cd就会失败，但是mkdir，mv，cp等都没有影响。
+
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yefeihonours.github.io/post/docker/docker_beginner/" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/mac/space_in_directory/" />
 
 
 
-<meta property="article:published_time" content="2018-06-13T12:00:00&#43;08:00"/>
+<meta property="article:published_time" content="2018-06-22T12:00:00&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-06-13T12:00:00&#43;08:00"/>
-
-
-
-
+<meta property="article:modified_time" content="2018-06-22T12:00:00&#43;08:00"/>
 
 
 
@@ -72,22 +72,30 @@
 
 
 
-<meta itemprop="name" content="docker基本使用教程">
-<meta itemprop="description" content="本文将介绍docker的常用基本命令。
+
+
+
+
+<meta itemprop="name" content="mac 在终端如何进入名称带空格的目录">
+<meta itemprop="description" content="
+当你在终端中cd的时候，如果这个目录名中间带空格，那么你cd就会失败，但是mkdir，mv，cp等都没有影响。
+
 
 ">
 
 
-<meta itemprop="datePublished" content="2018-06-13T12:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2018-06-13T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="388">
+<meta itemprop="datePublished" content="2018-06-22T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-06-22T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="224">
 
 
 
-<meta itemprop="keywords" content="docker," />
+<meta itemprop="keywords" content="mac," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="docker基本使用教程"/>
-<meta name="twitter:description" content="本文将介绍docker的常用基本命令。
+<meta name="twitter:title" content="mac 在终端如何进入名称带空格的目录"/>
+<meta name="twitter:description" content="
+当你在终端中cd的时候，如果这个目录名中间带空格，那么你cd就会失败，但是mkdir，mv，cp等都没有影响。
+
 
 "/>
 
@@ -156,16 +164,16 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">docker基本使用教程</h1>
+      <h1 class="post-title">mac 在终端如何进入名称带空格的目录</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2018-06-13 </span>
+        <span class="post-time"> 2018-06-22 </span>
         <div class="post-category">
             
-              <a href="/categories/docker/"> docker </a>
+              <a href="/categories/mac/"> mac </a>
             
           </div>
-        <span class="more-meta"> 约 388 字 </span>
+        <span class="more-meta"> 约 224 字 </span>
         <span class="more-meta"> 预计阅读 1 分钟 </span>
         
       </div>
@@ -177,41 +185,54 @@
   <h2 class="post-toc-title">文章目录</h2>
   
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#方法一">方法一</a></li>
+<li><a href="#方法二">方法二</a></li>
+</ul></li>
+</ul>
+</nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <p><strong>本文将介绍docker的常用基本命令。</strong>
-</br>
-</p>
+      <blockquote>
+<p>当你在终端中cd的时候，如果这个目录名中间带空格，那么你cd就会失败，但是mkdir，mv，cp等都没有影响。</p>
+</blockquote>
 
-<p>docker ps 查看当前正在运行的容器</p>
+<p></p>
 
-<p>docker ps -a 查看所有容器的状态</p>
+<h2 id="方法一">方法一</h2>
 
-<p>docker start/stop id/name 启动/停止某个容器</p>
+<p>Mac OS 下如果想进入当前目录下的&rsquo;my files&rsquo;文件夹，有如下三种基本方法：</p>
 
-<p>docker attach id 进入某个容器(使用exit退出后容器也跟着停止运行)</p>
+<blockquote>
+<p>1 使用 <code>'\'</code>
+<br>
+<br>
+<code>$cd my\ files</code>
+<br>
+<br>
+2 使用<code>'''</code>
+<br>
+<br>
+<code>$cd my' 'files</code>
+<br>
+<br>
+3 使用<code>'&quot;'</code>
+<br>
+<br>
+<code>$cd my&quot; &quot;files</code></p>
+</blockquote>
 
-<p>docker exec -ti id 启动一个伪终端以交互式的方式进入某个容器（使用exit退出后容器不停止运行）</p>
+<p>总体都是将空格转义或者注释起来。Unix, Linux系统下也可以通过这种方法实现。</p>
 
-<p>docker images 查看本地镜像</p>
+<h2 id="方法二">方法二</h2>
 
-<p>docker rm id/name 删除某个容器</p>
-
-<p>docker rmi id/name 删除某个镜像</p>
-
-<p>docker run &ndash;name test -ti ubuntu /bin/bash  复制ubuntu容器并且重命名为test且运行，然后以伪终端交互式方式进入容器，运行bash</p>
-
-<p>docker build -t soar/centos:7.1 .  通过当前目录下的Dockerfile创建一个名为soar/centos:7.1的镜像</p>
-
-<p>docker run -d -p 2222:22 &ndash;name test soar/centos:7.1  以镜像soar/centos:7.1创建名为test的容器，并以后台模式运行，并做端口映射到宿主机2222端口，P参数重启容器宿主机端口会发生改变</p>
-
-<p></br></p>
-
-<p><strong>更多命令详解，请访问：<a href="http://www.docker.org.cn/dockerppt/106.html">http://www.docker.org.cn/dockerppt/106.html</a></strong></p>
+<p>Mac OS 下在终端窗口里先输入cd,然后空格,再把那个文件夹拖到终端窗口里,松手，按回车即可</p>
     </div>
 
     
@@ -222,7 +243,7 @@
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2018-06-13</span>
+    <span class="item-content">2018-06-22</span>
   </p>
   
   
@@ -234,21 +255,21 @@
     <footer class="post-footer">
       <div class="post-tags">
           
-          <a href="/tags/docker/">docker</a>
+          <a href="/tags/mac/">mac</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/linux/docker_container_id/">
+          <a class="prev" href="/post/linux/python_setup/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">如何查看 Docker Container 的 IP 地址</span>
+            <span class="prev-text nav-default">Linux 安装 python3.6 教程</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
-          <a class="next" href="/post/python/docker_python_web/">
-            <span class="next-text nav-default">基于 docker 打包部署 python web 项目至 linux 服务器</span>
+          <a class="next" href="/post/linux/docker_setup/">
+            <span class="next-text nav-default">在 CentOS 7 上安装 Docker</span>
             <span class="prev-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

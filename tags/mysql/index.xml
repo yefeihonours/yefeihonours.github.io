@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Getting Flask-Migrate to Ignore SQL Views that are mapped as Flask-SQLAlchemy Models</title>
+      <title>如何使Flask-Migrate忽略在Models定义的数据库视图</title>
       <link>https://yefeihonours.github.io/post/python/ignore_sql_views/</link>
       <pubDate>Sun, 03 Jun 2018 12:00:00 +0800</pubDate>
       

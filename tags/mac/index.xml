@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on HuangYefei&#39;s Blog</title>
+    <link>https://yefeihonours.github.io/tags/mac/</link>
+    <description>Recent content in Mac on HuangYefei&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 22 Jun 2018 12:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yefeihonours.github.io/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mac 在终端如何进入名称带空格的目录</title>
+      <link>https://yefeihonours.github.io/post/mac/space_in_directory/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/mac/space_in_directory/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;当你在终端中cd的时候，如果这个目录名中间带空格，那么你cd就会失败，但是mkdir，mv，cp等都没有影响。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

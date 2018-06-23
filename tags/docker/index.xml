@@ -6,10 +6,47 @@
     <description>Recent content in Docker on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 13 Jun 2018 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 Jun 2018 12:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://yefeihonours.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker 中如何设置 container 的时区</title>
+      <link>https://yefeihonours.github.io/post/docker/docker_time/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/docker/docker_time/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Docker Store 上的官方镜像基本上都默认是 UTC 时区，需要我们手动设置一下。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在 CentOS 7 上安装 Docker</title>
+      <link>https://yefeihonours.github.io/post/linux/docker_setup/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/docker_setup/</guid>
+      <description>&lt;p&gt;本文记录在 CentOS 7 服务器上安装 Docker CE 的过程。Docker CE 是社区版，即免费版。Docker EE 是企业版，即收费版。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Docker CE 和 EE 版的安装过程不尽相同，本过程仅适用于 CE 版。&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>如何查看 Docker Container 的 IP 地址</title>
+      <link>https://yefeihonours.github.io/post/linux/docker_container_id/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/docker_container_id/</guid>
+      <description>&lt;p&gt;本文记录如何查看 Docker Container 的 IP 地址的方法。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>docker基本使用教程</title>
@@ -17,13 +54,9 @@
       <pubDate>Wed, 13 Jun 2018 12:00:00 +0800</pubDate>
       
       <guid>https://yefeihonours.github.io/post/docker/docker_beginner/</guid>
-      <description>&lt;h3 id=&#34;将python-web应用容器化&#34;&gt;&lt;strong&gt;将Python Web应用容器化&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;本文将介绍docker的基本命令。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;本文将介绍docker的常用基本命令。&lt;/strong&gt;
+&lt;/br&gt;
+&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Docker · HuangYefei&#39;s Blog</title>
+  <title>如何查看 Docker Container 的 IP 地址 - HuangYefei&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,8 +16,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="huangyefei" />
-  <meta name="description" content="HuangYefei&#39;s personal blog." />
+<meta name="author" content="honour" />
+  <meta name="description" content="本文记录如何查看 Docker Container 的 IP 地址的方法。
+
+" />
+
   <meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -28,9 +31,7 @@
 <meta name="generator" content="Hugo 0.40.3" />
 
 
-<link rel="canonical" href="https://yefeihonours.github.io/tags/docker/" />
-<link href="https://yefeihonours.github.io/tags/docker/index.xml" rel="alternate" type="application/rss+xml" title="HuangYefei&#39;s Blog" />
-  <link href="https://yefeihonours.github.io/tags/docker/index.xml" rel="feed" type="application/rss+xml" title="HuangYefei&#39;s Blog" />
+<link rel="canonical" href="https://yefeihonours.github.io/post/linux/docker_container_id/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -50,14 +51,18 @@
 
 
 
-<meta property="og:title" content="Docker" />
-<meta property="og:description" content="HuangYefei&#39;s personal blog." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://yefeihonours.github.io/tags/docker/" />
+<meta property="og:title" content="如何查看 Docker Container 的 IP 地址" />
+<meta property="og:description" content="本文记录如何查看 Docker Container 的 IP 地址的方法。
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/linux/docker_container_id/" />
 
 
 
-<meta property="og:updated_time" content="2018-06-22T12:00:00&#43;08:00"/>
+<meta property="article:published_time" content="2018-06-22T12:00:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-06-22T12:00:00&#43;08:00"/>
 
 
 
@@ -68,12 +73,25 @@
 
 
 
-<meta itemprop="name" content="Docker">
-<meta itemprop="description" content="HuangYefei&#39;s personal blog.">
 
+<meta itemprop="name" content="如何查看 Docker Container 的 IP 地址">
+<meta itemprop="description" content="本文记录如何查看 Docker Container 的 IP 地址的方法。
+
+">
+
+
+<meta itemprop="datePublished" content="2018-06-22T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-06-22T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="117">
+
+
+
+<meta itemprop="keywords" content="docker," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Docker"/>
-<meta name="twitter:description" content="HuangYefei&#39;s personal blog."/>
+<meta name="twitter:title" content="如何查看 Docker Container 的 IP 地址"/>
+<meta name="twitter:description" content="本文记录如何查看 Docker Container 的 IP 地址的方法。
+
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -137,82 +155,128 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          
-
-<section id="archive" class="archive">
-  
+          <article class="post">
     
-      <div class="archive-title tag">
-        <h2 class="archive-name">Docker</h2>
+    <header class="post-header">
+      <h1 class="post-title">如何查看 Docker Container 的 IP 地址</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-06-22 </span>
+        <div class="post-category">
+            
+              <a href="/categories/docker/"> docker </a>
+            
+          </div>
+        <span class="more-meta"> 约 117 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+        
       </div>
+    </header>
+
     
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
   
-
-  
-    <div class="archive-post">
-      <span class="archive-post-time">
-        2018-06-22
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/linux/docker_container_id/" class="archive-post-link">
-          如何查看 Docker Container 的 IP 地址
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <span class="archive-post-time">
-        2018-06-22
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/linux/docker_setup/" class="archive-post-link">
-          在 CentOS 7 上安装 Docker
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <span class="archive-post-time">
-        2018-06-22
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/docker/docker_time/" class="archive-post-link">
-          Docker 中如何设置 container 的时区
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <span class="archive-post-time">
-        2018-06-13
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/python/docker_python_web/" class="archive-post-link">
-          基于 docker 打包部署 python web 项目至 linux 服务器
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <span class="archive-post-time">
-        2018-06-13
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/docker/docker_beginner/" class="archive-post-link">
-          docker基本使用教程
-        </a>
-      </span>
-    </div>
-  
-</section>
-
-<nav class="pagination">
-  
-  
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#方法一">方法一</a></li>
+<li><a href="#方法二">方法二</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
+  </div>
+</div>
 
+    
+    <div class="post-content">
+      <p>本文记录如何查看 Docker Container 的 IP 地址的方法。</p>
+
+<p></p>
+
+<h3 id="方法一">方法一</h3>
+
+<p>1、在终端输入一下命令进入容器内部</p>
+
+<blockquote>
+<p>docker exec -it container_name_or_id sh</p>
+</blockquote>
+
+<p>2、键入以下命令查看host文件</p>
+
+<blockquote>
+<p>cat /etc/hosts</p>
+</blockquote>
+
+<p>会显示自己以及(– link)软连接的容器IP</p>
+
+<h3 id="方法二">方法二</h3>
+
+<p>直接在终端使用以下命令之一即可</p>
+
+<blockquote>
+<p>docker inspect &ndash;format &lsquo;{{ .NetworkSettings.IPAddress }}&rsquo; container_name_or_id
+<br>
+<br>
+docker inspect container_name_or_id
+<br>
+<br>
+docker inspect -f &lsquo;{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&rsquo; container_name_or_id</p>
+</blockquote>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">honour</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-06-22</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/docker/">docker</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/linux/docker_setup/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">在 CentOS 7 上安装 Docker</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/docker/docker_beginner/">
+            <span class="next-text nav-default">docker基本使用教程</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+  
+
+  
 
       </div>
     </main>

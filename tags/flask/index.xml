@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Flask-sqlalchemy on HuangYefei&#39;s Blog</title>
-    <link>https://yefeihonours.github.io/tags/flask-sqlalchemy/</link>
-    <description>Recent content in Flask-sqlalchemy on HuangYefei&#39;s Blog</description>
+    <title>Flask on HuangYefei&#39;s Blog</title>
+    <link>https://yefeihonours.github.io/tags/flask/</link>
+    <description>Recent content in Flask on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 03 Jun 2018 12:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://yefeihonours.github.io/tags/flask-sqlalchemy/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yefeihonours.github.io/tags/flask/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

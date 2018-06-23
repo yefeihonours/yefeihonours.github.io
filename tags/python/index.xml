@@ -6,10 +6,23 @@
     <description>Recent content in Python on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 13 Jun 2018 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 Jun 2018 12:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://yefeihonours.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux 安装 python3.6 教程</title>
+      <link>https://yefeihonours.github.io/post/linux/python_setup/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/python_setup/</guid>
+      <description>&lt;p&gt;本文记录在 linux 服务器上安装 python3.6 的过程。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;注意：如果本机安装了python2，请尽量不要管，使用python3运行python脚本就好，因为可能有程序依赖目前的python2环境，比如yum&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>基于 docker 打包部署 python web 项目至 linux 服务器</title>
@@ -30,7 +43,7 @@
     </item>
     
     <item>
-      <title>Getting Flask-Migrate to Ignore SQL Views that are mapped as Flask-SQLAlchemy Models</title>
+      <title>如何使Flask-Migrate忽略在Models定义的数据库视图</title>
       <link>https://yefeihonours.github.io/post/python/ignore_sql_views/</link>
       <pubDate>Sun, 03 Jun 2018 12:00:00 +0800</pubDate>
       

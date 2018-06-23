@@ -6,10 +6,36 @@
     <description>Recent content in Linux on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 05 Nov 2017 13:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 Jun 2018 12:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://yefeihonours.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux 安装 python3.6 教程</title>
+      <link>https://yefeihonours.github.io/post/linux/python_setup/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/python_setup/</guid>
+      <description>&lt;p&gt;本文记录在 linux 服务器上安装 python3.6 的过程。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;注意：如果本机安装了python2，请尽量不要管，使用python3运行python脚本就好，因为可能有程序依赖目前的python2环境，比如yum&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在 CentOS 7 上安装 Docker</title>
+      <link>https://yefeihonours.github.io/post/linux/docker_setup/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/docker_setup/</guid>
+      <description>&lt;p&gt;本文记录在 CentOS 7 服务器上安装 Docker CE 的过程。Docker CE 是社区版，即免费版。Docker EE 是企业版，即收费版。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Docker CE 和 EE 版的安装过程不尽相同，本过程仅适用于 CE 版。&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Zookeeper安装与集群部署</title>

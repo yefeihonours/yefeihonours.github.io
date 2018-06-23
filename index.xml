@@ -21,18 +21,77 @@
     </item>
     
     <item>
+      <title>Docker 中如何设置 container 的时区</title>
+      <link>https://yefeihonours.github.io/post/docker/docker_time/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/docker/docker_time/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Docker Store 上的官方镜像基本上都默认是 UTC 时区，需要我们手动设置一下。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux 安装 python3.6 教程</title>
+      <link>https://yefeihonours.github.io/post/linux/python_setup/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/python_setup/</guid>
+      <description>&lt;p&gt;本文记录在 linux 服务器上安装 python3.6 的过程。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;注意：如果本机安装了python2，请尽量不要管，使用python3运行python脚本就好，因为可能有程序依赖目前的python2环境，比如yum&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>mac 在终端如何进入名称带空格的目录</title>
+      <link>https://yefeihonours.github.io/post/mac/space_in_directory/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/mac/space_in_directory/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;当你在终端中cd的时候，如果这个目录名中间带空格，那么你cd就会失败，但是mkdir，mv，cp等都没有影响。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在 CentOS 7 上安装 Docker</title>
+      <link>https://yefeihonours.github.io/post/linux/docker_setup/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/docker_setup/</guid>
+      <description>&lt;p&gt;本文记录在 CentOS 7 服务器上安装 Docker CE 的过程。Docker CE 是社区版，即免费版。Docker EE 是企业版，即收费版。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Docker CE 和 EE 版的安装过程不尽相同，本过程仅适用于 CE 版。&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>如何查看 Docker Container 的 IP 地址</title>
+      <link>https://yefeihonours.github.io/post/linux/docker_container_id/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/docker_container_id/</guid>
+      <description>&lt;p&gt;本文记录如何查看 Docker Container 的 IP 地址的方法。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>docker基本使用教程</title>
       <link>https://yefeihonours.github.io/post/docker/docker_beginner/</link>
       <pubDate>Wed, 13 Jun 2018 12:00:00 +0800</pubDate>
       
       <guid>https://yefeihonours.github.io/post/docker/docker_beginner/</guid>
-      <description>&lt;h3 id=&#34;将python-web应用容器化&#34;&gt;&lt;strong&gt;将Python Web应用容器化&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;本文将介绍docker的基本命令。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;本文将介绍docker的常用基本命令。&lt;/strong&gt;
+&lt;/br&gt;
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -54,7 +113,7 @@
     </item>
     
     <item>
-      <title>Getting Flask-Migrate to Ignore SQL Views that are mapped as Flask-SQLAlchemy Models</title>
+      <title>如何使Flask-Migrate忽略在Models定义的数据库视图</title>
       <link>https://yefeihonours.github.io/post/python/ignore_sql_views/</link>
       <pubDate>Sun, 03 Jun 2018 12:00:00 +0800</pubDate>
       
