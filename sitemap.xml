@@ -211,14 +211,14 @@
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/categories/docker/</loc>
+    <loc>https://yefeihonours.github.io/tags/docker/</loc>
     <lastmod>2018-06-22T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/tags/docker/</loc>
+    <loc>https://yefeihonours.github.io/categories/docker/</loc>
     <lastmod>2018-06-22T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -239,14 +239,14 @@
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/categories/git/</loc>
+    <loc>https://yefeihonours.github.io/tags/git/</loc>
     <lastmod>2017-11-01T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/tags/git/</loc>
+    <loc>https://yefeihonours.github.io/categories/git/</loc>
     <lastmod>2017-11-01T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -260,13 +260,6 @@
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/categories/javascript/</loc>
-    <lastmod>2017-11-07T12:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://yefeihonours.github.io/tags/javascript/</loc>
     <lastmod>2017-11-07T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -274,8 +267,8 @@
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/categories/linux/</loc>
-    <lastmod>2018-06-22T12:00:00+08:00</lastmod>
+    <loc>https://yefeihonours.github.io/categories/javascript/</loc>
+    <lastmod>2017-11-07T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -288,7 +281,7 @@
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/categories/mac/</loc>
+    <loc>https://yefeihonours.github.io/categories/linux/</loc>
     <lastmod>2018-06-22T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -296,6 +289,13 @@
   
   <url>
     <loc>https://yefeihonours.github.io/tags/mac/</loc>
+    <lastmod>2018-06-22T12:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yefeihonours.github.io/categories/mac/</loc>
     <lastmod>2018-06-22T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -344,15 +344,15 @@
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/categories/python/</loc>
-    <lastmod>2018-06-13T12:00:00+08:00</lastmod>
+    <loc>https://yefeihonours.github.io/tags/python/</loc>
+    <lastmod>2018-06-22T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/tags/python/</loc>
-    <lastmod>2018-06-22T12:00:00+08:00</lastmod>
+    <loc>https://yefeihonours.github.io/categories/python/</loc>
+    <lastmod>2018-06-13T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -365,14 +365,14 @@
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/categories/react/</loc>
+    <loc>https://yefeihonours.github.io/tags/react/</loc>
     <lastmod>2017-11-03T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/tags/react/</loc>
+    <loc>https://yefeihonours.github.io/categories/react/</loc>
     <lastmod>2017-11-03T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>

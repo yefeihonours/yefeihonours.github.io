@@ -96,7 +96,7 @@
 
 <meta itemprop="datePublished" content="2018-06-13T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-06-13T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1247">
+<meta itemprop="wordCount" content="1309">
 
 
 
@@ -188,7 +188,7 @@
               <a href="/categories/python/"> Python </a>
             
           </div>
-        <span class="more-meta"> 约 1247 字 </span>
+        <span class="more-meta"> 约 1309 字 </span>
         <span class="more-meta"> 预计阅读 3 分钟 </span>
         
       </div>
@@ -313,9 +313,11 @@ CMD [&quot;python&quot;,&quot;manage.py&quot;,&quot;runserver&quot;]
 <p>在此路径打开终端，键入<code>docker build -t python-test:first .</code>即可打包至本地的docker，镜像名python-test，版本号tag为first
 </br>
 </br>
-注意：由于网络原因以及python3镜像较大（约1G左右），以及项目依赖包可能较多等原因，打包可能比较慢请耐心等待。（只有在初次打包会下载python3镜像到本地）</p>
+注意：由于网络原因以及python3镜像较大（约1G左右），以及项目依赖包可能较多等原因，打包可能比较慢请耐心等待。（只有在初次打包会从服务器下载python3镜像）</p>
 
 <h3 id="缩短打包时间的策略"><strong>缩短打包时间的策略</strong></h3>
+
+<p>在方法二中，每次打包都需要重新下载项目所需python依赖包，为减少打包时间，可提前将依赖包下载至本地即可，具体步骤如下：</p>
 
 <p>请先确保项目根路径下有记录项目依赖包描述的requirements.txt文件，在该路径下打开终端执行以下命令 :</p>
 
