@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gunicorn on HuangYefei&#39;s Blog</title>
+    <link>https://yefeihonours.github.io/tags/gunicorn/</link>
+    <description>Recent content in Gunicorn on HuangYefei&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 27 Jun 2018 12:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yefeihonours.github.io/tags/gunicorn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Flask &#43; Gunicorn &#43; Nginx 部署</title>
+      <link>https://yefeihonours.github.io/post/python/flask_gunicorn_nginx/</link>
+      <pubDate>Wed, 27 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/flask_gunicorn_nginx/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Flask，webpy，Django都带着 WSGI server，当然性能都不好，自带的web server 更多的是测试用途。线上发布时，则使用高性能的 wsgi server或者是联合nginx做uwsgi 。
+&lt;br&gt;
+&lt;br&gt;
+greenlet是一个轻量级的协程库。gevent是基于greenlet的网络库。
+guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一 ，是为了解决django、flask这些web框架自带wsgi server性能低下的问题。它的特点是与各个web框架结合紧密，部署特别方便。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

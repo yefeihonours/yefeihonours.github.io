@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Flask &#43; Gunicorn &#43; Nginx 部署 - HuangYefei&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="honour" />
+  <meta name="description" content=" Flask，webpy，Django都带着 WSGI server，当然性能都不好，自带的web server 更多的是测试用途。线上发布时，则使用高性能的 wsgi server或者是联合nginx做uwsgi 。 greenlet是一个轻量级的协程库。gevent是基于greenlet的网络库。 guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一 ，是为了解决django、flask这些web框架自带wsgi server性能低下的问题。它的特点是与各个web框架结合紧密，部署特别方便。
+ 
+" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<link rel="canonical" href="https://yefeihonours.github.io/post/python/flask_gunicorn_nginx/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+
+
+
+
+
+<meta property="og:title" content="Flask &#43; Gunicorn &#43; Nginx 部署" />
+<meta property="og:description" content="
+Flask，webpy，Django都带着 WSGI server，当然性能都不好，自带的web server 更多的是测试用途。线上发布时，则使用高性能的 wsgi server或者是联合nginx做uwsgi 。
+
+
+greenlet是一个轻量级的协程库。gevent是基于greenlet的网络库。
+guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一 ，是为了解决django、flask这些web框架自带wsgi server性能低下的问题。它的特点是与各个web框架结合紧密，部署特别方便。
+
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/python/flask_gunicorn_nginx/" />
+
+
+
+<meta property="article:published_time" content="2018-06-27T12:00:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-06-27T12:00:00&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Flask &#43; Gunicorn &#43; Nginx 部署">
+<meta itemprop="description" content="
+Flask，webpy，Django都带着 WSGI server，当然性能都不好，自带的web server 更多的是测试用途。线上发布时，则使用高性能的 wsgi server或者是联合nginx做uwsgi 。
+
+
+greenlet是一个轻量级的协程库。gevent是基于greenlet的网络库。
+guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一 ，是为了解决django、flask这些web框架自带wsgi server性能低下的问题。它的特点是与各个web框架结合紧密，部署特别方便。
+
+
+">
+
+
+<meta itemprop="datePublished" content="2018-06-27T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-06-27T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="2432">
+
+
+
+<meta itemprop="keywords" content="python,flask,gunicorn," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Flask &#43; Gunicorn &#43; Nginx 部署"/>
+<meta name="twitter:description" content="
+Flask，webpy，Django都带着 WSGI server，当然性能都不好，自带的web server 更多的是测试用途。线上发布时，则使用高性能的 wsgi server或者是联合nginx做uwsgi 。
+
+
+greenlet是一个轻量级的协程库。gevent是基于greenlet的网络库。
+guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一 ，是为了解决django、flask这些web框架自带wsgi server性能低下的问题。它的特点是与各个web框架结合紧密，部署特别方便。
+
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HuangYefei</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HuangYefei</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Flask &#43; Gunicorn &#43; Nginx 部署</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-06-27 </span>
+        <div class="post-category">
+            
+              <a href="/categories/python/"> Python </a>
+            
+          </div>
+        <span class="more-meta"> 约 2432 字 </span>
+        <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#一-wsgi-协议简介">一、WSGI 协议简介</a></li>
+<li><a href="#二-gunicorn">二、Gunicorn</a></li>
+<li><a href="#三-部署注意事项">三、部署注意事项</a></li>
+<li><a href="#四-nginx">四、Nginx</a></li>
+<li><a href="#总结">总结</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <blockquote>
+<p>Flask，webpy，Django都带着 WSGI server，当然性能都不好，自带的web server 更多的是测试用途。线上发布时，则使用高性能的 wsgi server或者是联合nginx做uwsgi 。
+<br>
+<br>
+greenlet是一个轻量级的协程库。gevent是基于greenlet的网络库。
+guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一 ，是为了解决django、flask这些web框架自带wsgi server性能低下的问题。它的特点是与各个web框架结合紧密，部署特别方便。</p>
+</blockquote>
+
+<p></p>
+
+<h3 id="一-wsgi-协议简介">一、WSGI 协议简介</h3>
+
+<p>Web框架致力于如何生成HTML代码，而Web服务器用于处理和响应HTTP请求。Web框架和Web服务器之间的通信，需要一套双方都遵守的接口协议。WSGI协议就是用来统一这两者的接口的。</p>
+
+<h3 id="二-gunicorn">二、Gunicorn</h3>
+
+<p>常用的<strong>WSGI容器</strong>有Gunicorn和uWSGI，但Gunicorn直接用命令启动，不需要编写配置文件，相对uWSGI要容易很多，所以这里我也选择用Gunicorn作为容器。</p>
+
+<p><strong>安装</strong></p>
+
+<p><code>pip install gunicorn</code></p>
+
+<p><strong>启动</strong></p>
+
+<p><code>gunicorn [options] module_name:variable_name</code></p>
+
+<p><strong>module_name</strong>对应python文件，<strong>variable_name</strong>对应web应用实例。
+<br>
+<br>
+以最简单的flask应用为例：</p>
+
+<pre><code class="language-python">#main.py
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'hello world'
+    
+if __name__ == '__main__':
+    app.run()
+</code></pre>
+
+<p><strong>启动代码</strong></p>
+
+<p><code>gunicorn main:app</code></p>
+
+<p>其中<code>main</code>就是指python程序代码main.py，<code>app</code>就是那个wsgi func的名字。这样运行的话， gunicorn 默认作为一个监听 127.0.0.1:8000 的web server，可以在本机通过： <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> 访问。</p>
+
+<p><strong>设置监听端口</strong></p>
+
+<p>如果要通过网络访问，则需要绑定不同的地址（也可以同时设置监听端口）。</p>
+
+<p><code>gunicorn -b 127.0.0.1:8080</code></p>
+
+<p><strong>使用多进程</strong></p>
+
+<p>在多核服务器上，为了支持更多的并发访问并充分利用资源，可以使用更多的 gunicorn 进程。</p>
+
+<p><code>gunicorn -w 8 main:app</code></p>
+
+<p>这样就可以启动8个进程同时处理HTTP请求，提高系统的使用效率及性能。</p>
+
+<p><strong>配合gevent</strong></p>
+
+<p>另外， gunicorn 默认使用同步阻塞的网络模型(-k sync)，对于大并发的访问可能表现不够好， 它还支持其它更好的模式，比如：gevent或meinheld。</p>
+
+<p><code>gunicorn -k gevent main:app</code></p>
+
+<p><strong>指定配置文件</strong></p>
+
+<p>以上设置还可以通过 -c 参数传入一个配置文件实现。配置文件如下：</p>
+
+<pre><code class="language-python">import os
+import gevent.monkey
+gevent.monkey.patch_all()
+
+import multiprocessing
+
+# 需要log目录存在。如果不存在，启动会报错
+
+# debug = True  # 生产环境不需要这个配置项。开启debug项后，在启动gunicorn的时候可以看到所有可配置项的配置
+loglevel = 'debug'  # 用于控制errorlog的信息级别，可以设置为debug、info、warning、error、critical
+bind = &quot;0.0.0.0:5000&quot;    # 监听IP放宽，以便于Docker之间、Docker和宿主机之间的通信
+pidfile = &quot;log/gunicorn.pid&quot;
+accesslog = &quot;log/access.log&quot;    # 访问日志，可以通过access_log_format设置访问日志格式
+errorlog = &quot;log/debug.log&quot;
+daemon = True     # 以守护进程形式来运行Gunicorn进程(其实就是将这个服务放到后台去运行)
+
+#启动的进程数
+workers = multiprocessing.cpu_count() * 2 + 1 
+worker_class = 'gunicorn.workers.ggevent.GeventWorker'
+# workers = 5    # 定义同时开启的处理请求的进程数量，根据网站流量适当调整
+# worker_class = &quot;gevent&quot;   # 采用gevent库，支持异步处理请求，提高吞吐量
+
+x_forwarded_for_header = 'X-FORWARDED-FOR'
+</code></pre>
+
+<blockquote>
+<p>指定配置文件的启动命令如下：
+<br>
+<br>
+<code>gunicorn main:app -c gunicorn.conf.py</code>
+<br>
+<br>
+单纯的flask 自带的web服务器做下测试，会看到压力大的时候出现socket的问题，因为他是单进程单线程的。使用gunicorn来启动，响应速度和能力提升显著。
+<br>
+<br>
+配置中workers指定启动的进程数。cpu的损耗是平均到各个进程。workers的值一定不要过大，毕竟多进程对于系统的调度消耗比较大。</p>
+</blockquote>
+
+<p><strong>关于gevent</strong></p>
+
+<p>gevent是一个基于libev的并发库。它为各种并发和网络相关的任务提供了整洁的API。gunicorn对于“协程”也就是Gevent的支持非常好。</p>
+
+<p>gevent程序员指南：<a href="http://xlambda.com/gevent-tutorial/#">gevnet指南</a></p>
+
+<p>gevent.monkey介绍详见：<a href="http://www.gevent.org/gevent.monkey.html">关于gevent monkey</a></p>
+
+<h3 id="三-部署注意事项">三、部署注意事项</h3>
+
+<p>开发flask应用时，常用flask-script添加一些命令扩展。而部署应用时，就不需要再从flask-script的Manager实例中启动应用了。
+在项目中添加wsgi.py文件：
+<br>
+<br>
+在项目中添加wsgi.py文件：</p>
+
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+import os
+
+from . import create_app
+import datetime
+
+# Create an application instance that web servers can use. We store it as
+# &quot;application&quot; (the wsgi default) and also the much shorter and convenient
+# &quot;app&quot;.
+application = app = create_app('default')
+
+@app.context_processor
+def template_extras():
+    &quot;&quot;&quot;
+    上下文处理装饰器，返回的字典的键可以在上下文中使用
+    :return:
+    &quot;&quot;&quot;
+    return {'enumerate': enumerate, 'len': len, 'datetime': datetime}
+</code></pre>
+
+<p>在wsgi文件中创建flask实例给gunicorn使用。
+创建实例后，注册上下文装饰器。
+再通过gunicorn启动flask应用：</p>
+
+<p><code>gunicorn -b 127.0.0.1:8000 -k gevent -w 1 app.wsgi</code></p>
+
+<h3 id="四-nginx">四、Nginx</h3>
+
+<p>Gunicorn对静态文件的支持不太好，所以生产环境下常用Nginx作为反向代理服务器。</p>
+
+<p><strong>安装</strong></p>
+
+<p><code>sudo apt-get install nginx</code> 或者 <code>yum install nginx</code></p>
+
+<p><strong>启动</strong></p>
+
+<p><code>sudo /etc/init.d/nginx start</code>或者<code>sudo systemctl start nginx</code></p>
+
+<p>如果想在系统启动时启用Nginx。请输入以下命令：</p>
+
+<p><code>sudo systemctl enable nginx</code></p>
+
+<p><strong>修改配置文件</strong></p>
+
+<p>先将配置文件备份：
+<code>cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak</code></p>
+
+<p>然后修改配置文件：</p>
+
+<pre><code>server {
+        listen 80;
+        server_name _; # 外部地址
+
+        location / {
+                proxy_pass http://127.0.0.1:8000;
+                proxy_redirect     off;
+                proxy_set_header   Host                 $http_host;
+                proxy_set_header   X-Real-IP            $remote_addr;
+                proxy_set_header   X-Forwarded-For      $proxy_add_x_forwarded_for;
+                proxy_set_header   X-Forwarded-Proto    $scheme;
+        }
+</code></pre>
+
+<p>这里将Nginx设置为代理模式，代理到本地的8000端口,之后就可以通过公网访问flask应用了。</p>
+
+<h3 id="总结">总结</h3>
+
+<p>最后，总结下这几个部分的关系：</p>
+
+<p><strong>web platform&nbsp;&nbsp;&nbsp;&lt;&mdash;&gt;&nbsp;&nbsp;&nbsp;WSGI&nbsp;&nbsp;&nbsp;&lt;&mdash;&gt;&nbsp;&nbsp;&nbsp;Nginx&nbsp;&nbsp;&nbsp;&lt;&mdash;&gt;&nbsp;&nbsp;&nbsp;web_client</strong></p>
+
+<p>最后以一段对话结束本篇博客</p>
+
+<blockquote>
+<p>(nginx收到客户端发来的请求，根据nginx中配置的路由，将其转发给WSGI)
+<br>
+<br>
+nginx：&rdquo;WSGI，找你的来了！&rdquo;
+<br>
+<br>
+(WSGI服务器根据WSGI协议解析请求，配置好环境变量，调用start_response方法呼叫flask框架)
+<br>
+<br>
+WSGI服务器：&rdquo;flask,快来接客，客户资料我都给你准备好了！&rdquo;
+<br>
+<br>
+(flask根据env环境变量，请求参数和路径找到对应处理函数，生成html)
+<br>
+<br>
+flask：&rdquo;!@#$%^&hellip;&hellip;WSGI，html文档弄好了，拿去吧。&rdquo;
+<br>
+<br>
+(WSGI拿到html，再组装根据env变量组装成一个http响应，发送给nginx)
+<br>
+<br>
+WSGI服务器：&rdquo;nginx,刚才谁找我来着？回他个话，!@#$%^&hellip;..&rdquo;
+<br>
+<br>
+(nginx再将响应发送给客户端)</p>
+</blockquote>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">honour</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-06-27</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/python/">python</a>
+          
+          <a href="/tags/flask/">flask</a>
+          
+          <a href="/tags/gunicorn/">gunicorn</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/linux/centos_iptables/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">解决CentOS(6和7版本)，/etc/sysconfig/下没有iptables的问题</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/python/selenium_chromedriver2/">
+            <span class="next-text nav-default">Python3 下 selenium 常用方法教程</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:yefeihonours@gmail.com" class="iconfont icon-email" title="email"></a>
+  <a href="https://yefeihonours.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+    <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangyefei</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

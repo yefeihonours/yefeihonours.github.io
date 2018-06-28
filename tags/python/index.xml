@@ -6,10 +6,59 @@
     <description>Recent content in Python on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 22 Jun 2018 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Jun 2018 12:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://yefeihonours.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flask &#43; Gunicorn &#43; Nginx 部署</title>
+      <link>https://yefeihonours.github.io/post/python/flask_gunicorn_nginx/</link>
+      <pubDate>Wed, 27 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/flask_gunicorn_nginx/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Flask，webpy，Django都带着 WSGI server，当然性能都不好，自带的web server 更多的是测试用途。线上发布时，则使用高性能的 wsgi server或者是联合nginx做uwsgi 。
+&lt;br&gt;
+&lt;br&gt;
+greenlet是一个轻量级的协程库。gevent是基于greenlet的网络库。
+guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一 ，是为了解决django、flask这些web框架自带wsgi server性能低下的问题。它的特点是与各个web框架结合紧密，部署特别方便。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python3 下 selenium 常用方法教程</title>
+      <link>https://yefeihonours.github.io/post/python/selenium_chromedriver2/</link>
+      <pubDate>Mon, 25 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/selenium_chromedriver2/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
+&lt;br&gt;
+&lt;br&gt;
+这里将介绍selenium + 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>selenium &#43; ChromeDriver 配置教程</title>
+      <link>https://yefeihonours.github.io/post/python/selenium_chromedriver/</link>
+      <pubDate>Mon, 25 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/selenium_chromedriver/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
+&lt;br&gt;
+&lt;br&gt;
+这里将介绍selenium + 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Linux 安装 python3.6 教程</title>
@@ -19,7 +68,7 @@
       <guid>https://yefeihonours.github.io/post/linux/python_setup/</guid>
       <description>&lt;p&gt;本文记录在 linux 服务器上安装 python3.6 的过程。&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;注意：如果本机安装了python2，请尽量不要管，使用python3运行python脚本就好，因为可能有程序依赖目前的python2环境，比如yum&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：通常linux服务器会预装python2，请尽量不要管，使用python3运行python脚本就好，因为可能有程序依赖目前的python2环境，比如yum&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
