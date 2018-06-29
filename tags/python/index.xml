@@ -6,10 +6,29 @@
     <description>Recent content in Python on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 27 Jun 2018 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 Jun 2018 12:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://yefeihonours.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flask-SQLALchemy 基本方法教程</title>
+      <link>https://yefeihonours.github.io/post/python/flask_sqlalchemy/</link>
+      <pubDate>Fri, 29 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/flask_sqlalchemy/</guid>
+      <description>&lt;h3 id=&#34;flask-sqlalchemy简介&#34;&gt;&lt;strong&gt;flask-SQLAlchemy简介&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;flask-SQLAlchemy 是一个为您的flask应用增加SQLAlchemy支持的扩展。
+&lt;br&gt;
+&lt;br&gt;
+在python扩展库中其实包含了SQLAlchemy。在版本的不断叠加后，已经被整合到flask架构中，flask-SQLAlchemy简化在Flask中SQLAlchemy的使用，提供了有用的默认值和额外的助手来更简单地完成常见任务。
+&lt;br&gt;
+&lt;br&gt;
+
+笔者认为SQLAlchemy比较精髓的是使用ORM(对象关系映射)，相对于传统连接数据库使用select，update，insert，delete操作数据表来说具有以下特点：&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Flask &#43; Gunicorn &#43; Nginx 部署</title>

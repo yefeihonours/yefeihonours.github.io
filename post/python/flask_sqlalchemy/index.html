@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Flask-SQLALchemy 基本方法教程 - HuangYefei&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="honour" />
+  <meta name="description" content="flask-SQLAlchemy简介  flask-SQLAlchemy 是一个为您的flask应用增加SQLAlchemy支持的扩展。 在python扩展库中其实包含了SQLAlchemy。在版本的不断叠加后，已经被整合到flask架构中，flask-SQLAlchemy简化在Flask中SQLAlchemy的使用，提供了有用的默认值和额外的助手来更简单地完成常见任务。 笔者认为SQLAlchemy比较精髓的是使用ORM(对象关系映射)，相对于传统连接数据库使用select，update，insert，delete操作数据表来说具有以下特点：
+" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<link rel="canonical" href="https://yefeihonours.github.io/post/python/flask_sqlalchemy/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+
+
+
+
+
+<meta property="og:title" content="Flask-SQLALchemy 基本方法教程" />
+<meta property="og:description" content="flask-SQLAlchemy简介
+
+
+flask-SQLAlchemy 是一个为您的flask应用增加SQLAlchemy支持的扩展。
+
+
+在python扩展库中其实包含了SQLAlchemy。在版本的不断叠加后，已经被整合到flask架构中，flask-SQLAlchemy简化在Flask中SQLAlchemy的使用，提供了有用的默认值和额外的助手来更简单地完成常见任务。
+
+
+
+笔者认为SQLAlchemy比较精髓的是使用ORM(对象关系映射)，相对于传统连接数据库使用select，update，insert，delete操作数据表来说具有以下特点：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/python/flask_sqlalchemy/" />
+
+
+
+<meta property="article:published_time" content="2018-06-29T12:00:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-06-29T12:00:00&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Flask-SQLALchemy 基本方法教程">
+<meta itemprop="description" content="flask-SQLAlchemy简介
+
+
+flask-SQLAlchemy 是一个为您的flask应用增加SQLAlchemy支持的扩展。
+
+
+在python扩展库中其实包含了SQLAlchemy。在版本的不断叠加后，已经被整合到flask架构中，flask-SQLAlchemy简化在Flask中SQLAlchemy的使用，提供了有用的默认值和额外的助手来更简单地完成常见任务。
+
+
+
+笔者认为SQLAlchemy比较精髓的是使用ORM(对象关系映射)，相对于传统连接数据库使用select，update，insert，delete操作数据表来说具有以下特点：">
+
+
+<meta itemprop="datePublished" content="2018-06-29T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-06-29T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="1127">
+
+
+
+<meta itemprop="keywords" content="python,flask,flask-sqlalchemy," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Flask-SQLALchemy 基本方法教程"/>
+<meta name="twitter:description" content="flask-SQLAlchemy简介
+
+
+flask-SQLAlchemy 是一个为您的flask应用增加SQLAlchemy支持的扩展。
+
+
+在python扩展库中其实包含了SQLAlchemy。在版本的不断叠加后，已经被整合到flask架构中，flask-SQLAlchemy简化在Flask中SQLAlchemy的使用，提供了有用的默认值和额外的助手来更简单地完成常见任务。
+
+
+
+笔者认为SQLAlchemy比较精髓的是使用ORM(对象关系映射)，相对于传统连接数据库使用select，update，insert，delete操作数据表来说具有以下特点："/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HuangYefei</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HuangYefei</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Flask-SQLALchemy 基本方法教程</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-06-29 </span>
+        <div class="post-category">
+            
+              <a href="/categories/python/"> Python </a>
+            
+          </div>
+        <span class="more-meta"> 约 1127 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#flask-sqlalchemy简介"><strong>flask-SQLAlchemy简介</strong></a></li>
+<li><a href="#一-常用方法">一、常用方法</a></li>
+<li><a href="#二-实例">二、实例</a>
+<ul>
+<li><a href="#创建表">创建表</a></li>
+<li><a href="#删除表">删除表</a></li>
+<li><a href="#插入一条数据">插入一条数据</a></li>
+<li><a href="#再次插入一条数据">再次插入一条数据</a></li>
+<li><a href="#一次插入多条数据">一次插入多条数据</a></li>
+<li><a href="#查询">查询</a>
+<ul>
+<li><a href="#filter-by">filter_by</a></li>
+<li><a href="#first">first()</a></li>
+<li><a href="#all">all()</a></li>
+<li><a href="#filter">filter</a></li>
+<li><a href="#get">get()</a>
+<ul>
+<li><a href="#逻辑非">逻辑非</a></li>
+</ul></li>
+<li><a href="#逻辑与">逻辑与</a></li>
+<li><a href="#逻辑或">逻辑或</a></li>
+<li><a href="#not">not_</a></li>
+<li><a href="#in">in</a></li>
+<li><a href="#查询数据后删除">查询数据后删除</a></li>
+<li><a href="#更新数据">更新数据</a></li>
+<li><a href="#使用update">使用update</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h3 id="flask-sqlalchemy简介"><strong>flask-SQLAlchemy简介</strong></h3>
+
+<blockquote>
+<p>flask-SQLAlchemy 是一个为您的flask应用增加SQLAlchemy支持的扩展。
+<br>
+<br>
+在python扩展库中其实包含了SQLAlchemy。在版本的不断叠加后，已经被整合到flask架构中，flask-SQLAlchemy简化在Flask中SQLAlchemy的使用，提供了有用的默认值和额外的助手来更简单地完成常见任务。
+<br>
+<br>
+
+笔者认为SQLAlchemy比较精髓的是使用ORM(对象关系映射)，相对于传统连接数据库使用select，update，insert，delete操作数据表来说具有以下特点：</p>
+
+<ul>
+<li><p>简单——以最基本的形式建模数据</p></li>
+
+<li><p>传达性——数据库结构被任何人都能理解的语言文档化</p></li>
+
+<li><p>精确性——基于数据模型创建正确标准化的结构</p></li>
+</ul>
+
+<p>完事无绝对，ORM有明显的优势，就会想伴随有缺点。</p>
+
+<ul>
+<li><p>隐蔽性——相对于传统使用select,update,insert,delete来说，隐藏了操作数据表的具体操作，不利于SQL的学习</p></li>
+
+<li><p>数据表结构修改难——在设计中有时会忽略了一些字段的定义，在ORM模式中只能更新映射表更新字段，而且效果远不如alter table [表名] add 字段名更新字段来的容易理解，常常会忽略一些细节</p></li>
+</ul>
+
+<p>但不得不说，ORM模式的确打开了新世界的大门，大大减少了学习及使用数据库的过程与难度。</p>
+</blockquote>
+
+<h3 id="一-常用方法">一、常用方法</h3>
+
+<ul>
+<li><strong>常用的SQLAlchemy查询过滤器</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>过滤器</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>filter(&nbsp;)</td>
+<td>把过滤器添加到原查询上，返回一个新查询</td>
+</tr>
+
+<tr>
+<td>filter_by(&nbsp;)</td>
+<td>把等值过滤器添加到原查询上，返回一个新查询</td>
+</tr>
+
+<tr>
+<td>limit</td>
+<td>使用指定的值限定原查询返回的结果</td>
+</tr>
+
+<tr>
+<td>offset(&nbsp;)</td>
+<td>偏移原查询返回的结果，返回一个新查询</td>
+</tr>
+
+<tr>
+<td>order_by(&nbsp;)</td>
+<td>根据指定条件对原查询结果进行排序，返回一个新查询</td>
+</tr>
+
+<tr>
+<td>group_by(&nbsp;)</td>
+<td>根据指定条件对原查询结果进行分组，返回一个新查询</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li><strong>常用的SQLAlchemy查询执行器</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>all(&nbsp;)</td>
+<td>以列表形式返回查询的所有结果</td>
+</tr>
+
+<tr>
+<td>first(&nbsp;)</td>
+<td>返回查询的第一个结果，如果未查到，返回None</td>
+</tr>
+
+<tr>
+<td>first_or_404(&nbsp;)</td>
+<td>返回查询的第一个结果，如果未查到，返回404</td>
+</tr>
+
+<tr>
+<td>get(&nbsp;)</td>
+<td>返回指定主键对应的行，如不存在，返回None</td>
+</tr>
+
+<tr>
+<td>get_or_404(&nbsp;)</td>
+<td>返回指定主键对应的行，如不存在，返回404</td>
+</tr>
+
+<tr>
+<td>count(&nbsp;)</td>
+<td>返回查询结果的数量</td>
+</tr>
+
+<tr>
+<td>paginate(&nbsp;)</td>
+<td>返回一个Paginate对象，它包含指定范围内的结果</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="二-实例">二、实例</h3>
+
+<h4 id="创建表">创建表</h4>
+
+<p><code>db.create_all()</code></p>
+
+<h4 id="删除表">删除表</h4>
+
+<p><code>db.drop_all()</code></p>
+
+<h4 id="插入一条数据">插入一条数据</h4>
+
+<p><code>ro1 = Role(name='admin')</code>
+<br>
+<code>db.session.add(ro1)</code>
+<br>
+<code>db.session.commit()</code></p>
+
+<h4 id="再次插入一条数据">再次插入一条数据</h4>
+
+<p><code>ro2 = Role(name='user')</code>
+<br>
+<code>db.session.add(ro2)</code>
+<br>
+<code>db.session.commit()</code></p>
+
+<h4 id="一次插入多条数据">一次插入多条数据</h4>
+
+<p><code>us1 = User(name='wang',email='wang@163.com',pswd='123456',role_id=ro1.id)</code>
+<br>
+<code>us2 = User(name='zhang',email='zhang@189.com',pswd='201512',role_id=ro2.id)</code>
+<br>
+<code>us3 = User(name='chen',email='chen@126.com',pswd='987654',role_id=ro2.id)</code>
+<br>
+<code>us4 = User(name='zhou',email='zhou@163.com',pswd='456789',role_id=ro1.id)</code>
+<br>
+<code>db.session.add_all([us1,us2,us3,us4])</code>
+<br>
+<code>db.session.commit()</code></p>
+
+<h4 id="查询">查询</h4>
+
+<h5 id="filter-by">filter_by</h5>
+
+<p>精确查询，返回名字等于wang的所有人
+<br>
+<br>
+<code>User.query.filter_by(name='wang').all()</code></p>
+
+<h5 id="first">first()</h5>
+
+<p>返回查询到的第一个对象
+<br>
+<br>
+<code>User.query.first()</code></p>
+
+<h5 id="all">all()</h5>
+
+<p>返回查询到的所有对象
+<code>User.query.all()</code></p>
+
+<h5 id="filter">filter</h5>
+
+<p>模糊查询，返回名字结尾字符为g的所有数据。
+<br>
+<br>
+<code>User.query.filter(User.name.endswith('g')).all()</code></p>
+
+<h5 id="get">get()</h5>
+
+<p>参数为主键，如果主键不存在没有返回内容
+<br>
+<br>
+<code>User.query.get()</code></p>
+
+<h6 id="逻辑非">逻辑非</h6>
+
+<p>返回名字不等于wang的所有数据。</p>
+
+<p><code>User.query.filter(User.name!='wang').all()</code></p>
+
+<h5 id="逻辑与">逻辑与</h5>
+
+<p>需要导入and，返回and()条件满足的所有数据。</p>
+
+<p><code>from sqlalchemy import and_</code>
+<br>
+<code>User.query.filter(and_(User.name!='wang',User.email.endswith('163.com'))).all()</code></p>
+
+<h5 id="逻辑或">逻辑或</h5>
+
+<p>需要导入or_</p>
+
+<p><code>from sqlalchemy import or_</code>
+<br>
+<code>User.query.filter(or_(User.name!='wang',User.email.endswith('163.com'))).all()</code></p>
+
+<h5 id="not">not_</h5>
+
+<p>相当于取反</p>
+
+<p><code>from sqlalchemy import not_</code>
+<br>
+<code>User.query.filter(not_(User.name=='chen')).all()</code></p>
+
+<h5 id="in">in</h5>
+
+<p><code>User.query.filter(User.id.in_((1, 2, 3))).order_by(desc(User.datetime)).all()</code></p>
+
+<h5 id="查询数据后删除">查询数据后删除</h5>
+
+<p><code>user = User.query.first()</code>
+<br>
+<code>db.session.delete(user)</code>
+<br>
+<code>db.session.commit()</code>
+<br>
+<code>User.query.all()</code></p>
+
+<h5 id="更新数据">更新数据</h5>
+
+<p><code>user = User.query.first()</code>
+<br>
+<code>user.name = 'dong'</code>
+<br>
+<code>db.session.commit()</code>
+<br>
+<code>User.query.first()</code></p>
+
+<h5 id="使用update">使用update</h5>
+
+<p><code>User.query.filter_by(name='zhang').update({'name':'li'})</code>
+<br>
+<br></p>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">honour</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-06-29</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/python/">python</a>
+          
+          <a href="/tags/flask/">flask</a>
+          
+          <a href="/tags/flask-sqlalchemy/">flask-sqlalchemy</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/linux/centos_iptables/">
+            <span class="next-text nav-default">解决CentOS(6和7版本)，/etc/sysconfig/下没有iptables的问题</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:yefeihonours@gmail.com" class="iconfont icon-email" title="email"></a>
+  <a href="https://yefeihonours.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+    <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangyefei</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
