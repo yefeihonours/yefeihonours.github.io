@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Nginx安装并支持TCP - HuangYefei&#39;s Blog</title>
+  <title>Nginx支持TCP - HuangYefei&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,8 +16,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="tyrodw" />
-  <meta name="description" content="安装Nginx 需要软件包  nginx-1.10.3.tar.gz pcre-8.40.tar.gz nginx_tcp_proxy_module.zip  
+<meta name="author" content="honour" />
+  <meta name="description" content="本文记录如何配置Nginx使其支持TCP
+
 " />
 
   <meta name="keywords" content="Hugo, theme, even" />
@@ -50,16 +51,8 @@
 
 
 
-<meta property="og:title" content="Nginx安装并支持TCP" />
-<meta property="og:description" content="安装Nginx
-
-需要软件包
-
-
-nginx-1.10.3.tar.gz
-pcre-8.40.tar.gz
-nginx_tcp_proxy_module.zip
-
+<meta property="og:title" content="Nginx支持TCP" />
+<meta property="og:description" content="本文记录如何配置Nginx使其支持TCP
 
 " />
 <meta property="og:type" content="article" />
@@ -81,38 +74,22 @@ nginx_tcp_proxy_module.zip
 
 
 
-<meta itemprop="name" content="Nginx安装并支持TCP">
-<meta itemprop="description" content="安装Nginx
-
-需要软件包
-
-
-nginx-1.10.3.tar.gz
-pcre-8.40.tar.gz
-nginx_tcp_proxy_module.zip
-
+<meta itemprop="name" content="Nginx支持TCP">
+<meta itemprop="description" content="本文记录如何配置Nginx使其支持TCP
 
 ">
 
 
 <meta itemprop="datePublished" content="2017-11-05T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-11-05T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="110">
+<meta itemprop="wordCount" content="79">
 
 
 
 <meta itemprop="keywords" content="linux,nginx," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Nginx安装并支持TCP"/>
-<meta name="twitter:description" content="安装Nginx
-
-需要软件包
-
-
-nginx-1.10.3.tar.gz
-pcre-8.40.tar.gz
-nginx_tcp_proxy_module.zip
-
+<meta name="twitter:title" content="Nginx支持TCP"/>
+<meta name="twitter:description" content="本文记录如何配置Nginx使其支持TCP
 
 "/>
 
@@ -181,7 +158,7 @@ nginx_tcp_proxy_module.zip
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Nginx安装并支持TCP</h1>
+      <h1 class="post-title">Nginx支持TCP</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2017-11-05 </span>
@@ -190,7 +167,7 @@ nginx_tcp_proxy_module.zip
               <a href="/categories/linux/"> Linux </a>
             
           </div>
-        <span class="more-meta"> 约 110 字 </span>
+        <span class="more-meta"> 约 79 字 </span>
         <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -206,11 +183,6 @@ nginx_tcp_proxy_module.zip
 <ul>
 <li>
 <ul>
-<li><a href="#安装nginx">安装Nginx</a>
-<ul>
-<li><a href="#需要软件包">需要软件包</a></li>
-<li><a href="#解压软件">解压软件</a></li>
-</ul></li>
 <li><a href="#添加tcp配置">添加TCP配置</a>
 <ul>
 <li><a href="#在与http配置的同级目录下-添加以下代码">在与http配置的同级目录下, 添加以下代码</a></li>
@@ -224,30 +196,9 @@ nginx_tcp_proxy_module.zip
 
     
     <div class="post-content">
-      <h2 id="安装nginx">安装Nginx</h2>
-
-<h3 id="需要软件包">需要软件包</h3>
-
-<ul>
-<li>nginx-1.10.3.tar.gz</li>
-<li>pcre-8.40.tar.gz</li>
-<li>nginx_tcp_proxy_module.zip</li>
-</ul>
+      <p><strong>本文记录如何配置Nginx使其支持TCP</strong></p>
 
 <p></p>
-
-<h3 id="解压软件">解压软件</h3>
-
-<pre><code>$ tar zxvf nginx-1.10.3.tar.gz
-$ tar zxvf pcre-8.40.tar.gz
-$ unzip nginx_tcp_proxy_module.zip
-$ # 安装
-$ cd nginx-1.10.3
-$ patch -p1 &lt; /path/to/nginx_tcp_proxy_module/tcp.patch
-$ ./configure --with-pcre=/path/to/pcre-8.40  --add-module=/path/to/nginx_tcp_proxy_module
-$ make
-$ make install
-</code></pre>
 
 <h2 id="添加tcp配置">添加TCP配置</h2>
 
@@ -276,7 +227,7 @@ $ # /usr/local/nginx/sbin/nginx –s reload
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content">tyrodw</span>
+    <span class="item-content">honour</span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
@@ -303,12 +254,12 @@ $ # /usr/local/nginx/sbin/nginx –s reload
         
           <a class="prev" href="/post/linux/zookeeper/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Zookeeper安装与集群部署</span>
+            <span class="prev-text nav-default">Zookeeper的安装与集群部署</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
           <a class="next" href="/post/react/start/">
-            <span class="next-text nav-default">React 入门教程</span>
+            <span class="next-text nav-default">初探 React</span>
             <span class="prev-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

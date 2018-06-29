@@ -66,7 +66,7 @@
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/post/linux/docker_container_id/</loc>
+    <loc>https://yefeihonours.github.io/post/linux/docker_container_ip/</loc>
     <lastmod>2018-06-22T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -101,13 +101,6 @@
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/post/python/filter_map_reduce/</loc>
-    <lastmod>2018-01-19T12:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://yefeihonours.github.io/post/python/asyncio/</loc>
     <lastmod>2017-12-22T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -136,20 +129,6 @@
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/post/mysql/opt1/</loc>
-    <lastmod>2017-12-15T12:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://yefeihonours.github.io/post/mysql/opt2/</loc>
-    <lastmod>2017-12-15T12:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://yefeihonours.github.io/post/mongo/auth/</loc>
     <lastmod>2017-11-30T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -164,13 +143,6 @@
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/post/python/const/</loc>
-    <lastmod>2017-11-28T12:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://yefeihonours.github.io/post/python/switch/</loc>
     <lastmod>2017-11-28T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -178,7 +150,14 @@
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/post/javascript/use/</loc>
+    <loc>https://yefeihonours.github.io/post/python/const/</loc>
+    <lastmod>2017-11-28T12:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yefeihonours.github.io/post/javascript/methods/</loc>
     <lastmod>2017-11-07T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -233,14 +212,7 @@
   
   <url>
     <loc>https://yefeihonours.github.io/tags/concurency/</loc>
-    <lastmod>2018-01-19T12:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yefeihonours.github.io/tags/const/</loc>
-    <lastmod>2017-11-28T12:00:00+08:00</lastmod>
+    <lastmod>2017-12-22T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -353,13 +325,6 @@
   <url>
     <loc>https://yefeihonours.github.io/tags/mongosb/</loc>
     <lastmod>2017-11-30T12:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yefeihonours.github.io/categories/mysql/</loc>
-    <lastmod>2017-12-15T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

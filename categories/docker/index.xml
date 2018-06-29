@@ -26,10 +26,10 @@
     
     <item>
       <title>如何查看 Docker Container 的 IP 地址</title>
-      <link>https://yefeihonours.github.io/post/linux/docker_container_id/</link>
+      <link>https://yefeihonours.github.io/post/linux/docker_container_ip/</link>
       <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/linux/docker_container_id/</guid>
+      <guid>https://yefeihonours.github.io/post/linux/docker_container_ip/</guid>
       <description>&lt;p&gt;本文记录如何查看 Docker Container 的 IP 地址的方法。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -41,9 +41,7 @@
       <pubDate>Wed, 13 Jun 2018 12:00:00 +0800</pubDate>
       
       <guid>https://yefeihonours.github.io/post/docker/docker_beginner/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;本文将介绍docker的常用基本命令。&lt;/strong&gt;
-&lt;/br&gt;
-&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;本文将介绍docker的常用基本命令。&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

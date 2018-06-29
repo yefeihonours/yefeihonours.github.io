@@ -252,45 +252,6 @@
     
       <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/filter_map_reduce/">Python3 Filter_Map_Reduce In Library</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-01-19 </span>
-      <div class="post-category">
-          
-            <a href="/categories/python/"> Python </a>
-          
-        </div>
-      <span class="more-meta"> 约 756 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="filter">Filter</h2>
-
-<blockquote>
-<p>filter(function, iterable)</p>
-</blockquote>
-
-<p><strong>filter</strong> 函数接收一个函数和一个 可迭代对象, 并返回可迭代对象 <em>iterable</em> 中的每一个元素在 <em>function</em> 函数中运算返回 <em>True</em> 的元素组成的新的迭代器. <em>iterable</em> 可以是队列, 或者支持迭代的容器, 或者是一个迭代器. 如果 <em>function</em> 函数为空( None ), 那么将 <em>function</em> 设定为假定的函数, 这样, 对 <em>iterable</em> 可迭代对象中的元素都会被认为返回 <em>False</em> , 会在返回的迭代器中移除.</p>
-
-<pre><code class="language-python">iter = [1, 2, 3, 4, 5, 6, 7, 8]
-list(filter(lambda i: i%2, iter))
-# Output: [1, 3, 5, 7]
-</code></pre>
-
-<p></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/python/filter_map_reduce/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/python/asyncio/">Python3 Task and Coroutines</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2017-12-22 </span>
@@ -321,7 +282,7 @@ list(filter(lambda i: i%2, iter))
     
       <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/conf/">Python3 读取 .conf 文件配置信息</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/python/conf/">Python3 如何读取 .conf 文件配置信息</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2017-12-21 </span>
       <div class="post-category">
@@ -351,7 +312,7 @@ list(filter(lambda i: i%2, iter))
     
       <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/import/">Python3 动态导入模块</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/python/import/">Python3 如何动态导入模块</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2017-12-20 </span>
       <div class="post-category">
@@ -381,7 +342,7 @@ list(filter(lambda i: i%2, iter))
     
       <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/singleton/">Python3 单例模式简单实现</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/python/singleton/">Python3 单例模式的实现</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2017-12-19 </span>
       <div class="post-category">
@@ -411,34 +372,42 @@ list(filter(lambda i: i%2, iter))
     
       <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/mysql/opt1/">MySQL 性能优化笔记 [1]</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/mongo/auth/">MongoDB户权限配置教程</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2017-12-15 </span>
+      <span class="post-time"> 2017-11-30 </span>
       <div class="post-category">
           
-            <a href="/categories/mysql/"> MySQL </a>
+            <a href="/categories/mongodb/"> MongoDB </a>
           
         </div>
-      <span class="more-meta"> 约 3852 字 </span>
-      <span class="more-meta"> 预计阅读 8 分钟 </span>
+      <span class="more-meta"> 约 830 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      <h4 id="0-数据库优化可以从下面几个方面着手">0. 数据库优化可以从下面几个方面着手</h4>
+      <h3 id="启动mongodb实例">启动MongoDb实例</h3>
 
-<ul>
-<li>SQL及索引</li>
-<li>数据库表结构</li>
-<li>系统配置</li>
-<li>硬件</li>
-</ul>
+<blockquote>
+<p>本文以<code>Docker</code>启动<code>MongoDB</code>为例，省略服务器上MongoDB安装过程</p>
+</blockquote>
+
+<pre><code># Docker启动MongoDB实例，使用前确保电脑上已经安装docker
+
+$ docker pull mongo:3.0
+...
+
+# --auth 参数表示以权限验证模式启动
+$ docker run --name mongo_instance -p 0.0.0.0:27017:27017 -d mongo --auth
+d18d1d4fd831...a5bc378178
+
+</code></pre>
 
 <p></p>
     </div>
     <div class="read-more">
-      <a href="/post/mysql/opt1/" class="read-more-link">阅读更多</a>
+      <a href="/post/mongo/auth/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -446,34 +415,61 @@ list(filter(lambda i: i%2, iter))
     
       <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/mysql/opt2/">MySQL 性能优化笔记 [2]</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/python/use/">Python3 中实用的方法</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2017-12-15 </span>
+      <span class="post-time"> 2017-11-28 </span>
       <div class="post-category">
           
-            <a href="/categories/mysql/"> MySQL </a>
+            <a href="/categories/python/"> Python </a>
           
         </div>
-      <span class="more-meta"> 约 919 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
+      <span class="more-meta"> 约 345 字 </span>
+      <span class="more-meta"> 预计阅读 1 分钟 </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      <h4 id="0-数据库优化可以从下面几个方面着手">0. 数据库优化可以从下面几个方面着手</h4>
+      <blockquote>
+<p>让目录或者zip文件成为可运行的脚本</p>
 
-<ul>
-<li>SQL及索引</li>
-<li>数据库表结构</li>
-<li>系统配置</li>
-<li>硬件</li>
-</ul>
+<p>在书写python脚本的时候，往往会使用不止一个 python 代码文件，而将多个文件放在一个目录下或者zip包中，使目录或者zip包可以直接运行，这样使得多个python简脚本运行变得非常方便</p>
+</blockquote>
 
 <p></p>
     </div>
     <div class="read-more">
-      <a href="/post/mysql/opt2/" class="read-more-link">阅读更多</a>
+      <a href="/post/python/use/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/switch/">Python 中 switch 方法的实现</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-11-28 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 493 字 </span>
+      <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <blockquote>
+<p>在Python开发过程中，很多时候都需要使用到<code>switch</code>的结构形式，而大多在遇到这种情况的时候，开发人员都是使用<code>if...else...</code>结构来代替，但是过多的重复判断，会导致程序的可读性变差。</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/switch/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

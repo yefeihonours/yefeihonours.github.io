@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>Javascript 好用的方法</title>
-      <link>https://yefeihonours.github.io/post/javascript/use/</link>
+      <title>Javascript 实用的方法</title>
+      <link>https://yefeihonours.github.io/post/javascript/methods/</link>
       <pubDate>Tue, 07 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/javascript/use/</guid>
+      <guid>https://yefeihonours.github.io/post/javascript/methods/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;数字金额转化大写&lt;/li&gt;
 &lt;li&gt;计算字符串日期对应星期几&lt;/li&gt;
@@ -29,7 +29,7 @@
     </item>
     
     <item>
-      <title>React 入门教程</title>
+      <title>初探 React</title>
       <link>https://yefeihonours.github.io/post/react/start/</link>
       <pubDate>Fri, 03 Nov 2017 12:00:00 +0800</pubDate>
       

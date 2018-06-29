@@ -133,10 +133,10 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
     
     <item>
       <title>如何查看 Docker Container 的 IP 地址</title>
-      <link>https://yefeihonours.github.io/post/linux/docker_container_id/</link>
+      <link>https://yefeihonours.github.io/post/linux/docker_container_ip/</link>
       <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/linux/docker_container_id/</guid>
+      <guid>https://yefeihonours.github.io/post/linux/docker_container_ip/</guid>
       <description>&lt;p&gt;本文记录如何查看 Docker Container 的 IP 地址的方法。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -148,9 +148,7 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
       <pubDate>Wed, 13 Jun 2018 12:00:00 +0800</pubDate>
       
       <guid>https://yefeihonours.github.io/post/docker/docker_beginner/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;本文将介绍docker的常用基本命令。&lt;/strong&gt;
-&lt;/br&gt;
-&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;本文将介绍docker的常用基本命令。&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -211,28 +209,6 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
     </item>
     
     <item>
-      <title>Python3 Filter_Map_Reduce In Library</title>
-      <link>https://yefeihonours.github.io/post/python/filter_map_reduce/</link>
-      <pubDate>Fri, 19 Jan 2018 12:00:00 +0800</pubDate>
-      
-      <guid>https://yefeihonours.github.io/post/python/filter_map_reduce/</guid>
-      <description>&lt;h2 id=&#34;filter&#34;&gt;Filter&lt;/h2&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;filter(function, iterable)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;filter&lt;/strong&gt; 函数接收一个函数和一个 可迭代对象, 并返回可迭代对象 &lt;em&gt;iterable&lt;/em&gt; 中的每一个元素在 &lt;em&gt;function&lt;/em&gt; 函数中运算返回 &lt;em&gt;True&lt;/em&gt; 的元素组成的新的迭代器. &lt;em&gt;iterable&lt;/em&gt; 可以是队列, 或者支持迭代的容器, 或者是一个迭代器. 如果 &lt;em&gt;function&lt;/em&gt; 函数为空( None ), 那么将 &lt;em&gt;function&lt;/em&gt; 设定为假定的函数, 这样, 对 &lt;em&gt;iterable&lt;/em&gt; 可迭代对象中的元素都会被认为返回 &lt;em&gt;False&lt;/em&gt; , 会在返回的迭代器中移除.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;iter = [1, 2, 3, 4, 5, 6, 7, 8]
-list(filter(lambda i: i%2, iter))
-# Output: [1, 3, 5, 7]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Python3 Task and Coroutines</title>
       <link>https://yefeihonours.github.io/post/python/asyncio/</link>
       <pubDate>Fri, 22 Dec 2017 12:00:00 +0800</pubDate>
@@ -246,7 +222,7 @@ list(filter(lambda i: i%2, iter))
     </item>
     
     <item>
-      <title>Python3 读取 .conf 文件配置信息</title>
+      <title>Python3 如何读取 .conf 文件配置信息</title>
       <link>https://yefeihonours.github.io/post/python/conf/</link>
       <pubDate>Thu, 21 Dec 2017 12:00:00 +0800</pubDate>
       
@@ -259,7 +235,7 @@ list(filter(lambda i: i%2, iter))
     </item>
     
     <item>
-      <title>Python3 动态导入模块</title>
+      <title>Python3 如何动态导入模块</title>
       <link>https://yefeihonours.github.io/post/python/import/</link>
       <pubDate>Wed, 20 Dec 2017 12:00:00 +0800</pubDate>
       
@@ -272,7 +248,7 @@ list(filter(lambda i: i%2, iter))
     </item>
     
     <item>
-      <title>Python3 单例模式简单实现</title>
+      <title>Python3 单例模式的实现</title>
       <link>https://yefeihonours.github.io/post/python/singleton/</link>
       <pubDate>Tue, 19 Dec 2017 12:00:00 +0800</pubDate>
       
@@ -285,43 +261,7 @@ list(filter(lambda i: i%2, iter))
     </item>
     
     <item>
-      <title>MySQL 性能优化笔记 [1]</title>
-      <link>https://yefeihonours.github.io/post/mysql/opt1/</link>
-      <pubDate>Fri, 15 Dec 2017 12:00:00 +0800</pubDate>
-      
-      <guid>https://yefeihonours.github.io/post/mysql/opt1/</guid>
-      <description>&lt;h4 id=&#34;0-数据库优化可以从下面几个方面着手&#34;&gt;0. 数据库优化可以从下面几个方面着手&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;SQL及索引&lt;/li&gt;
-&lt;li&gt;数据库表结构&lt;/li&gt;
-&lt;li&gt;系统配置&lt;/li&gt;
-&lt;li&gt;硬件&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>MySQL 性能优化笔记 [2]</title>
-      <link>https://yefeihonours.github.io/post/mysql/opt2/</link>
-      <pubDate>Fri, 15 Dec 2017 12:00:00 +0800</pubDate>
-      
-      <guid>https://yefeihonours.github.io/post/mysql/opt2/</guid>
-      <description>&lt;h4 id=&#34;0-数据库优化可以从下面几个方面着手&#34;&gt;0. 数据库优化可以从下面几个方面着手&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;SQL及索引&lt;/li&gt;
-&lt;li&gt;数据库表结构&lt;/li&gt;
-&lt;li&gt;系统配置&lt;/li&gt;
-&lt;li&gt;硬件&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>MongoDB配置用户权限</title>
+      <title>MongoDB户权限配置教程</title>
       <link>https://yefeihonours.github.io/post/mongo/auth/</link>
       <pubDate>Thu, 30 Nov 2017 12:00:00 +0800</pubDate>
       
@@ -347,7 +287,7 @@ d18d1d4fd831...a5bc378178
     </item>
     
     <item>
-      <title>Python3 中有用的方法</title>
+      <title>Python3 中实用的方法</title>
       <link>https://yefeihonours.github.io/post/python/use/</link>
       <pubDate>Tue, 28 Nov 2017 12:03:00 +0800</pubDate>
       
@@ -362,20 +302,7 @@ d18d1d4fd831...a5bc378178
     </item>
     
     <item>
-      <title>Python中const实现</title>
-      <link>https://yefeihonours.github.io/post/python/const/</link>
-      <pubDate>Tue, 28 Nov 2017 12:00:00 +0800</pubDate>
-      
-      <guid>https://yefeihonours.github.io/post/python/const/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;在Python开发过程中，经常会有用到不可变常量的时候，但一般都是直接定义Python数据类型。但这并不安全，在以后的编码过程中，我们很有可能在自己不知道的情况下修改这个变量的值，但事实上并不希望如此。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Python中switch实现</title>
+      <title>Python 中 switch 方法的实现</title>
       <link>https://yefeihonours.github.io/post/python/switch/</link>
       <pubDate>Tue, 28 Nov 2017 12:00:00 +0800</pubDate>
       
@@ -388,11 +315,24 @@ d18d1d4fd831...a5bc378178
     </item>
     
     <item>
-      <title>Javascript 好用的方法</title>
-      <link>https://yefeihonours.github.io/post/javascript/use/</link>
+      <title>Python中不可变常亮的实现</title>
+      <link>https://yefeihonours.github.io/post/python/const/</link>
+      <pubDate>Tue, 28 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/const/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;在Python开发过程中，经常会有用到不可变常量的时候，但一般都是直接定义Python数据类型。但这并不安全，在以后的编码过程中，我们很有可能在自己不知道的情况下修改这个变量的值，但事实上并不希望如此。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Javascript 实用的方法</title>
+      <link>https://yefeihonours.github.io/post/javascript/methods/</link>
       <pubDate>Tue, 07 Nov 2017 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/javascript/use/</guid>
+      <guid>https://yefeihonours.github.io/post/javascript/methods/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;数字金额转化大写&lt;/li&gt;
 &lt;li&gt;计算字符串日期对应星期几&lt;/li&gt;
@@ -405,7 +345,7 @@ d18d1d4fd831...a5bc378178
     </item>
     
     <item>
-      <title>Zookeeper安装与集群部署</title>
+      <title>Zookeeper的安装与集群部署</title>
       <link>https://yefeihonours.github.io/post/linux/zookeeper/</link>
       <pubDate>Sun, 05 Nov 2017 13:00:00 +0800</pubDate>
       
@@ -418,26 +358,18 @@ d18d1d4fd831...a5bc378178
     </item>
     
     <item>
-      <title>Nginx安装并支持TCP</title>
+      <title>Nginx支持TCP</title>
       <link>https://yefeihonours.github.io/post/linux/nginx_tcp/</link>
       <pubDate>Sun, 05 Nov 2017 12:00:00 +0800</pubDate>
       
       <guid>https://yefeihonours.github.io/post/linux/nginx_tcp/</guid>
-      <description>&lt;h2 id=&#34;安装nginx&#34;&gt;安装Nginx&lt;/h2&gt;
-
-&lt;h3 id=&#34;需要软件包&#34;&gt;需要软件包&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;nginx-1.10.3.tar.gz&lt;/li&gt;
-&lt;li&gt;pcre-8.40.tar.gz&lt;/li&gt;
-&lt;li&gt;nginx_tcp_proxy_module.zip&lt;/li&gt;
-&lt;/ul&gt;
+      <description>&lt;p&gt;&lt;strong&gt;本文记录如何配置Nginx使其支持TCP&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>React 入门教程</title>
+      <title>初探 React</title>
       <link>https://yefeihonours.github.io/post/react/start/</link>
       <pubDate>Fri, 03 Nov 2017 12:00:00 +0800</pubDate>
       
@@ -450,7 +382,7 @@ d18d1d4fd831...a5bc378178
     </item>
     
     <item>
-      <title>Git操作入门</title>
+      <title>Git 基本操作简介</title>
       <link>https://yefeihonours.github.io/post/git/start/</link>
       <pubDate>Wed, 01 Nov 2017 12:00:00 +0800</pubDate>
       
