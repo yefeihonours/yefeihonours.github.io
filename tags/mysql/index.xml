@@ -6,10 +6,26 @@
     <description>Recent content in Mysql on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 03 Jun 2018 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 Jun 2018 12:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://yefeihonours.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SQL 中 IN 和 EXISTS 用法的区别</title>
+      <link>https://yefeihonours.github.io/post/mysql/in_and_exists/</link>
+      <pubDate>Fri, 29 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/mysql/in_and_exists/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&amp;hellip;..)。
+&lt;br&gt;
+&lt;br&gt;
+2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>如何使Flask-Migrate忽略在Models定义的数据库视图</title>

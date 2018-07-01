@@ -40,7 +40,7 @@
     <item>
       <title>Linux</title>
       <link>https://yefeihonours.github.io/categories/linux/</link>
-      <pubDate>Thu, 28 Jun 2018 12:00:00 +0800</pubDate>
+      <pubDate>Sat, 30 Jun 2018 12:00:00 +0800</pubDate>
       
       <guid>https://yefeihonours.github.io/categories/linux/</guid>
       <description></description>
@@ -61,6 +61,15 @@
       <pubDate>Thu, 30 Nov 2017 12:00:00 +0800</pubDate>
       
       <guid>https://yefeihonours.github.io/categories/mongodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>https://yefeihonours.github.io/categories/mysql/</link>
+      <pubDate>Fri, 29 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/categories/mysql/</guid>
       <description></description>
     </item>
     

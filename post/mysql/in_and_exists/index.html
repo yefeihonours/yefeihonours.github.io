@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>解决CentOS(6和7版本)，/etc/sysconfig/下没有iptables的问题 - HuangYefei&#39;s Blog</title>
+  <title>SQL 中 IN 和 EXISTS 用法的区别 - HuangYefei&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,8 +17,8 @@
 
 
 <meta name="author" content="honour" />
-  <meta name="description" content="
-本文记录在 linux 服务器上通过修改iptables文件开放端口号时，无法找到iptables文件的问题的解决方案。
+  <meta name="description" content=" 1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&amp;hellip;..)。 2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。
+ 
 " />
 
   <meta name="keywords" content="Hugo, theme, even" />
@@ -31,7 +31,7 @@
 <meta name="generator" content="Hugo 0.40.3" />
 
 
-<link rel="canonical" href="https://yefeihonours.github.io/post/linux/centos_iptables/" />
+<link rel="canonical" href="https://yefeihonours.github.io/post/mysql/in_and_exists/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -51,21 +51,23 @@
 
 
 
-<meta property="og:title" content="解决CentOS(6和7版本)，/etc/sysconfig/下没有iptables的问题" />
+<meta property="og:title" content="SQL 中 IN 和 EXISTS 用法的区别" />
 <meta property="og:description" content="
-本文记录在 linux 服务器上通过修改iptables文件开放端口号时，无法找到iptables文件的问题的解决方案。" />
+1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&hellip;..)。
+
+
+2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。
+
+
+" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yefeihonours.github.io/post/linux/centos_iptables/" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/mysql/in_and_exists/" />
 
 
 
-<meta property="article:published_time" content="2018-06-28T12:00:00&#43;08:00"/>
+<meta property="article:published_time" content="2018-06-29T12:00:00&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-06-28T12:00:00&#43;08:00"/>
-
-
-
-
+<meta property="article:modified_time" content="2018-06-29T12:00:00&#43;08:00"/>
 
 
 
@@ -73,22 +75,38 @@
 
 
 
-<meta itemprop="name" content="解决CentOS(6和7版本)，/etc/sysconfig/下没有iptables的问题">
+
+
+
+
+<meta itemprop="name" content="SQL 中 IN 和 EXISTS 用法的区别">
 <meta itemprop="description" content="
-本文记录在 linux 服务器上通过修改iptables文件开放端口号时，无法找到iptables文件的问题的解决方案。">
+1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&hellip;..)。
 
 
-<meta itemprop="datePublished" content="2018-06-28T12:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2018-06-28T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="271">
+2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。
+
+
+">
+
+
+<meta itemprop="datePublished" content="2018-06-29T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-06-29T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="754">
 
 
 
-<meta itemprop="keywords" content="linux," />
+<meta itemprop="keywords" content="mysql,sql," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="解决CentOS(6和7版本)，/etc/sysconfig/下没有iptables的问题"/>
+<meta name="twitter:title" content="SQL 中 IN 和 EXISTS 用法的区别"/>
 <meta name="twitter:description" content="
-本文记录在 linux 服务器上通过修改iptables文件开放端口号时，无法找到iptables文件的问题的解决方案。"/>
+1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&hellip;..)。
+
+
+2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。
+
+
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -155,17 +173,17 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">解决CentOS(6和7版本)，/etc/sysconfig/下没有iptables的问题</h1>
+      <h1 class="post-title">SQL 中 IN 和 EXISTS 用法的区别</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2018-06-28 </span>
+        <span class="post-time"> 2018-06-29 </span>
         <div class="post-category">
             
-              <a href="/categories/linux/"> Linux </a>
+              <a href="/categories/mysql/"> mysql </a>
             
           </div>
-        <span class="more-meta"> 约 271 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
+        <span class="more-meta"> 约 754 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -180,8 +198,8 @@
 <ul>
 <li>
 <ul>
-<li><a href="#一-centos-6解决办法">一、Centos 6解决办法</a></li>
-<li><a href="#二-centos-7解决办法">二、Centos 7解决办法</a></li>
+<li><a href="#方法一">方法一</a></li>
+<li><a href="#方法二">方法二</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -190,59 +208,59 @@
 
     
     <div class="post-content">
-      <p><br>
-本文记录在 linux 服务器上通过修改iptables文件开放端口号时，无法找到iptables文件的问题的解决方案。</p>
-
-<p>
-<br></p>
-
-<h2 id="一-centos-6解决办法">一、Centos 6解决办法</h2>
-
-<p><br>
-1.任意运行一条iptables防火墙规则配置命令：</p>
-
-<p><code>iptables -P OUTPUT ACCEPT</code></p>
-
-<p>2.对iptables服务进行保存：</p>
-
-<p><code>service iptables save</code></p>
-
-<p>3.重启iptables服务：</p>
-
-<p><code>service iptables restart</code></p>
-
-<p><br></p>
-
-<h2 id="二-centos-7解决办法">二、Centos 7解决办法</h2>
-
-<p><br>
-1、停止并屏蔽firewalld服务</p>
-
-<p><code>systemctl stop firewalld</code>
+      <blockquote>
+<p>1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&hellip;..)。
 <br>
-<code>systemctl mask firewalld</code></p>
+<br>
+2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。</p>
+</blockquote>
 
-<p>2、安装iptables-services软件包</p>
+<p></p>
 
-<p><code>yum install iptables-services</code></p>
+<p>in 是把外表和内表作hash 连接，而exists是对外表作loop循环，每次loop循环再对内表进行查询。
+in 其实与等于相似，比如in(1,2) 就是 = 1 or = 2的一种简单写法，所以一般在元素少的时候使用in，如果多的话就用exists
+exists的用法跟in不一样，一般都需要和子表进行关联，而且关联时，需要用索引，这样就可以加快速度。</p>
 
-<p>3、在引导时启用iptables服务</p>
+<p>IN
+确定给定的值是否与子查询或列表中的值相匹配。</p>
 
-<p><code>systemctl enable iptables</code></p>
+<p>EXISTS
+指定一个子查询，检测行的存在。</p>
 
-<p>4、启动iptables服务</p>
+<p>比较使用 EXISTS 和 IN 的查询</p>
 
-<p><code>systemctl start iptables</code></p>
+<p>exists()后面的子查询被称做相关子查询 他是不返回列表的值的.只是返回一个ture或false的结果,其运行方式是先运行主查询一次 再去子查询里查询与其对应的结果 如果是ture则输出,反之则不输出.再根据主查询中的每一行去子查询里去查询.</p>
 
-<p>5、保存防火墙规则</p>
+<p>in()后面的子查询 是返回结果集的,换句话说执行次序和exists()不一样.子查询先产生结果集,然后主查询再去结果集里去找符合要求的字段列表去.符合要求的输出,反之则不输出.</p>
 
-<p><code>service iptables save</code>
-或
-<code>/usr/libexec/iptables/iptables.init save</code></p>
+<h2 id="方法一">方法一</h2>
 
-<p>另外：管理iptables服务</p>
+<p>Mac OS 下如果想进入当前目录下的&rsquo;my files&rsquo;文件夹，有如下三种基本方法：</p>
 
-<p><code>systemctl [stop|start|restart] iptables</code></p>
+<blockquote>
+<p>1 使用 <code>'\'</code>
+<br>
+<br>
+<code>$cd my\ files</code>
+<br>
+<br>
+2 使用<code>'''</code>
+<br>
+<br>
+<code>$cd my' 'files</code>
+<br>
+<br>
+3 使用<code>'&quot;'</code>
+<br>
+<br>
+<code>$cd my&quot; &quot;files</code></p>
+</blockquote>
+
+<p>总体都是将空格转义或者注释起来。Unix, Linux系统下也可以通过这种方法实现。</p>
+
+<h2 id="方法二">方法二</h2>
+
+<p>Mac OS 下在终端窗口里先输入cd,然后空格,再把那个文件夹拖到终端窗口里,松手，按回车即可</p>
     </div>
 
     
@@ -253,7 +271,7 @@
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2018-06-28</span>
+    <span class="item-content">2018-06-29</span>
   </p>
   
   
@@ -265,21 +283,23 @@
     <footer class="post-footer">
       <div class="post-tags">
           
-          <a href="/tags/linux/">linux</a>
+          <a href="/tags/mysql/">mysql</a>
+          
+          <a href="/tags/sql/">sql</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/mysql/in_and_exists/">
+          <a class="prev" href="/post/python/flask_sqlalchemy/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">SQL 中 IN 和 EXISTS 用法的区别</span>
+            <span class="prev-text nav-default">Flask-SQLALchemy 基本方法教程</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
-          <a class="next" href="/post/python/flask_gunicorn_nginx/">
-            <span class="next-text nav-default">Flask &#43; Gunicorn &#43; Nginx 部署</span>
+          <a class="next" href="/post/linux/centos_iptables/">
+            <span class="next-text nav-default">解决CentOS(6和7版本)，/etc/sysconfig/下没有iptables的问题</span>
             <span class="prev-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

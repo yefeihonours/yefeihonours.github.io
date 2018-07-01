@@ -94,7 +94,7 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
 
 <meta itemprop="datePublished" content="2018-06-27T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-06-27T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="2436">
+<meta itemprop="wordCount" content="2434">
 
 
 
@@ -185,7 +185,7 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
               <a href="/categories/python/"> Python </a>
             
           </div>
-        <span class="more-meta"> 约 2436 字 </span>
+        <span class="more-meta"> 约 2434 字 </span>
         <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -341,7 +341,7 @@ x_forwarded_for_header = 'X-FORWARDED-FOR'
 
 <h3 id="三-部署注意事项">三、部署注意事项</h3>
 
-<p>开发flask应用时，常用flask-script添加一些命令扩展。而部署应用时，就不需要再从flask-script的Manager实例中启动应用了。
+<p>开发flask应用时，常用flask-script添加一些命令扩展。而部署应用时，就<strong>不需要再从flask-script的Manager实例中启动应用</strong>了。
 在项目中添加wsgi.py文件：
 <br>
 <br>
@@ -419,7 +419,7 @@ def template_extras():
 
 <p><strong>web platform&nbsp;&nbsp;&nbsp;&lt;&mdash;&gt;&nbsp;&nbsp;&nbsp;WSGI&nbsp;&nbsp;&nbsp;&lt;&mdash;&gt;&nbsp;&nbsp;&nbsp;Nginx&nbsp;&nbsp;&nbsp;&lt;&mdash;&gt;&nbsp;&nbsp;&nbsp;web_client</strong></p>
 
-<p>最后以一段对话结束本篇博客</p>
+<p>以一段对话结束本篇博客</p>
 
 <blockquote>
 <p>(nginx收到客户端发来的请求，根据nginx中配置的路由，将其转发给WSGI)

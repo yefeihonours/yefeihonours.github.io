@@ -21,6 +21,20 @@
     </item>
     
     <item>
+      <title>压力测试工具 Siege 安装与使用</title>
+      <link>https://yefeihonours.github.io/post/linux/siege/</link>
+      <pubDate>Sat, 30 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/siege/</guid>
+      <description>&lt;p&gt;Siege 是Linux/Unix下的一个WEB系统的压力测试工具。
+&lt;br&gt;
+&lt;br&gt;
+本文记录如何安装 Siege 以及基本使用方法介绍&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Flask-SQLALchemy 基本方法教程</title>
       <link>https://yefeihonours.github.io/post/python/flask_sqlalchemy/</link>
       <pubDate>Fri, 29 Jun 2018 12:00:00 +0800</pubDate>
@@ -37,6 +51,22 @@
 &lt;br&gt;
 
 笔者认为SQLAlchemy比较精髓的是使用ORM(对象关系映射)，相对于传统连接数据库使用select，update，insert，delete操作数据表来说具有以下特点：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SQL 中 IN 和 EXISTS 用法的区别</title>
+      <link>https://yefeihonours.github.io/post/mysql/in_and_exists/</link>
+      <pubDate>Fri, 29 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/mysql/in_and_exists/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&amp;hellip;..)。
+&lt;br&gt;
+&lt;br&gt;
+2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
