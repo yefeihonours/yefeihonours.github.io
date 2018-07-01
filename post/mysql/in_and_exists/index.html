@@ -17,8 +17,8 @@
 
 
 <meta name="author" content="honour" />
-  <meta name="description" content=" 1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&amp;hellip;..)。 2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。
- 
+  <meta name="description" content="在sql中，in和exists能实现类似的功能，本文在此将二者作简单对比以及查询效率对比分析。
+
 " />
 
   <meta name="keywords" content="Hugo, theme, even" />
@@ -52,12 +52,7 @@
 
 
 <meta property="og:title" content="SQL 中 IN 和 EXISTS 用法的区别" />
-<meta property="og:description" content="
-1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&hellip;..)。
-
-
-2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。
-
+<meta property="og:description" content="在sql中，in和exists能实现类似的功能，本文在此将二者作简单对比以及查询效率对比分析。
 
 " />
 <meta property="og:type" content="article" />
@@ -80,31 +75,21 @@
 
 
 <meta itemprop="name" content="SQL 中 IN 和 EXISTS 用法的区别">
-<meta itemprop="description" content="
-1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&hellip;..)。
-
-
-2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。
-
+<meta itemprop="description" content="在sql中，in和exists能实现类似的功能，本文在此将二者作简单对比以及查询效率对比分析。
 
 ">
 
 
 <meta itemprop="datePublished" content="2018-06-29T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-06-29T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="754">
+<meta itemprop="wordCount" content="2706">
 
 
 
 <meta itemprop="keywords" content="mysql,sql," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SQL 中 IN 和 EXISTS 用法的区别"/>
-<meta name="twitter:description" content="
-1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&hellip;..)。
-
-
-2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。
-
+<meta name="twitter:description" content="在sql中，in和exists能实现类似的功能，本文在此将二者作简单对比以及查询效率对比分析。
 
 "/>
 
@@ -182,8 +167,8 @@
               <a href="/categories/mysql/"> mysql </a>
             
           </div>
-        <span class="more-meta"> 约 754 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span class="more-meta"> 约 2706 字 </span>
+        <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -198,8 +183,16 @@
 <ul>
 <li>
 <ul>
-<li><a href="#方法一">方法一</a></li>
-<li><a href="#方法二">方法二</a></li>
+<li><a href="#1-in">1. IN</a></li>
+<li><a href="#2-exist">2. EXIST</a></li>
+<li><a href="#3-对比">3. 对比</a></li>
+<li><a href="#4-案例">4. 案例</a>
+<ul>
+<li><a href="#4-1-案例一">4.1. 案例一</a></li>
+<li><a href="#4-2-案例二">4.2. 案例二</a></li>
+<li><a href="#5-sql-分析器">5 sql 分析器</a></li>
+</ul></li>
+<li><a href="#6-总结">6. 总结</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -208,59 +201,168 @@
 
     
     <div class="post-content">
-      <blockquote>
-<p>1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&hellip;..)。
-<br>
-<br>
-2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。</p>
-</blockquote>
+      <p>在sql中，in和exists能实现类似的功能，本文在此将二者作简单对比以及查询效率对比分析。</p>
 
 <p></p>
 
-<p>in 是把外表和内表作hash 连接，而exists是对外表作loop循环，每次loop循环再对内表进行查询。
-in 其实与等于相似，比如in(1,2) 就是 = 1 or = 2的一种简单写法，所以一般在元素少的时候使用in，如果多的话就用exists
-exists的用法跟in不一样，一般都需要和子表进行关联，而且关联时，需要用索引，这样就可以加快速度。</p>
+<h2 id="1-in">1. IN</h2>
 
-<p>IN
-确定给定的值是否与子查询或列表中的值相匹配。</p>
-
-<p>EXISTS
-指定一个子查询，检测行的存在。</p>
-
-<p>比较使用 EXISTS 和 IN 的查询</p>
-
-<p>exists()后面的子查询被称做相关子查询 他是不返回列表的值的.只是返回一个ture或false的结果,其运行方式是先运行主查询一次 再去子查询里查询与其对应的结果 如果是ture则输出,反之则不输出.再根据主查询中的每一行去子查询里去查询.</p>
-
-<p>in()后面的子查询 是返回结果集的,换句话说执行次序和exists()不一样.子查询先产生结果集,然后主查询再去结果集里去找符合要求的字段列表去.符合要求的输出,反之则不输出.</p>
-
-<h2 id="方法一">方法一</h2>
-
-<p>Mac OS 下如果想进入当前目录下的&rsquo;my files&rsquo;文件夹，有如下三种基本方法：</p>
+<p>确定给定的值是否与<strong>子查询</strong>或<strong>列表</strong>中的值相匹配。</p>
 
 <blockquote>
-<p>1 使用 <code>'\'</code>
-<br>
-<br>
-<code>$cd my\ files</code>
-<br>
-<br>
-2 使用<code>'''</code>
-<br>
-<br>
-<code>$cd my' 'files</code>
-<br>
-<br>
-3 使用<code>'&quot;'</code>
-<br>
-<br>
-<code>$cd my&quot; &quot;files</code></p>
+<p>in(&nbsp;)后面的子查询是返回结果集的，换句话说执行次序和exists(&nbsp;)不一样。子查询先产生结果集，然后主查询再去结果集里去找符合要求的字段列表去。符合要求的输出，反之则不输出。</p>
 </blockquote>
 
-<p>总体都是将空格转义或者注释起来。Unix, Linux系统下也可以通过这种方法实现。</p>
+<h2 id="2-exist">2. EXIST</h2>
 
-<h2 id="方法二">方法二</h2>
+<p>指定一个子查询，检测行的存在。</p>
 
-<p>Mac OS 下在终端窗口里先输入cd,然后空格,再把那个文件夹拖到终端窗口里,松手，按回车即可</p>
+<blockquote>
+<p>exists(&nbsp;)后面的子查询被称做<strong>相关子查询</strong>，他是不返回列表的值的。只是返回一个ture或false的结果，其运行方式是先运行主查询一次，再去子查询里查询与其对应的结果。如果是ture则输出，反之则不输出。再根据主查询中的每一行去子查询里去查询.</p>
+</blockquote>
+
+<h2 id="3-对比">3. 对比</h2>
+
+<p>in 是把外表和内表作 hash 连接，而exists是对外表作loop循环，每次loop循环再对内表进行查询。
+in 其实与等于相似，比如in(1,2) 就是 = 1 or = 2的一种简单写法，所以一般在元素少的时候使用in，如果多的话就用exists</p>
+
+<p>exists的用法跟in不一样，一般都需要和子表进行关联，而且关联时，需要用<strong>索引</strong>，这样就可以加快速度。</p>
+
+<blockquote>
+<p>1.&nbsp;exist,&nbsp;not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&hellip;..)。
+<br>
+<br>
+2.&nbsp;exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。</p>
+</blockquote>
+
+<h2 id="4-案例">4. 案例</h2>
+
+<h3 id="4-1-案例一">4.1. 案例一</h3>
+
+<pre><code class="language-sql">select * from A
+where id in(select id from B)
+</code></pre>
+
+<p>以上查询使用了in语句,in(&nbsp;)只执行一次,它查出B表中的所有id字段并缓存起来.之后,检查A表的id是否与B表中的id相等,如果相等则将A表的记录加入结果集中,直到遍历完A表的所有记录.
+它的查询过程类似于以下过程:</p>
+
+<pre><code class="language-java">List resultSet=[];
+Array A=(select * from A);
+Array B=(select id from B);
+
+for(int i=0;i&lt;A.length;i++) {
+   for(int j=0;j&lt;B.length;j++) {
+      if(A[i].id==B[j].id) {
+         resultSet.add(A[i]);
+         break;
+      }
+   }
+}
+return resultSet;
+</code></pre>
+
+<blockquote>
+<p>可以看出,当B表数据较大时不适合使用in(&nbsp;),因为它会B表数据全部遍历一次.
+<br>
+<br>
+如:A表有10000条记录,B表有1000000条记录,那么最多有可能遍历10000*1000000次,效率很差.
+<br>
+<br>
+再如:A表有10000条记录,B表有100条记录,那么最多有可能遍历10000*100次,遍历次数大大减少,效率大大提升.
+<br>
+<br>
+结论:in(&nbsp;)适合B表比A表数据小的情况</p>
+</blockquote>
+
+<h3 id="4-2-案例二">4.2. 案例二</h3>
+
+<pre><code class="language-sql">select a.* from A a 
+where exists(select 1 from B b where a.id=b.id)
+</code></pre>
+
+<p>以上查询使用了exists语句,exists(&nbsp;)会执行A.length次,它并不缓存exists(&nbsp;)结果集,因为exists(&nbsp;)结果集的内容并不重要,重要的是结果集中是否有记录,如果有则返回true,没有则返回false.
+它的查询过程类似于以下过程</p>
+
+<pre><code class="language-java">List resultSet=[];
+Array A=(select * from A)
+
+for(int i=0;i&lt;A.length;i++) {
+   if(exists(A[i].id) {    //执行select 1 from B b where b.id=a.id是否有记录返回
+       resultSet.add(A[i]);
+   }
+}
+return resultSet;
+</code></pre>
+
+<blockquote>
+<p>当B表比A表数据大时适合使用exists(&nbsp;),因为它没有那么遍历操作,只需要再执行一次查询就行.
+<br>
+<br>
+如:A表有10000条记录,B表有1000000条记录,那么exists(&nbsp;)会执行10000次去判断A表中的id是否与B表中的id相等.
+<br>
+<br>
+如:A表有10000条记录,B表有100000000条记录,那么exists(&nbsp;)还是执行10000次,因为它只执行A.length次,可见B表数据越多,越适合exists(&nbsp;)发挥效果.
+<br>
+<br>
+再如:A表有10000条记录,B表有100条记录,那么exists(&nbsp;)还是执行10000次,还不如使用in(&nbsp;)遍历10000*100次,因为in(&nbsp;)是在内存里遍历比较,而exists(&nbsp;)需要查询数据库,我们都知道查询数据库所消耗的性能更高,而内存比较很快.
+<br>
+<br>
+结论:exists(&nbsp;)适合B表比A表数据大的情况</p>
+</blockquote>
+
+<h3 id="5-sql-分析器">5 sql 分析器</h3>
+
+<p>当A表数据与B表数据一样大时,in与exists效率差不多,可任选一个使用.</p>
+
+<pre><code class="language-sql">SELECT 
+c.CustomerId,c.CompanyName 
+FROM 
+Customers c
+WHERE 
+EXISTS(
+SELECT o.OrderID FROM Orders o WHERE o.CustomerID=c.CustomerID
+)
+</code></pre>
+
+<blockquote>
+<p>这里面的EXISTS是如何运作呢？子查询返回的是OrderId字段，可是外面的查询要找的是CustomerID和CompanyName字段，这两个字段肯定不在OrderID里面啊，这是如何匹配的呢？
+<br>
+<br>
+EXISTS用于检查子查询是否至少会返回一行数据，该子查询实际上并不返回任何数据，而是返回值True或False
+<br>
+<br>
+EXISTS 指定一个子查询，检测 行 的存在。
+<br>
+<br>
+EXISTS(包括 NOT EXISTS )子句的返回值是一个BOOL值。 EXISTS内部有一个子查询语句(SELECT &hellip; FROM&hellip;)， 我将其称为EXIST的内查询语句。其内查询语句返回一个结果集。 EXISTS子句根据其内查询语句的结果集空或者非空，返回一个布尔值。
+<br>
+<br>
+一种通俗的可以理解为：<strong>将外查询表的每一行，代入内查询作为检验，如果内查询返回的结果取非空值，则EXISTS子句返回TRUE，这一行可作为外查询的结果行，否则不能作为结果。</strong>
+<br>
+<br>
+分析器会先看语句的第一个词，当它发现第一个词是SELECT关键字的时候，它会跳到FROM关键字，然后通过FROM关键字找到表名并把表装入内存。接着 是找WHERE关键字，如果找不到则返回到SELECT找字段解析，如果找到WHERE，则分析其中的条件，完成后再回到SELECT分析字段。最后形成一张我们要的虚表。
+<br>
+<br>
+WHERE关键字后面的是条件表达式。条件表达式计算完成后，会有一个返回值，即非0或0，非0即为真(true)，0即为假(false)。同理WHERE后面的条件也有一个返回值，真或假，来确定接下来执不执行SELECT。
+<br>
+<br>
+分析器先找到关键字SELECT，然后跳到FROM关键字将STUDENT表导入内存，并通过指针找到第一条记录，接着找到WHERE关键字计算它的条件表达式，如果为真那么把这条记录装到一个虚表当中，指针再指向下一条记录。如果为假那么指针直接指向下一条记录，而不进行其它操作。一直检索完整个表，并把 检索出来的虚拟表返回给用户。EXISTS是条件表达式的一部分，它也有一个返回值(true或false)。
+<br>
+<br>
+在插入记录前，需要检查这条记录是否已经存在，只有当记录不存在时才执行插入操作，可以通过使用 EXISTS 条件句防止插入重复记录。</p>
+
+<pre><code class="language-sql">INSERT INTO TableIn (ANAME,ASEX) 
+SELECT top 1 '张三', '男' FROM TableIn
+WHERE not exists (select * from TableIn where TableIn.AID = 7)
+</code></pre>
+</blockquote>
+
+<h2 id="6-总结">6. 总结</h2>
+
+<p>EXISTS与IN的使用效率的问题，通常情况下采用exists要比in效率高，因为IN不走索引，但要看实际情况具体使用：
+<br>
+<br>
+IN适合于外表大而内表小的情况；EXISTS适合于外表小而内表大的情况。</p>
     </div>
 
     

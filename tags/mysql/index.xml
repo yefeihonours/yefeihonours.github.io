@@ -17,12 +17,7 @@
       <pubDate>Fri, 29 Jun 2018 12:00:00 +0800</pubDate>
       
       <guid>https://yefeihonours.github.io/post/mysql/in_and_exists/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&amp;hellip;..)。
-&lt;br&gt;
-&lt;br&gt;
-2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。&lt;/p&gt;
-&lt;/blockquote&gt;
+      <description>&lt;p&gt;在sql中，in和exists能实现类似的功能，本文在此将二者作简单对比以及查询效率对比分析。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

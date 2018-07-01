@@ -25,9 +25,10 @@
 &lt;br&gt;
 在python扩展库中其实包含了SQLAlchemy。在版本的不断叠加后，已经被整合到flask架构中，flask-SQLAlchemy简化在Flask中SQLAlchemy的使用，提供了有用的默认值和额外的助手来更简单地完成常见任务。
 &lt;br&gt;
-&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
-笔者认为SQLAlchemy比较精髓的是使用ORM(对象关系映射)，相对于传统连接数据库使用select，update，insert，delete操作数据表来说具有以下特点：&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

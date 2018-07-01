@@ -48,9 +48,10 @@
 &lt;br&gt;
 在python扩展库中其实包含了SQLAlchemy。在版本的不断叠加后，已经被整合到flask架构中，flask-SQLAlchemy简化在Flask中SQLAlchemy的使用，提供了有用的默认值和额外的助手来更简单地完成常见任务。
 &lt;br&gt;
-&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
-笔者认为SQLAlchemy比较精髓的是使用ORM(对象关系映射)，相对于传统连接数据库使用select，update，insert，delete操作数据表来说具有以下特点：&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -59,12 +60,7 @@
       <pubDate>Fri, 29 Jun 2018 12:00:00 +0800</pubDate>
       
       <guid>https://yefeihonours.github.io/post/mysql/in_and_exists/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;1.exist,not exist一般都是与子查询一起使用. In可以与子查询一起使用,也可以直接in (a,b&amp;hellip;..)。
-&lt;br&gt;
-&lt;br&gt;
-2.exist会针对子查询的表使用索引. not exist会对主子查询都会使用索引. in与子查询一起使用的时候,只能针对主查询使用索引. not in则不会使用任何索引. 注意,一直以来认为exists比in效率高的说法是不准确的。&lt;/p&gt;
-&lt;/blockquote&gt;
+      <description>&lt;p&gt;在sql中，in和exists能实现类似的功能，本文在此将二者作简单对比以及查询效率对比分析。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
