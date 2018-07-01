@@ -82,7 +82,7 @@
 
 <meta itemprop="datePublished" content="2018-06-29T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-06-29T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="2706">
+<meta itemprop="wordCount" content="2705">
 
 
 
@@ -167,7 +167,7 @@
               <a href="/categories/mysql/"> mysql </a>
             
           </div>
-        <span class="more-meta"> 约 2706 字 </span>
+        <span class="more-meta"> 约 2705 字 </span>
         <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -190,8 +190,8 @@
 <ul>
 <li><a href="#4-1-案例一">4.1. 案例一</a></li>
 <li><a href="#4-2-案例二">4.2. 案例二</a></li>
-<li><a href="#5-sql-分析器">5 sql 分析器</a></li>
 </ul></li>
+<li><a href="#5-sql-分析器解读">5. sql 分析器解读</a></li>
 <li><a href="#6-总结">6. 总结</a></li>
 </ul></li>
 </ul>
@@ -310,9 +310,7 @@ return resultSet;
 结论:exists(&nbsp;)适合B表比A表数据大的情况</p>
 </blockquote>
 
-<h3 id="5-sql-分析器">5 sql 分析器</h3>
-
-<p>当A表数据与B表数据一样大时,in与exists效率差不多,可任选一个使用.</p>
+<h2 id="5-sql-分析器解读">5. sql 分析器解读</h2>
 
 <pre><code class="language-sql">SELECT 
 c.CustomerId,c.CompanyName 
@@ -348,21 +346,28 @@ WHERE关键字后面的是条件表达式。条件表达式计算完成后，会
 <br>
 分析器先找到关键字SELECT，然后跳到FROM关键字将STUDENT表导入内存，并通过指针找到第一条记录，接着找到WHERE关键字计算它的条件表达式，如果为真那么把这条记录装到一个虚表当中，指针再指向下一条记录。如果为假那么指针直接指向下一条记录，而不进行其它操作。一直检索完整个表，并把 检索出来的虚拟表返回给用户。EXISTS是条件表达式的一部分，它也有一个返回值(true或false)。
 <br>
-<br>
-在插入记录前，需要检查这条记录是否已经存在，只有当记录不存在时才执行插入操作，可以通过使用 EXISTS 条件句防止插入重复记录。</p>
+<br></p>
+</blockquote>
+
+<p>在插入记录前，需要检查这条记录是否已经存在，只有当记录不存在时才执行插入操作，可以通过使用 EXISTS 条件句防止插入重复记录。</p>
 
 <pre><code class="language-sql">INSERT INTO TableIn (ANAME,ASEX) 
 SELECT top 1 '张三', '男' FROM TableIn
 WHERE not exists (select * from TableIn where TableIn.AID = 7)
 </code></pre>
-</blockquote>
 
 <h2 id="6-总结">6. 总结</h2>
 
 <p>EXISTS与IN的使用效率的问题，通常情况下采用exists要比in效率高，因为IN不走索引，但要看实际情况具体使用：
-<br>
-<br>
-IN适合于外表大而内表小的情况；EXISTS适合于外表小而内表大的情况。</p>
+<br></p>
+
+<ul>
+<li><p>IN适合于外表大而内表小的情况</p></li>
+
+<li><p>EXISTS适合于外表小而内表大的情况</p></li>
+
+<li><p>当内表数据与外表数据一样大时，in与exists效率差不多，可任选一个使用</p></li>
+</ul>
     </div>
 
     
