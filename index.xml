@@ -21,6 +21,17 @@
     </item>
     
     <item>
+      <title>如何在 Linux 启动时自动执行命令或脚本</title>
+      <link>https://yefeihonours.github.io/post/linux/auto_start/</link>
+      <pubDate>Sun, 01 Jul 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/auto_start/</guid>
+      <description>&lt;p&gt;本篇博客将探讨一下在 Linux 操作系统中如何实现在启动时执行命令或脚本。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>压力测试工具 Siege 安装与使用</title>
       <link>https://yefeihonours.github.io/post/linux/siege/</link>
       <pubDate>Sat, 30 Jun 2018 12:00:00 +0800</pubDate>

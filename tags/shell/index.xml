@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on HuangYefei&#39;s Blog</title>
+    <link>https://yefeihonours.github.io/tags/shell/</link>
+    <description>Recent content in Shell on HuangYefei&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 01 Jul 2018 12:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yefeihonours.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何在 Linux 启动时自动执行命令或脚本</title>
+      <link>https://yefeihonours.github.io/post/linux/auto_start/</link>
+      <pubDate>Sun, 01 Jul 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/auto_start/</guid>
+      <description>&lt;p&gt;本篇博客将探讨一下在 Linux 操作系统中如何实现在启动时执行命令或脚本。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
