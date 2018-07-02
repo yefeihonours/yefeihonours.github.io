@@ -88,7 +88,7 @@
 
 <meta itemprop="datePublished" content="2018-06-30T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-06-30T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="2013">
+<meta itemprop="wordCount" content="2096">
 
 
 
@@ -176,7 +176,7 @@
               <a href="/categories/linux/"> Linux </a>
             
           </div>
-        <span class="more-meta"> 约 2013 字 </span>
+        <span class="more-meta"> 约 2096 字 </span>
         <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -199,6 +199,7 @@
 <ul>
 <li><a href="#1-2-1-直接请求url">1.2.1 直接请求URL</a></li>
 <li><a href="#1-2-2-随机选取urls-txt中列出所有的网址">1.2.2 随机选取urls.txt中列出所有的网址</a></li>
+<li><a href="#1-2-3-json-格式参数-post-请求">1.2.3 json 格式参数 POST 请求</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#2-结果说明">2. 结果说明</a></li>
@@ -320,9 +321,20 @@ http://wangtest.com/articles.php POST UserId=XXX&amp;StartIndex=0&amp;OS=iOS&amp
 
 <p>使用示例</p>
 
-<pre><code>// 请求http://www.cnwytnet.com，并发人数为10，重复5次，每次请求间隔3秒
+<pre><code class="language-bash">// 请求http://www.cnwytnet.com，并发人数为10，重复5次，每次请求间隔3秒
 $ siege --concurrent=10 --reps=5 --delay=3 http://www.cnwytnet.com
 $ siege -c 10 -r 5 -d 3 http://www.cnwytnet.com
+</code></pre>
+
+<h4 id="1-2-3-json-格式参数-post-请求">1.2.3 json 格式参数 POST 请求</h4>
+
+<p>在当前目录下创建一个名为&rdquo;postfile.json&rdquo;的文件。 文件里边填写JSON格式的数据，如：</p>
+
+<p><code>{&quot;username&quot;:&quot;admin&quot;,&quot;password&quot;:&quot;123456&quot;}</code></p>
+
+<p>使用示例</p>
+
+<pre><code class="language-bash">siege -c 20 -r 5 '10.1.1.1:80/login/ POST &lt;./postfile.json'
 </code></pre>
 
 <h2 id="2-结果说明">2. 结果说明</h2>
