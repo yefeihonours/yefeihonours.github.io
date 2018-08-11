@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="honour" />
-  <meta name="description" content=" Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。 这里将介绍selenium &#43; 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。
+  <meta name="description" content=" Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。 这里将介绍 python3 下 selenium &#43; ChromeDriver 常用的方法。
  
 " />
 
@@ -56,7 +56,7 @@
 Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
 
 
-这里将介绍selenium &#43; 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。
+这里将介绍 python3 下 selenium &#43; ChromeDriver 常用的方法。
 
 
 " />
@@ -84,7 +84,7 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
 Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
 
 
-这里将介绍selenium &#43; 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。
+这里将介绍 python3 下 selenium &#43; ChromeDriver 常用的方法。
 
 
 ">
@@ -92,7 +92,7 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
 
 <meta itemprop="datePublished" content="2018-06-25T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-06-25T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="351">
+<meta itemprop="wordCount" content="1235">
 
 
 
@@ -103,7 +103,7 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
 Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
 
 
-这里将介绍selenium &#43; 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。
+这里将介绍 python3 下 selenium &#43; ChromeDriver 常用的方法。
 
 
 "/>
@@ -182,8 +182,8 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
               <a href="/categories/python/"> Python </a>
             
           </div>
-        <span class="more-meta"> 约 351 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
+        <span class="more-meta"> 约 1235 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -200,9 +200,17 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
 <ul>
 <li>
 <ul>
-<li><a href="#一-selenium-环境配置">一、selenium 环境配置</a></li>
-<li><a href="#二-下载chromedriver">二、下载chromedriver</a></li>
-<li><a href="#三-selenium-第一个脚本">三、selenium 第一个脚本</a></li>
+<li><a href="#一-api-概览">一、API 概览</a></li>
+<li><a href="#二-注意事项">二、注意事项</a></li>
+<li><a href="#三-webdriver-的使用">三、WebDriver 的使用</a>
+<ul>
+<li><a href="#1-请求连接">1、请求连接</a></li>
+<li><a href="#2-打开浏览器">2、打开浏览器</a></li>
+<li><a href="#3-开始请求">3、开始请求</a></li>
+</ul></li>
+<li><a href="#四-webelement-的使用">四、WebElement 的使用</a></li>
+<li><a href="#五-webdriver-的一些常用操作">五、WebDriver 的一些常用操作</a></li>
+<li><a href="#六-webelement-的一些常用操作">六、WebElement 的一些常用操作</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -216,49 +224,171 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
 <p>Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
 <br>
 <br>
-这里将介绍selenium + 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。</p>
+这里将介绍 python3 下 selenium + ChromeDriver 常用的方法。</p>
 </blockquote>
 
 <p></p>
 
-<h3 id="一-selenium-环境配置">一、selenium 环境配置</h3>
+<h3 id="一-api-概览">一、API 概览</h3>
 
-<p>在安装有python3的PC上，打开终端执行 <code>pip3 install selenium</code> 即可
-<br>
-<br></p>
+<pre><code class="language-python">
+# 定位操作
+# 以下是所有定位操作的 API
 
-<h3 id="二-下载chromedriver">二、下载chromedriver</h3>
+# 返回一个匹配元素, 即一个 WebElement 元素
+# 1.id定位：
+find_element_by_id(self, id_)
+# 2.name定位：
+find_element_by_name(self, name)
+# 3.class定位：
+find_element_by_class_name(self, name)
+# 4.tag定位：
+find_element_by_tag_name(self, name)
+# 5.link定位：
+find_element_by_link_text(self, link_text)
+# 6.partial_link定位：
+find_element_by_partial_link_text(self, link_text)
+# 7.xpath定位：
+find_element_by_xpath(self, xpath)
+# 8.css定位：
+find_element_by_css_selector(self, css_selector）
+# 9.精确定位
+find_element(self, by='id', value=None)
 
-<p>下载地址一：</p>
-
-<p><code>https://sites.google.com/a/chromium.org/chromedriver/downloads</code></p>
-
-<p>下载地址二：</p>
-
-<p><code>http://npm.taobao.org/mirrors/chromedriver/</code></p>
-
-<p>将解压后的chromedriver移动到/usr/local/bin目录下</p>
-
-<p>否则在运行脚本时，会提示</p>
-
-<blockquote>
-<p>chromedriver executable needs to be in PATH错误</p>
-</blockquote>
-
-<h3 id="三-selenium-第一个脚本">三、selenium 第一个脚本</h3>
-
-<pre><code>from selenium import webdriver
- 
-browser = webdriver.Chrome()
-browser.get('http://www.baidu.com/')
+# 返回一个列表, 包含所有匹配的元素， 即一个 WebElement 列表
+# 10.id复数定位
+find_elements_by_id(self, id_)
+# 11.name复数定位
+find_elements_by_name(self, name)
+# 12.class复数定位
+find_elements_by_class_name(self, name)
+# 13.tag复数定位
+find_elements_by_tag_name(self, name)
+# 14.link复数定位
+find_elements_by_link_text(self, text)
+# 15.partial_link复数定位
+find_elements_by_partial_link_text(self, link_text)
+# 16.xpath复数定位复数定位
+find_elements_by_xpath(self, xpath)
+# 17.css复数定位复数定位
+find_elements_by_css_selector(self, css_selector)
+# 18.精确复数定位
+find_elements(self, by='id', value=None)
 </code></pre>
 
-<p>运行这段代码，会自动打开Chrome浏览器，然后访问百度。
+<h3 id="二-注意事项">二、注意事项</h3>
+
+<p>1、python selenium 提供了两种对象 : WebDriver 和 WebElement ，这两种对象都可以使用这些 API</p>
+
+<p>2、这些 API 一旦执行失败(即查找不到), 就会抛出异常 ，因此必须使用 try: .. except: &hellip; 机制避免错误的行为影响程序继续进行</p>
+
+<p>3、WebDriver 调用以上 API 进行全局定位 ，WebElement 调用以上 API 可以进行层级定位, 即 查找当前元素的子元素</p>
+
+<h3 id="三-webdriver-的使用">三、WebDriver 的使用</h3>
+
+<p>开始的时候必须要有初始化一个 WebDriver 实例, 即下面的 driver 用来对浏览器进行控制以及页面的访问</p>
+
+<h4 id="1-请求连接">1、请求连接</h4>
+
+<p>req_url = &ldquo;<a href="https://www.baidu.com&quot;">https://www.baidu.com&quot;</a></p>
+
+<h4 id="2-打开浏览器">2、打开浏览器</h4>
+
+<p>driver = webdriver.Chrome()</p>
+
+<h4 id="3-开始请求">3、开始请求</h4>
+
+<p>driver.get(req_url)
 <br>
 <br>
-至此，配置完成。
+接着, 就可以使用 API 进行当前页面的全局查找
 <br>
 <br></p>
+
+<h3 id="四-webelement-的使用">四、WebElement 的使用</h3>
+
+<ul>
+<li>使用 driver.find_element_by_xx() 得到的是一个 WebElement 实例
+<br>
+<br>
+使用获得的实例调用上面的 API 即可进行层级查找
+<br>
+<br></li>
+<li>使用 driver.find_elements_by_xx() 得到的是一个元素是 WebElement 实例的 list
+<br>
+<br>
+通过对 list 的遍历, 即可对各个实例进行相应的操作</li>
+</ul>
+
+<h3 id="五-webdriver-的一些常用操作">五、WebDriver 的一些常用操作</h3>
+
+<p>更多案例请参照 : <a href="http://selenium-python.readthedocs.org/api.html#module-selenium.webdriver.remote.webdriver" title="title&quot; target=&quot;_blank">module-selenium.webdriver.remote.webdriver</a></p>
+
+<pre><code class="language-python"># 获取当前加载页面的 URL
+driver.curren_url
+# 关闭当前窗口, 如果当前窗口是最后一个窗口, 浏览器将关闭
+driver.close() 
+# 关闭所有窗口并停止 ChromeDriver 的执行
+driver.quit() 
+# 为当前会话添加 cookie 
+driver.add_cookie(cookie_dict) 
+# 得到执行 cookie 
+driver.get_cookie(name)
+# 得到所有的 cookie
+driver.get_cookies() 
+# 删除当前会话的所有cookie
+driver.delete_all_cookies()  
+# 删除指定 cookie
+driver.delete_cookie(name)
+# 相当于浏览器的后退历史记录
+driver.back()
+# 相当于浏览器的前进历史记录
+driver.forward() 
+# 同步执行 js 脚本 
+driver.execute_script(script, *args)
+# 异步执行 js 脚本
+driver.execute_async_script(script, *args)
+# 在当前窗口加载 url
+driver.get(url)
+# 刷新当前页面
+driver.refresh()
+# 当前窗口的 handle， 相当于一个指针一样的东西, 用来指向当前窗口
+driver.current_window_handle 
+# 当前浏览器中的已经打开的所有窗口, 是一个 list
+driver.window_handles
+# 切换 window_handle 指向的窗口
+driver.switch_to_window(window_handle)
+# 当前页面的 title
+driver.title
+# 当前浏览器的名字
+driver.name
+</code></pre>
+
+<h3 id="六-webelement-的一些常用操作">六、WebElement 的一些常用操作</h3>
+
+<p>更多案例请参照 <a href="http://selenium-python.readthedocs.org/api.html#module-selenium.webdriver.remote.webelement">module-selenium.webdriver.remote.webelement</a></p>
+
+<pre><code class="language-python"># 清除元素的内容, 假如这个元素是一个文本元素
+webEle.clear()
+# 点击当前元素
+webEle.click()
+# 当前元素是否可见
+webEle,is_displayed()
+# 当前元素是否禁止, 比如经常会禁用一些元素的点击
+webEle.is_enabled()
+# 当前元素是否选中, 文本输入框的内容
+webEle.is_selected()
+# 向当前元素模拟键盘事件
+webEle.send_keys(*value) 
+# 提交表单
+webEle.submit() 
+# 当前元素的标签名
+webEle.tag_name 
+# 当前元素的内容
+webEle.text
+# 获取当前元素执行属性的值
+webEle.get_attribute(name)
+</code></pre>
     </div>
 
     

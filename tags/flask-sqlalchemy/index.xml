@@ -17,7 +17,7 @@
       <pubDate>Fri, 29 Jun 2018 12:00:00 +0800</pubDate>
       
       <guid>https://yefeihonours.github.io/post/python/flask_sqlalchemy/</guid>
-      <description>&lt;h3 id=&#34;flask-sqlalchemy简介&#34;&gt;&lt;strong&gt;flask-SQLAlchemy简介&lt;/strong&gt;&lt;/h3&gt;
+      <description>&lt;h3 id=&#34;flask-sqlalchemy简介&#34;&gt;flask-SQLAlchemy简介&lt;/h3&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;flask-SQLAlchemy 是一个为您的flask应用增加SQLAlchemy支持的扩展。

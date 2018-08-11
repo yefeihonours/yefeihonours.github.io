@@ -197,9 +197,9 @@
 <li><a href="#1-1-参数说明">1.1 参数说明</a></li>
 <li><a href="#1-2-使用说明">1.2 使用说明</a>
 <ul>
-<li><a href="#1-2-1-直接请求url">1.2.1 直接请求URL</a></li>
-<li><a href="#1-2-2-随机选取urls-txt中列出所有的网址">1.2.2 随机选取urls.txt中列出所有的网址</a></li>
-<li><a href="#1-2-3-json-格式参数-post-请求">1.2.3 json 格式参数 POST 请求</a></li>
+<li><a href="#1-2-1-直接请求url">1.2.1   直接请求URL</a></li>
+<li><a href="#1-2-2-随机选取urls-txt中列出所有的网址">1.2.2  随机选取urls.txt中列出所有的网址</a></li>
+<li><a href="#1-2-3-json-格式参数-post-请求">1.2.3 json  格式参数 POST 请求</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#2-结果说明">2. 结果说明</a></li>
@@ -291,13 +291,13 @@ FOR A PARTICULAR PURPOSE.
 
 <h3 id="1-2-使用说明">1.2 使用说明</h3>
 
-<h4 id="1-2-1-直接请求url">1.2.1 直接请求URL</h4>
+<h4 id="1-2-1-直接请求url">1.2.1   直接请求URL</h4>
 
 <p><code>$ siege -c 20 -r 10 http://www.cnwytnet.com</code></p>
 
 <p><strong>参数说明：</strong> -c 是并发量，并发数为20人 -r 是重复次数， 重复10次</p>
 
-<h4 id="1-2-2-随机选取urls-txt中列出所有的网址">1.2.2 随机选取urls.txt中列出所有的网址</h4>
+<h4 id="1-2-2-随机选取urls-txt中列出所有的网址">1.2.2  随机选取urls.txt中列出所有的网址</h4>
 
 <p>在当前目录下创建一个名为&rdquo;urls-demo.txt&rdquo;的文件。 文件里边填写URL地址，可以有多条，每行一条，比如：</p>
 
@@ -326,7 +326,7 @@ $ siege --concurrent=10 --reps=5 --delay=3 http://www.cnwytnet.com
 $ siege -c 10 -r 5 -d 3 http://www.cnwytnet.com
 </code></pre>
 
-<h4 id="1-2-3-json-格式参数-post-请求">1.2.3 json 格式参数 POST 请求</h4>
+<h4 id="1-2-3-json-格式参数-post-请求">1.2.3 json  格式参数 POST 请求</h4>
 
 <p>在当前目录下创建一个名为&rdquo;postfile.json&rdquo;的文件。 文件里边填写JSON格式的数据，如：</p>
 

@@ -21,7 +21,7 @@
 &lt;p&gt;Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
 &lt;br&gt;
 &lt;br&gt;
-这里将介绍selenium + 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。&lt;/p&gt;
+这里将介绍 python3 下 selenium + ChromeDriver 常用的方法。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
