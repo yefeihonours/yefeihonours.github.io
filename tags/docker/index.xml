@@ -25,6 +25,23 @@
     </item>
     
     <item>
+      <title>Docker 镜像文件导入与导出</title>
+      <link>https://yefeihonours.github.io/post/docker/docker_image_export/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/docker/docker_image_export/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Docker 为开发、学习和产品演示提供了很棒的环境，只要获取到对应的 docker 镜像，就可以轻松通过 docker run 命令启动相应的服务，省去了配置环境以及安装等一系列繁琐过程。
+&lt;/br&gt;&lt;/br&gt;
+但是由于网络原因等一系列不可预测因素，docker镜像制作和下载可能费时较长。
+&lt;/br&gt;&lt;/br&gt;
+本博客在此提供一种折中解决方案，在网络状态以及配置较高的机器上制作或下载好 docker 镜像，导镜像的压缩包，随后在别的机器上直接导入即可使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>在 CentOS 7 上安装 Docker</title>
       <link>https://yefeihonours.github.io/post/linux/docker_setup/</link>
       <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>

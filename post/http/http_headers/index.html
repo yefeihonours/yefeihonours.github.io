@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Http Headers各属性的作用 - HuangYefei&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="honour" />
+  <meta name="description" content="本篇博客将简要介绍 http 请求头， 即 headers 中各参数的含义。
+
+" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<link rel="canonical" href="https://yefeihonours.github.io/post/http/http_headers/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+
+
+
+
+
+<meta property="og:title" content="Http Headers各属性的作用" />
+<meta property="og:description" content="本篇博客将简要介绍 http 请求头， 即 headers 中各参数的含义。
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/http/http_headers/" />
+
+
+
+<meta property="article:published_time" content="2018-08-25T12:00:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-08-25T12:00:00&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Http Headers各属性的作用">
+<meta itemprop="description" content="本篇博客将简要介绍 http 请求头， 即 headers 中各参数的含义。
+
+">
+
+
+<meta itemprop="datePublished" content="2018-08-25T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-08-25T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="2404">
+
+
+
+<meta itemprop="keywords" content="http,headers," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Http Headers各属性的作用"/>
+<meta name="twitter:description" content="本篇博客将简要介绍 http 请求头， 即 headers 中各参数的含义。
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HuangYefei</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HuangYefei</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Http Headers各属性的作用</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-08-25 </span>
+        <div class="post-category">
+            
+              <a href="/categories/http/"> http </a>
+            
+          </div>
+        <span class="more-meta"> 约 2404 字 </span>
+        <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#1-常见-headers">1. 常见 Headers：</a></li>
+<li><a href="#2-更多-headers-字段介绍">2. 更多 headers 字段介绍</a>
+<ul>
+<li><a href="#2-1-打开新窗口">2.1 打开新窗口</a></li>
+<li><a href="#2-2-在地址栏回车">2.2 在地址栏回车</a></li>
+<li><a href="#2-3-按后退按扭">2.3 按后退按扭</a></li>
+<li><a href="#2-4-按刷新按扭">2.4 按刷新按扭</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>本篇博客将简要介绍 http 请求头， 即 headers 中各参数的含义。</p>
+
+<p></p>
+
+<h1 id="1-常见-headers">1. 常见 Headers：</h1>
+
+<p>以下是我访问一个URL： <a href="http://www.hzau.edu.cn">http://www.hzau.edu.cn</a> 的一个header, 根据具体实例来分析一下各部分的功能及其作用。</p>
+
+<pre><code class="language-code">Request Headers：
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: max-age=0
+Connection: keep-alive
+Cookie: JSESSIONID=784BE09C3E9A7B5C0CD8A729D46AA235
+Host: www.hzau.edu.cn
+If-Modified-Since: Sat, 25 Aug 2018 02:31:34 GMT
+If-None-Match: &quot;6ecc-574394a77e911-gzip&quot;
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36
+</code></pre>
+
+<ul>
+<li>Accept</li>
+</ul>
+
+<blockquote>
+<p>作用： 浏览器端可以接受的媒体类型
+</br></br>
+例如： Accept: text/html 代表浏览器可以接受服务器回发的类型为 text/html 也就是我们常说的html文档,如果服务器无法返回text/html类型的数据,服务器应该返回一个406错误(non acceptable)</p>
+</blockquote>
+
+<ul>
+<li>通配符 * 代表任意类型</li>
+</ul>
+
+<blockquote>
+<p>例如 Accept: / 代表浏览器可以处理所有类型,(一般浏览器发给服务器都是发这个)</p>
+</blockquote>
+
+<ul>
+<li>Accept-Encoding：</li>
+</ul>
+
+<blockquote>
+<p>作用： 浏览器申明自己接收的编码方法，通常指定压缩方法，是否支持压缩，支持什么压缩方法（gzip，deflate），（注意：这不是只字符编码）
+</br></br>
+例如： Accept-Encoding: zh-CN,zh;q=0.8</p>
+</blockquote>
+
+<ul>
+<li>Accept-Language</li>
+</ul>
+
+<blockquote>
+<p>作用： 浏览器申明自己接收的语言。
+</br></br>
+语言跟字符集的区别：中文是语言，中文有多种字符集，比如big5，gb2312，gbk等等；
+</br></br>
+例如： Accept-Language: en-us</p>
+</blockquote>
+
+<ul>
+<li>Connection</li>
+</ul>
+
+<blockquote>
+<p>例如： Connection: keep-alive 当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的连接
+</br></br>
+例如： Connection: close 代表一个Request完成后，客户端和服务器之间用于传输HTTP数据的TCP连接会关闭， 当客户端再次发送Request，需要重新建立TCP连接。</p>
+</blockquote>
+
+<ul>
+<li>Host（发送请求时，该报头域是必需的）</li>
+</ul>
+
+<blockquote>
+<p>作用: 请求报头域主要用于指定被请求资源的Internet主机和端口号，它通常从HTTP URL中提取出来的
+</br></br>
+例如: 我们在浏览器中输入：<a href="http://www.hzau.edu.cn">http://www.hzau.edu.cn</a>
+</br></br>
+浏览器发送的请求消息中，就会包含Host请求报头域，如下：Host：www.hzau.edu.cn 此处使用缺省端口号80，若指定了端口号，则变成：Host：指定端口号</p>
+</blockquote>
+
+<ul>
+<li>Referer</li>
+</ul>
+
+<blockquote>
+<p>当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器籍此可以获得一些信息用于处理。
+比如从我主页上链接到一个朋友那里，他的服务器就能够从HTTP Referer中统计出每天有多少用户点击我主页上的链接访问他的网站。</p>
+</blockquote>
+
+<ul>
+<li>User-Agent</li>
+</ul>
+
+<blockquote>
+<p>作用：告诉HTTP服务器， 客户端使用的操作系统和浏览器的名称和版本.
+</br></br>
+我们上网登陆论坛的时候，往往会看到一些欢迎信息，其中列出了你的操作系统的名称和版本，你所使用的浏览器的名称和版本，这往往让很多人感到很神奇，
+实际上，服务器应用程序就是从User-Agent这个请求报头域中获取到这些信息User-Agent请求报头域允许客户端将它的操作系统、浏览器和其它属性告诉服务器。
+</br></br>
+例如：User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; CIBA; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET4.0C; InfoPath.2; .NET4.0E)</p>
+</blockquote>
+
+<h1 id="2-更多-headers-字段介绍">2. 更多 headers 字段介绍</h1>
+
+<p>访问一些其他的URL的时候，request 的Header里面一些其他的字段，下面来进行列举：</p>
+
+<p>比如我在登录一个需要用户名密码登录的网站时Request Header里面就有上面还没有提到过的字段。</p>
+
+<ul>
+<li>Cache-Control</li>
+</ul>
+
+<p>Cache-Control与Expires的作用一致，都是指明当前资源的有效期，控制浏览器是否直接从浏览器缓存取数据还是重新发请求到服务器取数据。只不过Cache-Control的选择更多，设置更细致，如果同时设置的话，其优先级高于Expires。我们网页的缓存控制是由HTTP头中的“Cache-control”来实现的，常见值有private、no-cache、max-age、must-revalidate等，默认为private。这几种值的作用是根据重新查看某一页面时不同的方式来区分的：</p>
+
+<h2 id="2-1-打开新窗口">2.1 打开新窗口</h2>
+
+<blockquote>
+<p>值为private、no-cache、must-revalidate，那么打开新窗口访问时都会重新访问服务器。而如果指定了max-age值（单位为秒），那么在此值内的时间里就不会重新访问服务器，
+</br></br>
+例如：Cache-control: max-age=5(表示当访问此网页后的5秒内再次访问不会去服务器)</p>
+</blockquote>
+
+<h2 id="2-2-在地址栏回车">2.2 在地址栏回车</h2>
+
+<blockquote>
+<p>值为private或must-revalidate则只有第一次访问时会访问服务器，以后就不再访问。
+</br></br>
+值为no-cache，那么每次都会访问。
+</br></br>
+值为max-age，则在过期之前不会重复访问。</p>
+</blockquote>
+
+<h2 id="2-3-按后退按扭">2.3 按后退按扭</h2>
+
+<blockquote>
+<p>值为private、must-revalidate、max-age，则不会重访问，
+</br></br>
+值为no-cache，则每次都重复访问</p>
+</blockquote>
+
+<h2 id="2-4-按刷新按扭">2.4 按刷新按扭</h2>
+
+<blockquote>
+<p>无论为何值，都会重复访问</p>
+</blockquote>
+
+<ul>
+<li>Cookie</li>
+</ul>
+
+<blockquote>
+<p>Cookie是用来存储一些用户信息以便让服务器辨别用户身份的（大多数需要登录的网站上面会比较常见），比如cookie会存储一些用户的用户名和密码，当用户登录后就会在客户端产生一个cookie来存储相关信息，
+这样浏览器通过读取cookie的信息去服务器上验证并通过后会判定你是合法用户，从而允许查看相应网页。当然cookie里面的数据不仅仅是上述范围，还有很多信息可以存储是cookie里面，比如sessionid等。</p>
+</blockquote>
+
+<ul>
+<li>If-Modified-Since</li>
+</ul>
+
+<blockquote>
+<p>作用： 把浏览器端缓存页面的最后修改时间发送到服务器去，服务器会把这个时间与服务器上实际文件的最后修改时间进行对比。如果时间一致，那么返回304，客户端就直接使用本地缓存文件。
+如果时间不一致，就会返回200和新的文件内容。客户端接到之后，会丢弃旧文件，把新文件缓存起来，并显示在浏览器中.
+</br></br>
+例如：Mon, 17 Aug 2015 12:03:33 GMT</p>
+</blockquote>
+
+<ul>
+<li>If-None-Match</li>
+</ul>
+
+<blockquote>
+<p>作用: If-None-Match和ETag一起工作，工作原理是在HTTP Response中添加ETag信息。 当用户再次请求该资源时，将在HTTP Request 中加入If-None-Match信息(ETag的值)。
+如果服务器验证资源的ETag没有改变（该资源没有更新），将返回一个304状态告诉客户端使用本地缓存文件。否则将返回200状态和新的资源和Etag. 使用这样的机制将提高网站的性能。
+</br></br>
+例如: If-None-Match: W/”3119-1437038474000”</p>
+</blockquote>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">honour</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-08-25</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/http/">http</a>
+          
+          <a href="/tags/headers/">headers</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/python/flask_start_twice/">
+            <span class="next-text nav-default">Flask 启动两次</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:yefeihonours@gmail.com" class="iconfont icon-email" title="email"></a>
+  <a href="https://yefeihonours.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+    <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangyefei</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

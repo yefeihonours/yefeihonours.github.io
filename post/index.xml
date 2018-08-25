@@ -6,10 +6,34 @@
     <description>Recent content in Posts on HuangYefei&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 01 Jul 2018 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Aug 2018 12:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://yefeihonours.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Http Headers各属性的作用</title>
+      <link>https://yefeihonours.github.io/post/http/http_headers/</link>
+      <pubDate>Sat, 25 Aug 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/http/http_headers/</guid>
+      <description>&lt;p&gt;本篇博客将简要介绍 http 请求头， 即 headers 中各参数的含义。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Flask 启动两次</title>
+      <link>https://yefeihonours.github.io/post/python/flask_start_twice/</link>
+      <pubDate>Fri, 24 Aug 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/flask_start_twice/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本博客将介绍 flask 项目在 debug 模式下启动两次的原因以及对应解决方案&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>如何在 Linux 启动时自动执行命令或脚本</title>
@@ -134,6 +158,23 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
       <guid>https://yefeihonours.github.io/post/docker/docker_time/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Docker Store 上的官方镜像基本上都默认是 UTC 时区，需要我们手动设置一下。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker 镜像文件导入与导出</title>
+      <link>https://yefeihonours.github.io/post/docker/docker_image_export/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/docker/docker_image_export/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Docker 为开发、学习和产品演示提供了很棒的环境，只要获取到对应的 docker 镜像，就可以轻松通过 docker run 命令启动相应的服务，省去了配置环境以及安装等一系列繁琐过程。
+&lt;/br&gt;&lt;/br&gt;
+但是由于网络原因等一系列不可预测因素，docker镜像制作和下载可能费时较长。
+&lt;/br&gt;&lt;/br&gt;
+本博客在此提供一种折中解决方案，在网络状态以及配置较高的机器上制作或下载好 docker 镜像，导镜像的压缩包，随后在别的机器上直接导入即可使用。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -362,7 +403,7 @@ d18d1d4fd831...a5bc378178
     </item>
     
     <item>
-      <title>Python中不可变常亮的实现</title>
+      <title>Python中不可变常量的实现</title>
       <link>https://yefeihonours.github.io/post/python/const/</link>
       <pubDate>Tue, 28 Nov 2017 12:00:00 +0800</pubDate>
       
