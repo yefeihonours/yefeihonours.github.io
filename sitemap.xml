@@ -52,8 +52,36 @@
   </url>
   
   <url>
-    <loc>https://yefeihonours.github.io/post/linux/centos_iptables/</loc>
-    <lastmod>2018-06-28T12:00:00+08:00</lastmod>
+    <loc>https://yefeihonours.github.io/post/linux/common_ports/</loc>
+    <lastmod>2018-10-15T12:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yefeihonours.github.io/post/linux/iptablesfirewalld_usage/</loc>
+    <lastmod>2018-10-15T12:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yefeihonours.github.io/post/linux/iptablesfirewalld_introduction/</loc>
+    <lastmod>2018-10-15T12:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yefeihonours.github.io/post/linux/cp_with_f/</loc>
+    <lastmod>2018-10-15T12:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yefeihonours.github.io/post/linux/sshpass/</loc>
+    <lastmod>2018-10-15T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -57,7 +57,7 @@
 
 
 
-<meta property="og:updated_time" content="2017-12-22T12:00:00&#43;08:00"/>
+<meta property="og:updated_time" content="2018-06-13T12:00:00&#43;08:00"/>
 
 
 
@@ -141,6 +141,140 @@
   <section id="posts" class="posts">
     
     
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/docker/docker_beginner/">docker基本使用教程</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-13 </span>
+      <div class="post-category">
+          
+            <a href="/categories/docker/"> docker </a>
+          
+        </div>
+      <span class="more-meta"> 约 389 字 </span>
+      <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><strong>本文将介绍docker的常用基本命令。</strong></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/docker/docker_beginner/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/docker_python_web/">基于 docker 打包部署 python web 项目至 linux 服务器</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-13 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 1309 字 </span>
+      <span class="more-meta"> 预计阅读 3 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h3 id="将python-web应用容器化"><strong>将Python Web应用容器化</strong></h3>
+
+<blockquote>
+<p>本文将讨论如何让“容器化”的Python Web应用跑在安全的沙箱里，严格的坚守在其各自的环境中（当然，除非你指定它们与其他应用进行“连接”）。
+</br>
+</br>
+以下将介绍两站方法如何创建一个Docker容器，如何用这个容器来跑我们的Python Web应用，以及如何用一个Dockerfile来描述整个构建过程以实现完整的自动化。</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/docker_python_web/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/ignore_sql_views/">如何使Flask-Migrate忽略在Models定义的数据库视图</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-03 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 553 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h4 id="flask-migrate"><strong>Flask-Migrate</strong></h4>
+
+<blockquote>
+<p>在使用Flask-SQLAlchemy来定义模型，然后使用Flask-Migrate自动生成迁移脚本以部署到MySQL数据库过程中，我们可能会在应用程序中使用的数据库中定义许多SQL Views辅助查询。
+</br>
+</br>
+但是在迁移命令migrate后，Flask-Migrate现在会为该视图生成一个迁移文件，因为它认为它是一个表格。如何在迁移过程中让Flask-Migrate忽略视图？</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/ignore_sql_views/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/init/">Python3 __init__.py和__init__函数的作用</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-05-22 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 888 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h4 id="一-init-py文件">一.__<strong><em>init</em></strong>__.py文件</h4>
+
+<blockquote>
+<p>在python模块的每一个包中，都有一个<code>__init__.py</code>文件（这个文件定义了包的属性和方法）然后是一些模块文件和子目录，假如子目录中也有 <code>__init__.py</code> 那么它就是这个包的子包了。当你将一个包作为模块导入（比如从 xml 导入 dom ）的时候，实际上导入了它的 <code>__init__.py</code> 文件。
+</br>
+</br>
+一个包是一个带有特殊文件 <code>__init__.py</code> 的目录。<code>__init__.py</code> 文件定义了包的属性和方法。其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 <code>__init__.py</code> 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。
+</br>
+</br>
+在python中， module(也即python的模块)是一个单独的文件来实现的，要把是py文件，或者pyc文件，甚至是C扩展的dll文件。而对于package, Python使用了文件夹来实现它，可以说，一个文件夹就是一个package,里面容纳了一些py、pyc或dll文件，这种方式就是把module聚合成一个package的具体实现。</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/init/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     
       <article class="post">
   <header class="post-header">
@@ -332,130 +466,6 @@ d18d1d4fd831...a5bc378178
     </div>
     <div class="read-more">
       <a href="/post/python/use/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/switch/">Python 中 switch 方法的实现</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-11-28 </span>
-      <div class="post-category">
-          
-            <a href="/categories/python/"> Python </a>
-          
-        </div>
-      <span class="more-meta"> 约 493 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <blockquote>
-<p>在Python开发过程中，很多时候都需要使用到<code>switch</code>的结构形式，而大多在遇到这种情况的时候，开发人员都是使用<code>if...else...</code>结构来代替，但是过多的重复判断，会导致程序的可读性变差。</p>
-</blockquote>
-
-<p></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/python/switch/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/const/">Python中不可变常量的实现</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-11-28 </span>
-      <div class="post-category">
-          
-            <a href="/categories/python/"> Python </a>
-          
-        </div>
-      <span class="more-meta"> 约 219 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <blockquote>
-<p>在Python开发过程中，经常会有用到不可变常量的时候，但一般都是直接定义Python数据类型。但这并不安全，在以后的编码过程中，我们很有可能在自己不知道的情况下修改这个变量的值，但事实上并不希望如此。</p>
-</blockquote>
-
-<p></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/python/const/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/javascript/methods/">Javascript 实用的方法</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-11-07 </span>
-      <div class="post-category">
-          
-            <a href="/categories/javascript/"> Javascript </a>
-          
-        </div>
-      <span class="more-meta"> 约 920 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <ul>
-<li>数字金额转化大写</li>
-<li>计算字符串日期对应星期几</li>
-<li>字符串格式化[四舍五入]</li>
-<li>日期格式化</li>
-<li>连字符转驼峰-驼峰转连字符</li>
-</ul>
-
-<p></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/javascript/methods/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/linux/zookeeper/">Zookeeper的安装与集群部署</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-11-05 </span>
-      <div class="post-category">
-          
-            <a href="/categories/linux/"> Linux </a>
-          
-        </div>
-      <span class="more-meta"> 约 957 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="zookeeper-稳定版下载">Zookeeper 稳定版下载</h2>
-
-<p><a href="http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz">zookeeper-3.4.10.tar.gz</a></p>
-
-<p></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/linux/zookeeper/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

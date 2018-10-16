@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>selenium &#43; ChromeDriver 配置教程 - HuangYefei&#39;s Blog</title>
+  <title>解决 Linux 中 cp -f 复制强制覆盖的命令无效的方法 - HuangYefei&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="honour" />
-  <meta name="description" content=" Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。 这里将介绍selenium &#43; 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。
+  <meta name="description" content=" Linux下默认cp命令是有别名的(alias cp=&amp;lsquo;cp -i&amp;rsquo;)，无法在复制时强制覆盖。 参数说明: -i, &amp;ndash;interactive prompt before overwrite (overrides a previous -n option) 即使你用 -f 参数也无法强制覆盖文件，本文将提供几种Linux下cp命令覆盖的解决方案。
  
 " />
 
@@ -31,7 +31,7 @@
 <meta name="generator" content="Hugo 0.40.3" />
 
 
-<link rel="canonical" href="https://yefeihonours.github.io/post/python/selenium_chromedriver/" />
+<link rel="canonical" href="https://yefeihonours.github.io/post/linux/cp_with_f/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -51,27 +51,25 @@
 
 
 
-<meta property="og:title" content="selenium &#43; ChromeDriver 配置教程" />
+<meta property="og:title" content="解决 Linux 中 cp -f 复制强制覆盖的命令无效的方法" />
 <meta property="og:description" content="
-Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
+Linux下默认cp命令是有别名的(alias cp=&lsquo;cp -i&rsquo;)，无法在复制时强制覆盖。
 
+参数说明: -i, &ndash;interactive
+prompt before overwrite (overrides a previous -n option)
 
-这里将介绍selenium &#43; 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。
+即使你用 -f 参数也无法强制覆盖文件，本文将提供几种Linux下cp命令覆盖的解决方案。
 
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yefeihonours.github.io/post/python/selenium_chromedriver/" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/linux/cp_with_f/" />
 
 
 
-<meta property="article:published_time" content="2018-06-25T12:00:00&#43;08:00"/>
+<meta property="article:published_time" content="2018-06-28T12:00:00&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-06-25T12:00:00&#43;08:00"/>
-
-
-
-
+<meta property="article:modified_time" content="2018-10-15T12:00:00&#43;08:00"/>
 
 
 
@@ -79,31 +77,39 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
 
 
 
-<meta itemprop="name" content="selenium &#43; ChromeDriver 配置教程">
+
+
+
+
+<meta itemprop="name" content="解决 Linux 中 cp -f 复制强制覆盖的命令无效的方法">
 <meta itemprop="description" content="
-Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
+Linux下默认cp命令是有别名的(alias cp=&lsquo;cp -i&rsquo;)，无法在复制时强制覆盖。
 
+参数说明: -i, &ndash;interactive
+prompt before overwrite (overrides a previous -n option)
 
-这里将介绍selenium &#43; 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。
+即使你用 -f 参数也无法强制覆盖文件，本文将提供几种Linux下cp命令覆盖的解决方案。
 
 
 ">
 
 
-<meta itemprop="datePublished" content="2018-06-25T12:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2018-06-25T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="515">
+<meta itemprop="datePublished" content="2018-06-28T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-06-28T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="178">
 
 
 
-<meta itemprop="keywords" content="python,chrome,Web crawler," />
+<meta itemprop="keywords" content="linux," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="selenium &#43; ChromeDriver 配置教程"/>
+<meta name="twitter:title" content="解决 Linux 中 cp -f 复制强制覆盖的命令无效的方法"/>
 <meta name="twitter:description" content="
-Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
+Linux下默认cp命令是有别名的(alias cp=&lsquo;cp -i&rsquo;)，无法在复制时强制覆盖。
 
+参数说明: -i, &ndash;interactive
+prompt before overwrite (overrides a previous -n option)
 
-这里将介绍selenium &#43; 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。
+即使你用 -f 参数也无法强制覆盖文件，本文将提供几种Linux下cp命令覆盖的解决方案。
 
 
 "/>
@@ -173,17 +179,17 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">selenium &#43; ChromeDriver 配置教程</h1>
+      <h1 class="post-title">解决 Linux 中 cp -f 复制强制覆盖的命令无效的方法</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2018-06-25 </span>
+        <span class="post-time"> 2018-06-28 </span>
         <div class="post-category">
             
-              <a href="/categories/python/"> Python </a>
+              <a href="/categories/linux/"> Linux </a>
             
           </div>
-        <span class="more-meta"> 约 515 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span class="more-meta"> 约 178 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -200,10 +206,9 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
 <ul>
 <li>
 <ul>
-<li><a href="#一-selenium-环境配置">一、selenium 环境配置</a></li>
-<li><a href="#二-下载chromedriver">二、下载chromedriver</a></li>
-<li><a href="#三-selenium-第一个脚本">三、selenium 第一个脚本</a></li>
-<li><a href="#四-linux-下-chrome-浏览器安装教程">四、Linux 下 Chrome 浏览器安装教程</a></li>
+<li><a href="#一-取消cp的alias-非永久生效">一、取消cp的alias（非永久生效）：</a></li>
+<li><a href="#二-加反斜杠-cp-执行cp命令时不走alias">二、加反斜杠 \cp 执行cp命令时不走alias：</a></li>
+<li><a href="#三-另外一个有意思的方法">三、另外一个有意思的方法：</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -214,78 +219,35 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
     
     <div class="post-content">
       <blockquote>
-<p>Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
-<br>
-<br>
-这里将介绍selenium + 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。</p>
+<p>Linux下默认cp命令是有别名的(alias cp=&lsquo;cp -i&rsquo;)，无法在复制时强制覆盖。
+<br><br>
+参数说明: -i, &ndash;interactive
+prompt before overwrite (overrides a previous -n option)
+<br><br>
+即使你用 -f 参数也无法强制覆盖文件，本文将提供几种Linux下cp命令覆盖的解决方案。</p>
 </blockquote>
 
 <p></p>
 
-<h3 id="一-selenium-环境配置">一、selenium 环境配置</h3>
+<h3 id="一-取消cp的alias-非永久生效">一、取消cp的alias（非永久生效）：</h3>
 
-<p>在安装有python3的机器上，打开终端执行 <code>pip3 install selenium</code> 即可
-<br>
-<br></p>
+<pre><code class="language-bash">unalias cp
+cp -rf /test/a
+</code></pre>
 
-<h3 id="二-下载chromedriver">二、下载chromedriver</h3>
-
-<p>至此可选择查看 GitHub 上的 <a href="https://github.com/yefeihonours/python_useful_utils/tree/master/selenium_demo_with_headless_browser"><strong>demo</strong></a>，已经将 ChromeDriver 安放在项目路径下，直接运行即可
-<br>
-<br>
-或者手动下载 ChromeDriver</p>
-
-<ul>
-<li>下载地址一：</li>
-</ul>
-
-<p><code>https://sites.google.com/a/chromium.org/chromedriver/downloads</code></p>
-
-<ul>
-<li>下载地址二：</li>
-</ul>
-
-<p><code>http://npm.taobao.org/mirrors/chromedriver/</code></p>
-
-<p>将解压后的chromedriver移动到/usr/local/bin目录下</p>
-
-<p>否则在运行脚本时，会提示</p>
+<h3 id="二-加反斜杠-cp-执行cp命令时不走alias">二、加反斜杠 \cp 执行cp命令时不走alias：</h3>
 
 <blockquote>
-<p>chromedriver executable needs to be in PATH错误</p>
+<p><strong>注：推荐这个方法！</strong></p>
 </blockquote>
 
-<h3 id="三-selenium-第一个脚本">三、selenium 第一个脚本</h3>
-
-<pre><code>from selenium import webdriver
- 
-browser = webdriver.Chrome()
-browser.get('http://www.baidu.com/')
+<pre><code class="language-bash">\cp -rf /test/a
 </code></pre>
 
-<p>运行这段代码，会自动打开Chrome浏览器，然后访问百度。
-<br>
-<br>
-至此，配置完成。
-<br>
-<br></p>
+<h3 id="三-另外一个有意思的方法">三、另外一个有意思的方法：</h3>
 
-<h3 id="四-linux-下-chrome-浏览器安装教程">四、Linux 下 Chrome 浏览器安装教程</h3>
-
-<p>下载地址请参见 <a href="http://rpmfind.net/linux/rpm2html/search.php?query=google-chrome-stable">http://rpmfind.net/linux/rpm2html/search.php?query=google-chrome-stable</a></p>
-
-<p>安装脚本如下：</p>
-
-<pre><code class="language-bash"># 下载
-wget http://rpmfind.net/linux/sourceforge/s/sl/slik-linux/chrome/google-chrome-stable-58.0.3029.110-1.x86_64.rpm
-# yum会自动分析依赖，完成安装
-yum localinstall google-chrome-stable-58.0.3029.110-1.x86_64.rpm
-# 升级chrome到当前最新版以避免老版本可能出现的一些bug
-yum -y upgrade google-chrome-stable
-
+<pre><code class="language-bash">yes|cp -rf /test/a
 </code></pre>
-
-<p>特别说明：无图形化界面的Linux系统上使用 selenium 和 ChromeDriver 请务必使用 headless 模式</p>
     </div>
 
     
@@ -296,7 +258,7 @@ yum -y upgrade google-chrome-stable
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2018-06-25</span>
+    <span class="item-content">2018-10-15</span>
   </p>
   
   
@@ -308,25 +270,21 @@ yum -y upgrade google-chrome-stable
     <footer class="post-footer">
       <div class="post-tags">
           
-          <a href="/tags/python/">python</a>
-          
-          <a href="/tags/chrome/">chrome</a>
-          
-          <a href="/tags/web-crawler/">Web crawler</a>
+          <a href="/tags/linux/">linux</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/python/selenium_chromedriver2/">
+          <a class="prev" href="/post/linux/iptablesfirewalld_introduction/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Python3 下 selenium 常用方法教程</span>
+            <span class="prev-text nav-default">iptables 与 firewalld 防火墙 简介</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
-          <a class="next" href="/post/docker/docker_time/">
-            <span class="next-text nav-default">Docker 中如何设置 container 的时区</span>
+          <a class="next" href="/post/linux/sshpass/">
+            <span class="next-text nav-default">非交互 SSH 密码验证 sshpass 基本使用教程</span>
             <span class="prev-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

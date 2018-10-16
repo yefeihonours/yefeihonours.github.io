@@ -101,13 +101,93 @@
     </item>
     
     <item>
-      <title>解决CentOS(6和7版本)，/etc/sysconfig/下没有iptables的问题</title>
-      <link>https://yefeihonours.github.io/post/linux/centos_iptables/</link>
+      <title>Linux 常用端口号大全</title>
+      <link>https://yefeihonours.github.io/post/linux/common_ports/</link>
       <pubDate>Thu, 28 Jun 2018 12:00:00 +0800</pubDate>
       
-      <guid>https://yefeihonours.github.io/post/linux/centos_iptables/</guid>
-      <description>&lt;p&gt;&lt;br&gt;
-本文记录在 linux 服务器上通过修改iptables文件开放端口号时，无法找到iptables文件的问题的解决方案。&lt;/p&gt;</description>
+      <guid>https://yefeihonours.github.io/post/linux/common_ports/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文列举了包括在红帽企业 Linux 中的服务、守护进程、和程序所使用的最常见的通信端口。
+&lt;br&gt;&lt;br&gt;
+该列表还可以在 /etc/services 文件中找到。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>iptables 与 firewalld 防火墙 基本使用教程</title>
+      <link>https://yefeihonours.github.io/post/linux/iptablesfirewalld_usage/</link>
+      <pubDate>Thu, 28 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/iptablesfirewalld_usage/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;防火墙是整个数据包进入主机前的第一道关卡。防火墙主要通过 Netfilter 与 TCPwrappers 两个机制来管理的。
+&lt;br&gt;&lt;br&gt;
+1.Netfilter：数据包过滤机制
+&lt;br&gt;&lt;br&gt;
+2.TCP Wrappers：程序管理机制
+&lt;br&gt;&lt;br&gt;
+关于数据包过滤机制有两个软件：firewalld 与 iptables
+&lt;br&gt;&lt;br&gt;
+iptables 通过控制端口来控制服务，而 firewalld 则是通过控制协议来控制端口。
+&lt;br&gt;&lt;br&gt;
+本文将简要列出 firewalld 防火墙与先前版本中 iptables 防火墙的常用操作命令。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>iptables 与 firewalld 防火墙 简介</title>
+      <link>https://yefeihonours.github.io/post/linux/iptablesfirewalld_introduction/</link>
+      <pubDate>Thu, 28 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/iptablesfirewalld_introduction/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;保障数据的安全性是继保障数据的可用性之后最为重要的一项工作。防火墙作为公网与内网之间的保护屏障，在保障数据的安全性方面起着至关重要的作用。
+&lt;br&gt;&lt;br&gt;
+本文将着重讨论 RHEL7 中新增 firewalld 防火墙与先前版本中 iptables 防火墙之间的区别做分析。
+&lt;br&gt;&lt;br&gt;
+以下将分别使用 iptables、firewall-cmd、firewall-config 和T CP Wrappers 等防火墙策略配置服务来完成数十个防火墙策略配置案例。
+&lt;br&gt;&lt;br&gt;
+通过防火墙不仅可以过滤请求的流量，还可以基于服务程序的名称对流量进行允许和拒绝操作，确保Linux系统的安全性万无一失。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>解决 Linux 中 cp -f 复制强制覆盖的命令无效的方法</title>
+      <link>https://yefeihonours.github.io/post/linux/cp_with_f/</link>
+      <pubDate>Thu, 28 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/cp_with_f/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Linux下默认cp命令是有别名的(alias cp=&amp;lsquo;cp -i&amp;rsquo;)，无法在复制时强制覆盖。
+&lt;br&gt;&lt;br&gt;
+参数说明: -i, &amp;ndash;interactive
+prompt before overwrite (overrides a previous -n option)
+&lt;br&gt;&lt;br&gt;
+即使你用 -f 参数也无法强制覆盖文件，本文将提供几种Linux下cp命令覆盖的解决方案。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>非交互 SSH 密码验证 sshpass 基本使用教程</title>
+      <link>https://yefeihonours.github.io/post/linux/sshpass/</link>
+      <pubDate>Thu, 28 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/sshpass/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;ssh登陆不能在命令行中指定密码。sshpass的出现，解决了这一问题。
+&lt;br&gt;&lt;br&gt;
+sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再次输入密码。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

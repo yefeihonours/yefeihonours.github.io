@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>selenium &#43; ChromeDriver 配置教程 - HuangYefei&#39;s Blog</title>
+  <title>非交互 SSH 密码验证 sshpass 基本使用教程 - HuangYefei&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="honour" />
-  <meta name="description" content=" Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。 这里将介绍selenium &#43; 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。
+  <meta name="description" content=" ssh登陆不能在命令行中指定密码。sshpass的出现，解决了这一问题。 sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再次输入密码。
  
 " />
 
@@ -31,7 +31,7 @@
 <meta name="generator" content="Hugo 0.40.3" />
 
 
-<link rel="canonical" href="https://yefeihonours.github.io/post/python/selenium_chromedriver/" />
+<link rel="canonical" href="https://yefeihonours.github.io/post/linux/sshpass/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -51,27 +51,22 @@
 
 
 
-<meta property="og:title" content="selenium &#43; ChromeDriver 配置教程" />
+<meta property="og:title" content="非交互 SSH 密码验证 sshpass 基本使用教程" />
 <meta property="og:description" content="
-Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
+ssh登陆不能在命令行中指定密码。sshpass的出现，解决了这一问题。
 
-
-这里将介绍selenium &#43; 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。
+sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再次输入密码。
 
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yefeihonours.github.io/post/python/selenium_chromedriver/" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/linux/sshpass/" />
 
 
 
-<meta property="article:published_time" content="2018-06-25T12:00:00&#43;08:00"/>
+<meta property="article:published_time" content="2018-06-28T12:00:00&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-06-25T12:00:00&#43;08:00"/>
-
-
-
-
+<meta property="article:modified_time" content="2018-10-15T12:00:00&#43;08:00"/>
 
 
 
@@ -79,31 +74,33 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
 
 
 
-<meta itemprop="name" content="selenium &#43; ChromeDriver 配置教程">
+
+
+
+
+<meta itemprop="name" content="非交互 SSH 密码验证 sshpass 基本使用教程">
 <meta itemprop="description" content="
-Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
+ssh登陆不能在命令行中指定密码。sshpass的出现，解决了这一问题。
 
-
-这里将介绍selenium &#43; 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。
+sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再次输入密码。
 
 
 ">
 
 
-<meta itemprop="datePublished" content="2018-06-25T12:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2018-06-25T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="515">
+<meta itemprop="datePublished" content="2018-06-28T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-06-28T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="456">
 
 
 
-<meta itemprop="keywords" content="python,chrome,Web crawler," />
+<meta itemprop="keywords" content="linux," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="selenium &#43; ChromeDriver 配置教程"/>
+<meta name="twitter:title" content="非交互 SSH 密码验证 sshpass 基本使用教程"/>
 <meta name="twitter:description" content="
-Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
+ssh登陆不能在命令行中指定密码。sshpass的出现，解决了这一问题。
 
-
-这里将介绍selenium &#43; 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。
+sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再次输入密码。
 
 
 "/>
@@ -173,17 +170,17 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">selenium &#43; ChromeDriver 配置教程</h1>
+      <h1 class="post-title">非交互 SSH 密码验证 sshpass 基本使用教程</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2018-06-25 </span>
+        <span class="post-time"> 2018-06-28 </span>
         <div class="post-category">
             
-              <a href="/categories/python/"> Python </a>
+              <a href="/categories/linux/"> Linux </a>
             
           </div>
-        <span class="more-meta"> 约 515 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span class="more-meta"> 约 456 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -198,12 +195,12 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#1-基本使用">1、基本使用</a></li>
+<li><a href="#2-不在命令行显示密码">2、不在命令行显示密码</a></li>
+<li><a href="#3-特别说明">3、 特别说明</a>
 <ul>
-<li><a href="#一-selenium-环境配置">一、selenium 环境配置</a></li>
-<li><a href="#二-下载chromedriver">二、下载chromedriver</a></li>
-<li><a href="#三-selenium-第一个脚本">三、selenium 第一个脚本</a></li>
-<li><a href="#四-linux-下-chrome-浏览器安装教程">四、Linux 下 Chrome 浏览器安装教程</a></li>
+<li><a href="#3-1-将-sshpass-用于批量传输文件">3.1、 将 sshpass 用于批量传输文件</a></li>
+<li><a href="#3-2-sshpass-安装">3.2、 sshpass 安装</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -214,78 +211,79 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
     
     <div class="post-content">
       <blockquote>
-<p>Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。而对于爬虫来说，使用Selenium操控浏览器来爬取网上的数据那么肯定是爬虫中的杀手武器。
-<br>
-<br>
-这里将介绍selenium + 谷歌浏览器的一般使用。首先会介绍如何安装部署环境，然后贴出一些常用的一些方法介绍。</p>
+<p>ssh登陆不能在命令行中指定密码。sshpass的出现，解决了这一问题。
+<br><br>
+sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再次输入密码。</p>
 </blockquote>
 
 <p></p>
 
-<h3 id="一-selenium-环境配置">一、selenium 环境配置</h3>
+<h2 id="1-基本使用">1、基本使用</h2>
 
-<p>在安装有python3的机器上，打开终端执行 <code>pip3 install selenium</code> 即可
-<br>
-<br></p>
-
-<h3 id="二-下载chromedriver">二、下载chromedriver</h3>
-
-<p>至此可选择查看 GitHub 上的 <a href="https://github.com/yefeihonours/python_useful_utils/tree/master/selenium_demo_with_headless_browser"><strong>demo</strong></a>，已经将 ChromeDriver 安放在项目路径下，直接运行即可
-<br>
-<br>
-或者手动下载 ChromeDriver</p>
-
-<ul>
-<li>下载地址一：</li>
-</ul>
-
-<p><code>https://sites.google.com/a/chromium.org/chromedriver/downloads</code></p>
-
-<ul>
-<li>下载地址二：</li>
-</ul>
-
-<p><code>http://npm.taobao.org/mirrors/chromedriver/</code></p>
-
-<p>将解压后的chromedriver移动到/usr/local/bin目录下</p>
-
-<p>否则在运行脚本时，会提示</p>
-
-<blockquote>
-<p>chromedriver executable needs to be in PATH错误</p>
-</blockquote>
-
-<h3 id="三-selenium-第一个脚本">三、selenium 第一个脚本</h3>
-
-<pre><code>from selenium import webdriver
- 
-browser = webdriver.Chrome()
-browser.get('http://www.baidu.com/')
+<pre><code class="language-bash">sshpass -p password ssh username@192.168.0.1 '&lt;command&gt;'
 </code></pre>
 
-<p>运行这段代码，会自动打开Chrome浏览器，然后访问百度。
-<br>
-<br>
-至此，配置完成。
-<br>
-<br></p>
+<h2 id="2-不在命令行显示密码">2、不在命令行显示密码</h2>
 
-<h3 id="四-linux-下-chrome-浏览器安装教程">四、Linux 下 Chrome 浏览器安装教程</h3>
+<p>为了防止在屏幕上显示密码，可以使用 -e 标志，并将密码作为 SSHPASS 环境变量的值输入，如下所示：</p>
 
-<p>下载地址请参见 <a href="http://rpmfind.net/linux/rpm2html/search.php?query=google-chrome-stable">http://rpmfind.net/linux/rpm2html/search.php?query=google-chrome-stable</a></p>
-
-<p>安装脚本如下：</p>
-
-<pre><code class="language-bash"># 下载
-wget http://rpmfind.net/linux/sourceforge/s/sl/slik-linux/chrome/google-chrome-stable-58.0.3029.110-1.x86_64.rpm
-# yum会自动分析依赖，完成安装
-yum localinstall google-chrome-stable-58.0.3029.110-1.x86_64.rpm
-# 升级chrome到当前最新版以避免老版本可能出现的一些bug
-yum -y upgrade google-chrome-stable
-
+<pre><code class="language-bash">export SSHPASS='my_pass_here'
+echo $SSHPASS
+sshpass -e ssh username@192.168.0.1 '&lt;command&gt;' 
 </code></pre>
 
-<p>特别说明：无图形化界面的Linux系统上使用 selenium 和 ChromeDriver 请务必使用 headless 模式</p>
+<p>注意：在上面的示例中，SSHPASS 环境变量仅用于临时目的，并将在重新启动后删除。</p>
+
+<p>要永久设置 SSHPASS 环境变量，打开 /etc/profile 文件，并在文件开头输入 export 语句：</p>
+
+<pre><code class="language-bash">export SSHPASS='my_pass_here'
+</code></pre>
+
+<p>保存文件并退出，接着运行下面的命令使更改生效：</p>
+
+<pre><code class="language-bash">$ source /etc/profile 
+</code></pre>
+
+<p>另外，也可以使用 -f 标志，并把密码放在一个文件中。 这样，您可以从文件中读取密码，如下所示：</p>
+
+<pre><code class="language-bash">sshpass -f password_filename ssh username@192.168.0.1 '&lt;command&gt;'
+</code></pre>
+
+<h2 id="3-特别说明">3、 特别说明</h2>
+
+<h3 id="3-1-将-sshpass-用于批量传输文件">3.1、 将 sshpass 用于批量传输文件</h3>
+
+<pre><code class="language-bash">sshpass -f password_filename scp /Users/demo username@192.168.0.1:/demo_path
+</code></pre>
+
+<p>如果拷贝文件失败是因为第一次ssh让你输入yes</p>
+
+<p>把 StrictHostKeyChecking no加到/etc/ssh/ssh_config可以让ssh客户端自动接受新主机的hostkey,不用
+每次在ssh新主机时都自己输入yes</p>
+
+<pre><code class="language-bash">echo 'StrictHostKeyChecking no'&gt;&gt;/etc/ssh/ssh_config
+</code></pre>
+
+<h3 id="3-2-sshpass-安装">3.2、 sshpass 安装</h3>
+
+<ul>
+<li>Ubuntu：</li>
+</ul>
+
+<pre><code class="language-bash">apt-get install sshpass
+</code></pre>
+
+<ul>
+<li>CentOS：</li>
+</ul>
+
+<pre><code class="language-bash"> wget http://sourceforge.net/projects/sshpass/files/sshpass/1.05/sshpass-1.05.tar.gz 
+ tar xvzf sshpass-1.05.tar.gz 
+ cd sshpass-1.05.tar.gz 
+ ./configure 
+ make 
+ make install 
+</code></pre>
     </div>
 
     
@@ -296,7 +294,7 @@ yum -y upgrade google-chrome-stable
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2018-06-25</span>
+    <span class="item-content">2018-10-15</span>
   </p>
   
   
@@ -308,25 +306,21 @@ yum -y upgrade google-chrome-stable
     <footer class="post-footer">
       <div class="post-tags">
           
-          <a href="/tags/python/">python</a>
-          
-          <a href="/tags/chrome/">chrome</a>
-          
-          <a href="/tags/web-crawler/">Web crawler</a>
+          <a href="/tags/linux/">linux</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/python/selenium_chromedriver2/">
+          <a class="prev" href="/post/linux/cp_with_f/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Python3 下 selenium 常用方法教程</span>
+            <span class="prev-text nav-default">解决 Linux 中 cp -f 复制强制覆盖的命令无效的方法</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
-          <a class="next" href="/post/docker/docker_time/">
-            <span class="next-text nav-default">Docker 中如何设置 container 的时区</span>
+          <a class="next" href="/post/python/flask_gunicorn_nginx/">
+            <span class="next-text nav-default">Flask &#43; Gunicorn &#43; Nginx 部署</span>
             <span class="prev-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
