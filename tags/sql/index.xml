@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>MySQL 中实现 rownum</title>
+      <link>https://yefeihonours.github.io/post/mysql/mysql_rownum/</link>
+      <pubDate>Fri, 29 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/mysql/mysql_rownum/</guid>
+      <description>&lt;p&gt;在oracle中,可使用rownum处理很多与行号相关的问题,但是mysql中没有类似的函数。本文将介绍mysql中实现行号的方法&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>SQL 中 IN 和 EXISTS 用法的区别</title>
       <link>https://yefeihonours.github.io/post/mysql/in_and_exists/</link>
       <pubDate>Fri, 29 Jun 2018 12:00:00 +0800</pubDate>

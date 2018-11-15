@@ -45,6 +45,13 @@
   </url>
   
   <url>
+    <loc>https://yefeihonours.github.io/post/mysql/mysql_rownum/</loc>
+    <lastmod>2018-11-14T12:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://yefeihonours.github.io/post/mysql/in_and_exists/</loc>
     <lastmod>2018-06-29T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -436,14 +443,14 @@
   
   <url>
     <loc>https://yefeihonours.github.io/tags/mysql/</loc>
-    <lastmod>2018-06-29T12:00:00+08:00</lastmod>
+    <lastmod>2018-11-14T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://yefeihonours.github.io/categories/mysql/</loc>
-    <lastmod>2018-06-29T12:00:00+08:00</lastmod>
+    <lastmod>2018-11-14T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -506,7 +513,7 @@
   
   <url>
     <loc>https://yefeihonours.github.io/tags/sql/</loc>
-    <lastmod>2018-06-29T12:00:00+08:00</lastmod>
+    <lastmod>2018-11-14T12:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
