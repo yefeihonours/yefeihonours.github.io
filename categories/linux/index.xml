@@ -171,7 +171,18 @@ sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再�
       <pubDate>Sun, 05 Nov 2017 12:00:00 +0800</pubDate>
       
       <guid>https://yefeihonours.github.io/post/linux/nginx_tcp/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;本文记录如何配置Nginx使其支持TCP&lt;/strong&gt;&lt;/p&gt;
+      <description>&lt;h1 id=&#34;本文记录如何配置nginx使其支持tcp&#34;&gt;&lt;strong&gt;本文记录如何配置Nginx使其支持TCP&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nginx配置技巧</title>
+      <link>https://yefeihonours.github.io/post/linux/nginx_config/</link>
+      <pubDate>Sun, 05 Nov 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/linux/nginx_config/</guid>
+      <description>&lt;h1 id=&#34;本文记录nginx的一些常用配置说明&#34;&gt;&lt;strong&gt;本文记录Nginx的一些常用配置说明&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
