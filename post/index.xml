@@ -255,6 +255,19 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
     </item>
     
     <item>
+      <title>Docker 中搭建 redis 服务</title>
+      <link>https://yefeihonours.github.io/post/docker/docker_redis/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/docker/docker_redis/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文介绍如何在 docker 中搭建 redis 服务的几种方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Docker 镜像文件导入与导出</title>
       <link>https://yefeihonours.github.io/post/docker/docker_image_export/</link>
       <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
@@ -327,7 +340,20 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
       <pubDate>Wed, 13 Jun 2018 12:00:00 +0800</pubDate>
       
       <guid>https://yefeihonours.github.io/post/docker/docker_beginner/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;本文将介绍docker的常用基本命令。&lt;/strong&gt;&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;本文将介绍玩转docker的一些常用基本命令&#34;&gt;&lt;strong&gt;本文将介绍玩转docker的一些常用基本命令。&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>docker进阶使用教程</title>
+      <link>https://yefeihonours.github.io/post/docker/docker_advanced/</link>
+      <pubDate>Wed, 13 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/docker/docker_advanced/</guid>
+      <description>&lt;h1 id=&#34;本文将介绍玩转docker的一些高级命令&#34;&gt;&lt;strong&gt;本文将介绍玩转docker的一些高级命令。&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

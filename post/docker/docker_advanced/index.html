@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>docker基本使用教程 - HuangYefei&#39;s Blog</title>
+  <title>docker进阶使用教程 - HuangYefei&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="honour" />
-  <meta name="description" content="本文将介绍玩转docker的一些常用基本命令。 
+  <meta name="description" content="本文将介绍玩转docker的一些高级命令。 
 " />
 
   <meta name="keywords" content="Hugo, theme, even" />
@@ -30,7 +30,7 @@
 <meta name="generator" content="Hugo 0.40.3" />
 
 
-<link rel="canonical" href="https://yefeihonours.github.io/post/docker/docker_beginner/" />
+<link rel="canonical" href="https://yefeihonours.github.io/post/docker/docker_advanced/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -50,18 +50,18 @@
 
 
 
-<meta property="og:title" content="docker基本使用教程" />
-<meta property="og:description" content="本文将介绍玩转docker的一些常用基本命令。
+<meta property="og:title" content="docker进阶使用教程" />
+<meta property="og:description" content="本文将介绍玩转docker的一些高级命令。
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yefeihonours.github.io/post/docker/docker_beginner/" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/docker/docker_advanced/" />
 
 
 
 <meta property="article:published_time" content="2018-06-13T12:00:00&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-06-13T12:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2018-11-16T12:00:00&#43;08:00"/>
 
 
 
@@ -73,22 +73,22 @@
 
 
 
-<meta itemprop="name" content="docker基本使用教程">
-<meta itemprop="description" content="本文将介绍玩转docker的一些常用基本命令。
+<meta itemprop="name" content="docker进阶使用教程">
+<meta itemprop="description" content="本文将介绍玩转docker的一些高级命令。
 
 ">
 
 
 <meta itemprop="datePublished" content="2018-06-13T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-06-13T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="363">
+<meta itemprop="wordCount" content="973">
 
 
 
 <meta itemprop="keywords" content="docker," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="docker基本使用教程"/>
-<meta name="twitter:description" content="本文将介绍玩转docker的一些常用基本命令。
+<meta name="twitter:title" content="docker进阶使用教程"/>
+<meta name="twitter:description" content="本文将介绍玩转docker的一些高级命令。
 
 "/>
 
@@ -157,7 +157,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">docker基本使用教程</h1>
+      <h1 class="post-title">docker进阶使用教程</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2018-06-13 </span>
@@ -166,8 +166,8 @@
               <a href="/categories/docker/"> docker </a>
             
           </div>
-        <span class="more-meta"> 约 363 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
+        <span class="more-meta"> 约 973 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -180,7 +180,18 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#本文将介绍玩转docker的一些常用基本命令"><strong>本文将介绍玩转docker的一些常用基本命令。</strong></a></li>
+<li><a href="#本文将介绍玩转docker的一些高级命令"><strong>本文将介绍玩转docker的一些高级命令。</strong></a>
+<ul>
+<li><a href="#一-从镜像仓库中拉取或者更新指定镜像">一、从镜像仓库中拉取或者更新指定镜像</a></li>
+<li><a href="#二-docker-容器内查看宿主机-ip-的方法">二、docker 容器内查看宿主机 ip 的方法</a></li>
+<li><a href="#三-docker-查看实时日志">三、docker 查看实时日志</a></li>
+<li><a href="#附-docker-资源汇总">附 Docker 资源汇总</a>
+<ul>
+<li><a href="#docker官方英文资源">Docker官方英文资源</a></li>
+<li><a href="#docker中文资源">Docker中文资源</a></li>
+<li><a href="#docker-国内镜像">Docker 国内镜像</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </nav>
   </div>
@@ -188,54 +199,116 @@
 
     
     <div class="post-content">
-      <h1 id="本文将介绍玩转docker的一些常用基本命令"><strong>本文将介绍玩转docker的一些常用基本命令。</strong></h1>
+      <h1 id="本文将介绍玩转docker的一些高级命令"><strong>本文将介绍玩转docker的一些高级命令。</strong></h1>
 
 <p></p>
 
-<pre><code class="language-bash"># 查看当前正在运行的容器
+<h2 id="一-从镜像仓库中拉取或者更新指定镜像">一、从镜像仓库中拉取或者更新指定镜像</h2>
 
-docker ps
-
-# 查看所有容器的状态
-
-docker ps -a
-
-# 启动/停止某个容器
-
-docker start/stop id/name
-
-# 进入某个容器(使用exit退出后容器也跟着停止运行)
-
-docker attach id
-
-# 启动一个伪终端以交互式的方式进入某个容器（使用exit退出后容器不停止运行）
-
-docker exec -it id sh
-
-# 查看本地镜像
-
-docker images
-
-# 删除某个容器
-
-docker rm id/name
-
-# 删除某个镜像
-
-docker rmi id/name
-
-# 复制ubuntu容器并且重命名为test且运行，然后以伪终端交互式方式进入容器，运行bash
-
-docker run --name test -it ubuntu /bin/bash  
-
-# 通过当前目录下的Dockerfile创建一个名为soar/centos:7.1的镜像
-
-docker build -t soar/centos:7.1 .  
-
-# 以镜像soar/centos:7.1创建名为test的容器，并以后台模式运行，并做端口映射到宿主机2222端口，P参数重启容器宿主机端口会发生改变
-
-docker run -d -p 2222:22 --name test soar/centos:7.1  
+<pre><code class="language-bash">docker pull [OPTIONS] NAME[:TAG|@DIGEST]
 </code></pre>
+
+<p>OPTIONS说明：</p>
+
+<ul>
+<li>-a :拉取所有 tagged 镜像</li>
+<li>&ndash;disable-content-trust :忽略镜像的校验,默认开启</li>
+</ul>
+
+<p>TAG说明：</p>
+
+<ul>
+<li>请前往 <a href="https://hub.docker.com" title="docker">dockerhub 官网</a> 查看可用镜像版本</li>
+</ul>
+
+<p>实例</p>
+
+<ul>
+<li><p>从Docker Hub下载java最新版镜像。</p>
+
+<p><code>docker pull java</code></p></li>
+
+<li><p>从Docker Hub下载REPOSITORY为java的所有镜像。</p>
+
+<p><code>docker pull -a java</code></p></li>
+</ul>
+
+<h2 id="二-docker-容器内查看宿主机-ip-的方法">二、docker 容器内查看宿主机 ip 的方法</h2>
+
+<pre><code class="language-bash">curl ifconfig.me
+</code></pre>
+
+<h2 id="三-docker-查看实时日志">三、docker 查看实时日志</h2>
+
+<p>实例</p>
+
+<pre><code class="language-bash"># 查看指定时间后的日志，只显示最后100行：
+
+docker logs -f -t --since=&quot;2018-10-24&quot; --tail=100 container_name
+
+# 查看最近30分钟的日志:
+
+docker logs --since 30m container_name
+
+# 查看某时间之后的日志：
+
+docker logs -t --since=&quot;2018-10-24T13:23:37&quot; container_name
+
+# 查看某时间段日志：
+
+docker logs -t --since=&quot;2018-10-24T13:23:37&quot; --until &quot;2018-02-09T12:23:37&quot; container_name
+</code></pre>
+
+<p>容器日志文件的生命周期说明：</p>
+
+<p>docker logs是跟随容器而产生的，如果删除了某个容器，相应的日志文件也会随着被删除</p>
+
+<p>参数说明：</p>
+
+<ul>
+<li><p>&ndash;since : 此参数指定了输出日志开始日期，即只输出指定日期之后的日志。</p></li>
+
+<li><p>-f, &ndash;follow : 跟踪日志输出，最后一行为当前时间戳的日志</p></li>
+
+<li><p>-t, &ndash;timestamps : 显示时间戳</p></li>
+
+<li><p>&ndash;details : 显示更多的信息</p></li>
+
+<li><p>-tail=10 : 查看最后的10条日志。</p></li>
+
+<li><p>container_name : 容器名称</p></li>
+</ul>
+
+<h2 id="附-docker-资源汇总">附 Docker 资源汇总</h2>
+
+<h3 id="docker官方英文资源">Docker官方英文资源</h3>
+
+<ul>
+<li>docker官网：<a href="http://www.docker.com">http://www.docker.com</a></li>
+<li>Docker windows入门：<a href="https://docs.docker.com/windows/">https://docs.docker.com/windows/</a></li>
+<li>Docker Linux 入门：<a href="https://docs.docker.com/linux/">https://docs.docker.com/linux/</a></li>
+<li>Docker mac 入门：<a href="https://docs.docker.com/mac/">https://docs.docker.com/mac/</a></li>
+<li>Docker 用户指引：<a href="https://docs.docker.com/engine/userguide/">https://docs.docker.com/engine/userguide/</a></li>
+<li>Docker 官方博客：<a href="http://blog.docker.com/">http://blog.docker.com/</a></li>
+<li>Docker Hub: <a href="https://hub.docker.com/">https://hub.docker.com/</a></li>
+<li>Docker开源： <a href="https://www.docker.com/open-source">https://www.docker.com/open-source</a></li>
+</ul>
+
+<h3 id="docker中文资源">Docker中文资源</h3>
+
+<ul>
+<li>Docker中文网站：<a href="https://www.docker-cn.com/">https://www.docker-cn.com/</a></li>
+<li>Docker安装手册：<a href="https://docs.docker-cn.com/engine/installation/">https://docs.docker-cn.com/engine/installation/</a></li>
+</ul>
+
+<h3 id="docker-国内镜像">Docker 国内镜像</h3>
+
+<ul>
+<li>网易加速器：<a href="http://hub-mirror.c.163.com">http://hub-mirror.c.163.com</a></li>
+<li>官方中国加速器：<a href="https://registry.docker-cn.com">https://registry.docker-cn.com</a></li>
+<li>ustc的镜像：<a href="https://docker.mirrors.ustc.edu.cn">https://docker.mirrors.ustc.edu.cn</a></li>
+<li>daocloud：<a href="https://www.daocloud.io/mirror#accelerator-doc">https://www.daocloud.io/mirror#accelerator-doc</a> （注册后使用）</li>
+</ul>
 
 <blockquote>
 <p><strong>更多命令详解，请访问 <a href="http://www.docker.org.cn/dockerppt/106.html" title="docker">docker 官网</a></strong></p>
@@ -250,7 +323,7 @@ docker run -d -p 2222:22 --name test soar/centos:7.1
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2018-06-13</span>
+    <span class="item-content">2018-11-16</span>
   </p>
   
   
@@ -269,14 +342,14 @@ docker run -d -p 2222:22 --name test soar/centos:7.1
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/linux/docker_container_ip/">
+          <a class="prev" href="/post/docker/docker_beginner/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">如何查看 Docker Container 的 IP 地址</span>
+            <span class="prev-text nav-default">docker基本使用教程</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
-          <a class="next" href="/post/docker/docker_advanced/">
-            <span class="next-text nav-default">docker进阶使用教程</span>
+          <a class="next" href="/post/python/docker_python_web/">
+            <span class="next-text nav-default">基于 docker 打包部署 python web 项目至 linux 服务器</span>
             <span class="prev-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
