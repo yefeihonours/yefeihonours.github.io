@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>非交互 SSH 密码验证 sshpass 基本使用教程 - HuangYefei&#39;s Blog</title>
+  <title>Redis 密码设置和查看密码 - HuangYefei&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="honour" />
-  <meta name="description" content=" ssh登陆不能在命令行中指定密码。sshpass的出现，解决了这一问题。 sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再次输入密码。
+  <meta name="description" content=" redis没有实现访问控制这个功能，但是它提供了一个轻量级的认证方式，可以编辑redis.conf配置来启用认证。
  
 " />
 
@@ -31,7 +31,7 @@
 <meta name="generator" content="Hugo 0.40.3" />
 
 
-<link rel="canonical" href="https://yefeihonours.github.io/post/linux/sshpass/" />
+<link rel="canonical" href="https://yefeihonours.github.io/post/redis/redis_password/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -51,26 +51,20 @@
 
 
 
-<meta property="og:title" content="非交互 SSH 密码验证 sshpass 基本使用教程" />
+<meta property="og:title" content="Redis 密码设置和查看密码" />
 <meta property="og:description" content="
-ssh登陆不能在命令行中指定密码。sshpass的出现，解决了这一问题。
-
-sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再次输入密码。
+redis没有实现访问控制这个功能，但是它提供了一个轻量级的认证方式，可以编辑redis.conf配置来启用认证。
 
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yefeihonours.github.io/post/linux/sshpass/" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/redis/redis_password/" />
 
 
 
-<meta property="article:published_time" content="2018-06-28T12:00:00&#43;08:00"/>
+<meta property="article:published_time" content="2018-11-18T12:00:00&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-10-15T12:00:00&#43;08:00"/>
-
-
-
-
+<meta property="article:modified_time" content="2018-11-18T12:00:00&#43;08:00"/>
 
 
 
@@ -78,29 +72,29 @@ sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再�
 
 
 
-<meta itemprop="name" content="非交互 SSH 密码验证 sshpass 基本使用教程">
+
+
+
+
+<meta itemprop="name" content="Redis 密码设置和查看密码">
 <meta itemprop="description" content="
-ssh登陆不能在命令行中指定密码。sshpass的出现，解决了这一问题。
-
-sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再次输入密码。
+redis没有实现访问控制这个功能，但是它提供了一个轻量级的认证方式，可以编辑redis.conf配置来启用认证。
 
 
 ">
 
 
-<meta itemprop="datePublished" content="2018-06-28T12:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2018-06-28T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="456">
+<meta itemprop="datePublished" content="2018-11-18T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-11-18T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="478">
 
 
 
-<meta itemprop="keywords" content="linux," />
+<meta itemprop="keywords" content="redis," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="非交互 SSH 密码验证 sshpass 基本使用教程"/>
+<meta name="twitter:title" content="Redis 密码设置和查看密码"/>
 <meta name="twitter:description" content="
-ssh登陆不能在命令行中指定密码。sshpass的出现，解决了这一问题。
-
-sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再次输入密码。
+redis没有实现访问控制这个功能，但是它提供了一个轻量级的认证方式，可以编辑redis.conf配置来启用认证。
 
 
 "/>
@@ -170,16 +164,16 @@ sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再�
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">非交互 SSH 密码验证 sshpass 基本使用教程</h1>
+      <h1 class="post-title">Redis 密码设置和查看密码</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2018-06-28 </span>
+        <span class="post-time"> 2018-11-18 </span>
         <div class="post-category">
             
-              <a href="/categories/linux/"> Linux </a>
+              <a href="/categories/redis/"> redis </a>
             
           </div>
-        <span class="more-meta"> 约 456 字 </span>
+        <span class="more-meta"> 约 478 字 </span>
         <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -193,16 +187,10 @@ sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再�
   <div class="post-toc-content">
     <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
-<li><a href="#1-基本使用">1、基本使用</a></li>
-<li><a href="#2-不在命令行显示密码">2、不在命令行显示密码</a></li>
-<li><a href="#3-特别说明">3、 特别说明</a>
-<ul>
-<li><a href="#3-1-将-sshpass-用于批量传输文件">3.1、 将 sshpass 用于批量传输文件</a></li>
-<li><a href="#3-2-sshpass-安装">3.2、 sshpass 安装</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#1-初始化redis密码">1、初始化Redis密码：</a></li>
+<li><a href="#2-不重启redis设置密码">2、不重启Redis设置密码：</a></li>
+<li><a href="#3-登陆有密码的redis">3、登陆有密码的Redis：</a></li>
+<li><a href="#总结">总结：</a></li>
 </ul>
 </nav>
   </div>
@@ -211,79 +199,74 @@ sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再�
     
     <div class="post-content">
       <blockquote>
-<p>ssh登陆不能在命令行中指定密码。sshpass的出现，解决了这一问题。
-<br><br>
-sshpass用于非交互SSH的密码验证，一般用在sh脚本中，无须再次输入密码。</p>
+<p>redis没有实现访问控制这个功能，但是它提供了一个轻量级的认证方式，可以编辑redis.conf配置来启用认证。</p>
 </blockquote>
 
 <p></p>
 
-<h2 id="1-基本使用">1、基本使用</h2>
+<h1 id="1-初始化redis密码">1、初始化Redis密码：</h1>
 
-<pre><code class="language-bash">sshpass -p password ssh username@192.168.0.1 '&lt;command&gt;'
-</code></pre>
+<p>在配置文件中有个参数： <code>requirepass</code>  这个就是配置redis访问密码的参数</p>
 
-<h2 id="2-不在命令行显示密码">2、不在命令行显示密码</h2>
+<p>比如 requirepass test123</p>
 
-<p>为了防止在屏幕上显示密码，可以使用 -e 标志，并将密码作为 SSHPASS 环境变量的值输入，如下所示：</p>
+<p>注: 需重启Redis才能生效</p>
 
-<pre><code class="language-bash">export SSHPASS='my_pass_here'
-echo $SSHPASS
-sshpass -e ssh username@192.168.0.1 '&lt;command&gt;' 
-</code></pre>
+<p>redis的查询速度是非常快的，外部用户一秒内可以尝试多大150K个密码，所以密码要尽量复杂（对于DBA 没有必要必须记住密码）</p>
 
-<p>注意：在上面的示例中，SSHPASS 环境变量仅用于临时目的，并将在重新启动后删除。</p>
+<h1 id="2-不重启redis设置密码">2、不重启Redis设置密码：</h1>
 
-<p>要永久设置 SSHPASS 环境变量，打开 /etc/profile 文件，并在文件开头输入 export 语句：</p>
+<p>在配置文件中配置requirepass的密码（当redis重启时密码依然有效）</p>
 
-<pre><code class="language-bash">export SSHPASS='my_pass_here'
-</code></pre>
-
-<p>保存文件并退出，接着运行下面的命令使更改生效：</p>
-
-<pre><code class="language-bash">$ source /etc/profile
-</code></pre>
-
-<p>另外，也可以使用 -f 标志，并把密码放在一个文件中。 这样，您可以从文件中读取密码，如下所示：</p>
-
-<pre><code class="language-bash">sshpass -f password_filename ssh username@192.168.0.1 '&lt;command&gt;'
-</code></pre>
-
-<h2 id="3-特别说明">3、 特别说明</h2>
-
-<h3 id="3-1-将-sshpass-用于批量传输文件">3.1、 将 sshpass 用于批量传输文件</h3>
-
-<pre><code class="language-bash">sshpass -f password_filename scp /Users/demo username@192.168.0.1:/demo_path
-</code></pre>
-
-<p>如果拷贝文件失败是因为第一次ssh让你输入yes</p>
-
-<p>把 StrictHostKeyChecking no加到/etc/ssh/ssh_config可以让ssh客户端自动接受新主机的hostkey,不用
-每次在ssh新主机时都自己输入yes</p>
-
-<pre><code class="language-bash">echo 'StrictHostKeyChecking no'&gt;&gt;/etc/ssh/ssh_config
-</code></pre>
-
-<h3 id="3-2-sshpass-安装">3.2、 sshpass 安装</h3>
+<p>redis 127.0.0.1:6379&gt; config set requirepass test123</p>
 
 <ul>
-<li>Ubuntu：</li>
+<li><p>查询密码：</p>
+
+<pre><code>redis 127.0.0.1:6379&gt; config get requirepass
+(error) ERR operation not permitted
+</code></pre></li>
+
+<li><p>密码验证：</p>
+
+<pre><code>redis 127.0.0.1:6379&gt; auth test123
+OK
+</code></pre></li>
+
+<li><p>再次查询：</p>
+
+<pre><code>redis 127.0.0.1:6379&gt; config get requirepass
+1) &quot;requirepass&quot;
+2) &quot;test123&quot;
+</code></pre></li>
+
+<li><p>注意：</p></li>
 </ul>
 
-<pre><code class="language-bash">apt-get install sshpass
-</code></pre>
+<p>如果配置文件中没添加密码 那么redis重启后，密码失效；</p>
+
+<h1 id="3-登陆有密码的redis">3、登陆有密码的Redis：</h1>
 
 <ul>
-<li>CentOS：</li>
+<li><p>在登录的时候的时候输入密码：</p>
+
+<pre><code>redis-cli -p 6379 -a test123
+</code></pre></li>
+
+<li><p>先登陆后验证：</p>
+
+<pre><code>redis-cli -p 6379
+
+redis 127.0.0.1:6379&gt; auth test123
+OK
+</code></pre></li>
 </ul>
 
-<pre><code class="language-bash"> wget http://sourceforge.net/projects/sshpass/files/sshpass/1.05/sshpass-1.05.tar.gz 
- tar xvzf sshpass-1.05.tar.gz
- cd sshpass-1.05.tar.gz
- ./configure
- make
- make install
-</code></pre>
+<h1 id="总结">总结：</h1>
+
+<p>AUTH命令跟其他redis命令一样，是没有加密的，阻止不了攻击者在网络上窃取你的密码</p>
+
+<p>认证层的目标是提供多一层的保护。如果防火墙或者用来保护redis的系统防御外部攻击失败的话，外部用户如果没有通过密码认证还是无法访问redis的。</p>
     </div>
 
     
@@ -294,7 +277,7 @@ sshpass -e ssh username@192.168.0.1 '&lt;command&gt;'
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2018-10-15</span>
+    <span class="item-content">2018-11-18</span>
   </p>
   
   
@@ -306,21 +289,16 @@ sshpass -e ssh username@192.168.0.1 '&lt;command&gt;'
     <footer class="post-footer">
       <div class="post-tags">
           
-          <a href="/tags/linux/">linux</a>
+          <a href="/tags/redis/">redis</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/linux/cp_with_f/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">解决 Linux 中 cp -f 复制强制覆盖的命令无效的方法</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
         
-          <a class="next" href="/post/python/flask_gunicorn_nginx/">
-            <span class="next-text nav-default">Flask &#43; Gunicorn &#43; Nginx 部署</span>
+          <a class="next" href="/post/redis/redis_persistence/">
+            <span class="next-text nav-default">Redis 持久化配置</span>
             <span class="prev-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

@@ -87,7 +87,7 @@ Docker CE 和 EE 版的安装过程不尽相同，本过程仅适用于 CE 版�
 
 <meta itemprop="datePublished" content="2018-06-22T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-06-22T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="343">
+<meta itemprop="wordCount" content="465">
 
 
 
@@ -174,7 +174,7 @@ Docker CE 和 EE 版的安装过程不尽相同，本过程仅适用于 CE 版�
               <a href="/categories/linux/"> Linux </a>
             
           </div>
-        <span class="more-meta"> 约 343 字 </span>
+        <span class="more-meta"> 约 465 字 </span>
         <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -200,6 +200,7 @@ Docker CE 和 EE 版的安装过程不尽相同，本过程仅适用于 CE 版�
 <li><a href="#安装和使用">安装和使用</a></li>
 </ul></li>
 <li><a href="#升级-docker">升级 Docker</a></li>
+<li><a href="#附注">附注：</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -277,9 +278,45 @@ Docker CE 和 EE 版的安装过程不尽相同，本过程仅适用于 CE 版�
 <p>sudo systemctl start docker</p>
 </blockquote>
 
+<p>5、 设置 Docker 开机自启</p>
+
+<blockquote>
+<p>systemctl enable docker</p>
+</blockquote>
+
 <h3 id="升级-docker">升级 Docker</h3>
 
 <p>如果希望升级 Docker，首先运行 sudo yum makecache fast，然后按照以上步骤重新选择新版本安装。</p>
+
+<h3 id="附注">附注：</h3>
+
+<p>docker初次安装后可能会出现网络不可用问题，抛类似如下错误</p>
+
+<pre><code class="language-code">iptables: No chain/target/match by that name.
+</code></pre>
+
+<p>请参见如下解决方案，在宿主机依次执行：</p>
+
+<pre><code class="language-bash">pkill docker
+
+iptables -t nat -F
+
+ifconfig docker0 down
+
+brctl delbr docker0
+
+docker -d
+
+systmctl restart docker
+</code></pre>
+
+<p>特别说明：</p>
+
+<p>如果 <code>brctl delbr docker0</code> 执行失败，请执行以下命令安装依赖包：</p>
+
+<pre><code class="language-bash">yum install bridge-utils
+yum install tunctl
+</code></pre>
     </div>
 
     

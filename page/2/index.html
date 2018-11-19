@@ -144,6 +144,82 @@
     
       <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/linux/iptablesfirewalld_usage/">iptables 与 firewalld 防火墙 基本使用教程</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-28 </span>
+      <div class="post-category">
+          
+            <a href="/categories/linux/"> Linux </a>
+          
+        </div>
+      <span class="more-meta"> 约 565 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <blockquote>
+<p>防火墙是整个数据包进入主机前的第一道关卡。防火墙主要通过 Netfilter 与 TCPwrappers 两个机制来管理的。
+<br><br>
+1.Netfilter：数据包过滤机制
+<br><br>
+2.TCP Wrappers：程序管理机制
+<br><br>
+关于数据包过滤机制有两个软件：firewalld 与 iptables
+<br><br>
+iptables 通过控制端口来控制服务，而 firewalld 则是通过控制协议来控制端口。
+<br><br>
+本文将简要列出 firewalld 防火墙与先前版本中 iptables 防火墙的常用操作命令。</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/linux/iptablesfirewalld_usage/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/linux/iptablesfirewalld_introduction/">iptables 与 firewalld 防火墙 简介</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-28 </span>
+      <div class="post-category">
+          
+            <a href="/categories/linux/"> Linux </a>
+          
+        </div>
+      <span class="more-meta"> 约 7471 字 </span>
+      <span class="more-meta"> 预计阅读 15 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <blockquote>
+<p>保障数据的安全性是继保障数据的可用性之后最为重要的一项工作。防火墙作为公网与内网之间的保护屏障，在保障数据的安全性方面起着至关重要的作用。
+<br><br>
+本文将着重讨论 RHEL7 中新增 firewalld 防火墙与先前版本中 iptables 防火墙之间的区别做分析。
+<br><br>
+以下将分别使用 iptables、firewall-cmd、firewall-config 和T CP Wrappers 等防火墙策略配置服务来完成数十个防火墙策略配置案例。
+<br><br>
+通过防火墙不仅可以过滤请求的流量，还可以基于服务程序的名称对流量进行允许和拒绝操作，确保Linux系统的安全性万无一失。</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/linux/iptablesfirewalld_introduction/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/linux/cp_with_f/">解决 Linux 中 cp -f 复制强制覆盖的命令无效的方法</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-06-28 </span>
@@ -348,8 +424,10 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
           
             <a href="/categories/docker/"> docker </a>
           
+            <a href="/categories/redis/"> redis </a>
+          
         </div>
-      <span class="more-meta"> 约 471 字 </span>
+      <span class="more-meta"> 约 496 字 </span>
       <span class="more-meta"> 预计阅读 1 分钟 </span>
     </div>
   </header>
@@ -398,66 +476,6 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
     </div>
     <div class="read-more">
       <a href="/post/docker/docker_image_export/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/linux/python_setup/">Linux 安装 python3.6 教程</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-06-22 </span>
-      <div class="post-category">
-          
-            <a href="/categories/linux/"> Linux </a>
-          
-        </div>
-      <span class="more-meta"> 约 731 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>本文记录在 linux 服务器上安装 python3.6 的过程。</p>
-
-<p><strong>注意：通常linux服务器会预装python2，请尽量不要管，使用python3运行python脚本就好，因为可能有程序依赖目前的python2环境，比如yum</strong></p>
-
-<p></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/linux/python_setup/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/mac/space_in_directory/">mac 在终端如何进入名称带空格的目录</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-06-22 </span>
-      <div class="post-category">
-          
-            <a href="/categories/mac/"> mac </a>
-          
-        </div>
-      <span class="more-meta"> 约 224 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <blockquote>
-<p>当你在终端中cd的时候，如果这个目录名中间带空格，那么你cd就会失败，但是mkdir，mv，cp等都没有影响。</p>
-</blockquote>
-
-<p></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/mac/space_in_directory/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

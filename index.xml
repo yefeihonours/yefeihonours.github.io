@@ -21,6 +21,40 @@
     </item>
     
     <item>
+      <title>Redis 密码设置和查看密码</title>
+      <link>https://yefeihonours.github.io/post/redis/redis_password/</link>
+      <pubDate>Sun, 18 Nov 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/redis/redis_password/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;redis没有实现访问控制这个功能，但是它提供了一个轻量级的认证方式，可以编辑redis.conf配置来启用认证。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Redis 持久化配置</title>
+      <link>https://yefeihonours.github.io/post/redis/redis_persistence/</link>
+      <pubDate>Sun, 18 Nov 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/redis/redis_persistence/</guid>
+      <description>&lt;h1 id=&#34;redis-提供了多种不同级别的持久化方式&#34;&gt;Redis 提供了多种不同级别的持久化方式：&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;RDB 持久化可以在指定的时间间隔内生成数据集的时间点快照（point-in-time snapshot）。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;AOF 持久化记录服务器执行的所有写操作命令，并在服务器启动时，通过重新执行这些命令来还原数据集。 AOF 文件中的命令全部以 Redis 协议的格式来保存，新命令会被追加到文件的末尾。 Redis 还可以在后台对 AOF 文件进行重写（rewrite），使得 AOF 文件的体积不会超出保存数据集状态所需的实际大小。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Redis 还可以同时使用 AOF 持久化和 RDB 持久化。 在这种情况下， 当 Redis 重启时， 它会优先使用 AOF 文件来还原数据集， 因为 AOF 文件保存的数据集通常比 RDB 文件所保存的数据集更完整。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;你甚至可以关闭持久化功能，让数据只在服务器运行时存在。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Http Headers各属性的作用</title>
       <link>https://yefeihonours.github.io/post/http/http_headers/</link>
       <pubDate>Sat, 25 Aug 2018 12:00:00 +0800</pubDate>
