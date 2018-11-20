@@ -144,6 +144,72 @@
     
       <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/docker/docker_redis/">Docker 中搭建 redis 服务</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-22 </span>
+      <div class="post-category">
+          
+            <a href="/categories/docker/"> docker </a>
+          
+            <a href="/categories/redis/"> redis </a>
+          
+        </div>
+      <span class="more-meta"> 约 696 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <blockquote>
+<p>本文介绍如何在 docker 中搭建 redis 服务的几种方法。</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/docker/docker_redis/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/docker/docker_image_export/">Docker 镜像文件导入与导出</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-22 </span>
+      <div class="post-category">
+          
+            <a href="/categories/docker/"> docker </a>
+          
+        </div>
+      <span class="more-meta"> 约 327 字 </span>
+      <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <blockquote>
+<p>Docker 为开发、学习和产品演示提供了很棒的环境，只要获取到对应的 docker 镜像，就可以轻松通过 docker run 命令启动相应的服务，省去了配置环境以及安装等一系列繁琐过程。
+</br></br>
+但是由于网络原因等一系列不可预测因素，docker镜像制作和下载可能费时较长。
+</br></br>
+本博客在此提供一种折中解决方案，在网络状态以及配置较高的机器上制作或下载好 docker 镜像，导镜像的压缩包，随后在别的机器上直接导入即可使用。</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/docker/docker_image_export/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/linux/python_setup/">Linux 安装 python3.6 教程</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-06-22 </span>
@@ -298,8 +364,8 @@
             <a href="/categories/docker/"> docker </a>
           
         </div>
-      <span class="more-meta"> 约 973 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
+      <span class="more-meta"> 约 1013 字 </span>
+      <span class="more-meta"> 预计阅读 3 分钟 </span>
     </div>
   </header>
   
@@ -381,74 +447,6 @@
     </div>
     <div class="read-more">
       <a href="/post/python/ignore_sql_views/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/init/">Python3 __init__.py和__init__函数的作用</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-05-22 </span>
-      <div class="post-category">
-          
-            <a href="/categories/python/"> Python </a>
-          
-        </div>
-      <span class="more-meta"> 约 888 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h4 id="一-init-py文件">一.__<strong><em>init</em></strong>__.py文件</h4>
-
-<blockquote>
-<p>在python模块的每一个包中，都有一个<code>__init__.py</code>文件（这个文件定义了包的属性和方法）然后是一些模块文件和子目录，假如子目录中也有 <code>__init__.py</code> 那么它就是这个包的子包了。当你将一个包作为模块导入（比如从 xml 导入 dom ）的时候，实际上导入了它的 <code>__init__.py</code> 文件。
-</br>
-</br>
-一个包是一个带有特殊文件 <code>__init__.py</code> 的目录。<code>__init__.py</code> 文件定义了包的属性和方法。其实它可以什么也不定义；可以只是一个空文件，但是必须存在。如果 <code>__init__.py</code> 不存在，这个目录就仅仅是一个目录，而不是一个包，它就不能被导入或者包含其它的模块和嵌套包。
-</br>
-</br>
-在python中， module(也即python的模块)是一个单独的文件来实现的，要把是py文件，或者pyc文件，甚至是C扩展的dll文件。而对于package, Python使用了文件夹来实现它，可以说，一个文件夹就是一个package,里面容纳了一些py、pyc或dll文件，这种方式就是把module聚合成一个package的具体实现。</p>
-</blockquote>
-
-<p></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/python/init/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/asyncio/">Python3 Task and Coroutines</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-12-22 </span>
-      <div class="post-category">
-          
-            <a href="/categories/python/"> Python </a>
-          
-        </div>
-      <span class="more-meta"> 约 1021 字 </span>
-      <span class="more-meta"> 预计阅读 3 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h4 id="1-coroutines-协程">1. Coroutines 协程</h4>
-
-<p>Python3 中协程使用标准库中 <code>asyncio</code> 中的 <code>async def</code> 方法声明或者使用装饰器 <code>@asyncio.coroutine</code> . 在Python3.5之后开始使用 <code>async def</code> 形式的协程, 并且如果不是需要兼容以前版本的话，尽量使用这种形式.</p>
-
-<p></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/python/asyncio/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

@@ -86,7 +86,7 @@
 
 <meta itemprop="datePublished" content="2018-06-22T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-06-22T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="496">
+<meta itemprop="wordCount" content="696">
 
 
 
@@ -175,8 +175,8 @@
               <a href="/categories/redis/"> redis </a>
             
           </div>
-        <span class="more-meta"> 约 496 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
+        <span class="more-meta"> 约 696 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -207,6 +207,8 @@
 <li><a href="#二-借助dockerhub中官方redis镜像">二、 借助dockerhub中官方Redis镜像</a>
 <ul>
 <li><a href="#拉取标签为3-2的官方-redis-镜像">拉取标签为3.2的官方 Redis 镜像</a></li>
+<li><a href="#手动配置如下-redis-conf-文件">手动配置如下 redis.conf 文件</a></li>
+<li><a href="#启动-redis">启动 redis</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -243,19 +245,19 @@ docker run -d\
    --requirepass 123\
    --appendonly yes
 
-----
+#------------------指定端口启动--------------------#
 
-docker run -d\
- --name redis-6378\
+export port='3307' &amp;&amp; docker run -d\
+ --name redis-server\
  --privileged=true\
  --network=host\
  -v /redis/data:/redis/data\
- -p 0.0.0.0:6378:6378/tcp\
+ -p 0.0.0.0:$port:$port/tcp\
   docker.io/comodal/alpine-redis:4.0\
-   --port 6378\
+   --port $port\
    --protected-mode no\
    --bind 0.0.0.0\
-   --logfile redis-6378.log\
+   --logfile redis-server.log\
    --requirepass 123\
    --appendonly yes
 
@@ -312,6 +314,71 @@ OK
 
 <pre><code class="language-bash">docker pull redis:3.2
 </code></pre>
+
+<h2 id="手动配置如下-redis-conf-文件">手动配置如下 redis.conf 文件</h2>
+
+<pre><code class="language-bash">protected-mode yes
+############ PORT port 6379
+tcp-backlog 511
+timeout 0
+tcp-keepalive 300
+daemonize no
+supervised no
+pidfile /var/run/redis_6379.pid
+loglevel notice
+logfile &quot;&quot;
+databases 16
+save 900 1
+save 300 10
+save 60 10000
+stop-writes-on-bgsave-error yes
+rdbcompression yes
+rdbchecksum yes
+dbfilename dump.rdb
+dir ./
+slave-serve-stale-data yes
+slave-read-only yes
+repl-diskless-sync no
+repl-diskless-sync-delay 5
+repl-disable-tcp-nodelay no
+slave-priority 100
+############ Password requirepass 123456
+appendonly no
+appendfilename &quot;appendonly.aof&quot;
+appendfsync everysec
+no-appendfsync-on-rewrite no
+auto-aof-rewrite-percentage 100
+auto-aof-rewrite-min-size 64mb
+aof-load-truncated yes
+lua-time-limit 5000
+slowlog-log-slower-than 10000
+slowlog-max-len 128
+latency-monitor-threshold 0
+notify-keyspace-events &quot;&quot;
+hash-max-ziplist-entries 512
+hash-max-ziplist-value 64
+list-max-ziplist-size -2
+list-compress-depth 0
+set-max-intset-entries 512
+zset-max-ziplist-entries 128
+zset-max-ziplist-value 64
+hll-sparse-max-bytes 3000
+activerehashing yes
+client-output-buffer-limit normal 0 0 0
+client-output-buffer-limit slave 256mb 64mb 60
+client-output-buffer-limit pubsub 32mb 8mb 60
+hz 10
+aof-rewrite-incremental-fsync yes
+</code></pre>
+
+<h2 id="启动-redis">启动 redis</h2>
+
+<pre><code class="language-bash">docker run -it \ --name redis \
+-p 6379:6379 \
+-v ~/Documents/data/redis:/data \
+-v ~/Documents/data/redis/redis.conf:/usr/local/etc/redis/redis.conf \
+-d redis:3.2 redis-server /usr/local/etc/redis/redis.conf
+</code></pre>
     </div>
 
     
@@ -343,9 +410,9 @@ OK
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/docker/docker_time/">
+          <a class="prev" href="/post/docker/docker_postgresql/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Docker 中如何设置 container 的时区</span>
+            <span class="prev-text nav-default">Docker 中搭建 postgresql 服务</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
