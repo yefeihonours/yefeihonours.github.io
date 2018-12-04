@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>MySQL 中实现 rownum - HuangYefei&#39;s Blog</title>
+  <title>MySQL 中 select 高级用法 - HuangYefei&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="honour" />
-  <meta name="description" content="在oracle中,可使用rownum处理很多与行号相关的问题,但是mysql中没有类似的函数。本文将介绍mysql中实现行号的方法
+  <meta name="description" content="本文将介绍mysql中select的高级用法
 
 " />
 
@@ -31,7 +31,7 @@
 <meta name="generator" content="Hugo 0.40.3" />
 
 
-<link rel="canonical" href="https://yefeihonours.github.io/post/mysql/mysql_rownum/" />
+<link rel="canonical" href="https://yefeihonours.github.io/post/mysql/mysql_union/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -51,18 +51,18 @@
 
 
 
-<meta property="og:title" content="MySQL 中实现 rownum" />
-<meta property="og:description" content="在oracle中,可使用rownum处理很多与行号相关的问题,但是mysql中没有类似的函数。本文将介绍mysql中实现行号的方法
+<meta property="og:title" content="MySQL 中 select 高级用法" />
+<meta property="og:description" content="本文将介绍mysql中select的高级用法
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yefeihonours.github.io/post/mysql/mysql_rownum/" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/mysql/mysql_union/" />
 
 
 
 <meta property="article:published_time" content="2018-06-29T12:00:00&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-11-14T12:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2018-12-03T12:00:00&#43;08:00"/>
 
 
 
@@ -74,22 +74,22 @@
 
 
 
-<meta itemprop="name" content="MySQL 中实现 rownum">
-<meta itemprop="description" content="在oracle中,可使用rownum处理很多与行号相关的问题,但是mysql中没有类似的函数。本文将介绍mysql中实现行号的方法
+<meta itemprop="name" content="MySQL 中 select 高级用法">
+<meta itemprop="description" content="本文将介绍mysql中select的高级用法
 
 ">
 
 
 <meta itemprop="datePublished" content="2018-06-29T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-06-29T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="511">
+<meta itemprop="wordCount" content="615">
 
 
 
 <meta itemprop="keywords" content="mysql,sql," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="MySQL 中实现 rownum"/>
-<meta name="twitter:description" content="在oracle中,可使用rownum处理很多与行号相关的问题,但是mysql中没有类似的函数。本文将介绍mysql中实现行号的方法
+<meta name="twitter:title" content="MySQL 中 select 高级用法"/>
+<meta name="twitter:description" content="本文将介绍mysql中select的高级用法
 
 "/>
 
@@ -158,7 +158,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">MySQL 中实现 rownum</h1>
+      <h1 class="post-title">MySQL 中 select 高级用法</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2018-06-29 </span>
@@ -167,7 +167,7 @@
               <a href="/categories/mysql/"> mysql </a>
             
           </div>
-        <span class="more-meta"> 约 511 字 </span>
+        <span class="more-meta"> 约 615 字 </span>
         <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -181,8 +181,18 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#一-mysql的用户变量">一、 MYSQL的用户变量</a></li>
-<li><a href="#二-最终实现">二、 最终实现</a></li>
+<li><a href="#一-union-和-union-all">一、 union 和 union all</a>
+<ul>
+<li><a href="#sql-union-语法">SQL UNION 语法：</a></li>
+<li><a href="#sql-union-all-语法">SQL UNION ALL 语法</a></li>
+<li><a href="#注意事项">注意事项：</a></li>
+<li><a href="#特殊用法">特殊用法：</a></li>
+</ul></li>
+<li><a href="#二-case-when-then-else-end-语法">二、 case when then else end 语法</a>
+<ul>
+<li><a href="#格式">格式</a></li>
+<li><a href="#注意">注意</a></li>
+</ul></li>
 </ul>
 </nav>
   </div>
@@ -190,43 +200,110 @@
 
     
     <div class="post-content">
-      <p>在oracle中,可使用rownum处理很多与行号相关的问题,但是mysql中没有类似的函数。本文将介绍mysql中实现行号的方法</p>
+      <p>本文将介绍mysql中select的高级用法</p>
 
 <p></p>
 
-<h1 id="一-mysql的用户变量">一、 MYSQL的用户变量</h1>
+<h1 id="一-union-和-union-all">一、 union 和 union all</h1>
 
-<p>用户变量的形式为@var_name，其中变量名var_name可以由当前字符集的文字数字字符 , &lsquo;<code>.</code>&rsquo; , &lsquo;<code>_</code>&rsquo; 和 &lsquo;<code>$</code>&rsquo; 组成。 默认字符集是cp1252 (Latin1)。可以用mysqld的&ndash;default-character-set选项更改字符集。</p>
+<p>UNION 用于合并两个或多个 SELECT 语句的结果集，并消去表中任何重复行。
+UNION 内部的 SELECT 语句必须拥有相同数量的列，列也必须拥有相似的数据类型。
+同时，每条 SELECT 语句中的列的顺序必须相同.</p>
 
-<p>可以先在用户变量中保存值然后在以后引用它；这样可以将值从一个语句传递到另一个语句。用户变量与连接有关。也就是说，一个客户端定义的变量不能被其它客户端看到或使用。当客户端退出时，该客户端连接的所有变量将自动释放。</p>
+<h2 id="sql-union-语法">SQL UNION 语法：</h2>
 
-<p>设置用户变量的一个途径是执行SET语句：</p>
-
-<pre><code class="language-sql">SET @var_name = expr [, @var_name = expr] ...
+<pre><code class="language-sql">--默认地，UNION 操作符选取不同的值。如果允许重复的值，请使用 UNION ALL
+--当 ALL 随 UNION 一起使用时（即 UNION ALL），不消除重复行
+SELECT column_name FROM table1
+UNION
+SELECT column_name FROM table2
 </code></pre>
 
-<p>对于SET，可以使用=或:=作为分配符。分配给每个变量的expr可以为整数、实数、字符串或者NULL值。</p>
+<h2 id="sql-union-all-语法">SQL UNION ALL 语法</h2>
 
-<p>也可以用语句代替SET来为用户变量分配一个值。在这种情况下，分配符必须为:=而不能用=，因为在非SET语句中=被视为一个比较 操作符：</p>
-
-<pre><code class="language-sql">SET @t1=0, @t2=0, @t3=0;
-SELECT @t1:=(@t2:=1)+@t3:=4,@t1,@t2,@t3;
+<pre><code class="language-sql">--UNION 结果集中的列名总是等于 UNION 中第一个 SELECT 语句中的列名。
+SELECT column_name FROM table1
+UNION ALL
+SELECT column_name FROM table2
 </code></pre>
 
-<p>特别说明</p>
+<h2 id="注意事项">注意事项：</h2>
+
+<p>1、UNION 结果集中的列名总是等于第一个 SELECT 语句中的列名</p>
+
+<p>2、UNION 内部的 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每条 SELECT 语句中的列的顺序必须相同</p>
+
+<h2 id="特殊用法">特殊用法：</h2>
+
+<p>在不借助实体表的情况下，即只有select，不使用from，如果想获得多行select结果集</p>
+
+<pre><code class="language-sql">select 1 as row_num,'a' as name
+union all
+select 2,'a'
+union all
+select 3,'b'
+union all
+select 4,'c'
+</code></pre>
+
+<p>执行结果如下:</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">row_num</th>
+<th align="center">name</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">a</td>
+</tr>
+
+<tr>
+<td align="center">2</td>
+<td align="center">a</td>
+</tr>
+
+<tr>
+<td align="center">3</td>
+<td align="center">b</td>
+</tr>
+
+<tr>
+<td align="center">4</td>
+<td align="center">c</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="二-case-when-then-else-end-语法">二、 case when then else end 语法</h1>
+
+<h2 id="格式">格式</h2>
+
+<p>Case具有两种格式。简单Case函数和Case搜索函数。</p>
+
+<pre><code class="language-sql">--简单Case函数
+CASE sex
+         WHEN '1' THEN '男'
+         WHEN '2' THEN '女'
+ELSE '其他' END
+
+--Case搜索函数
+CASE WHEN sex = '1' THEN '男'
+         WHEN sex = '2' THEN '女'
+ELSE '其他' END
+</code></pre>
+
+<h2 id="注意">注意</h2>
 
 <ul>
-<li><p>用户变量名对大小写不敏感。</p></li>
+<li><p>这两种方式，可以实现相同的功能。简单Case函数的写法相对比较简洁，但是和Case搜索函数相比，功能方面会有些限制，比如写判断式。</p></li>
 
-<li><p>如果使用没有初始化的变量，其值是NULL。</p></li>
+<li><p>还有一个需要注意的问题，Case函数只返回第一个符合条件的值，剩下的Case部分将会被自动忽略。</p></li>
 </ul>
-
-<h1 id="二-最终实现">二、 最终实现</h1>
-
-<pre><code class="language-sql">select
-@rownum:=@rownum+1 as rownum, t.*
-from (select @rownum:=0) r,your_table t;
-</code></pre>
     </div>
 
     
@@ -237,7 +314,7 @@ from (select @rownum:=0) r,your_table t;
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2018-11-14</span>
+    <span class="item-content">2018-12-03</span>
   </p>
   
   
@@ -258,14 +335,14 @@ from (select @rownum:=0) r,your_table t;
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/mysql/mysql_union/">
+          <a class="prev" href="/post/python/flask_sqlalchemy/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">MySQL 中 select 高级用法</span>
+            <span class="prev-text nav-default">Flask-SQLALchemy 基本方法教程</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
-          <a class="next" href="/post/mysql/in_and_exists/">
-            <span class="next-text nav-default">SQL 中 IN 和 EXISTS 用法的区别</span>
+          <a class="next" href="/post/mysql/mysql_rownum/">
+            <span class="next-text nav-default">MySQL 中实现 rownum</span>
             <span class="prev-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
