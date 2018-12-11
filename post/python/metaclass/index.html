@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Python3 元类的使用 - HuangYefei&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="honour" />
+  <meta name="description" content="metaclass是Python中非常具有魔术性的对象，它可以改变类创建时的行为。这种强大的功能使用起来务必小心。
+本文介绍 python 元类的概念以及使用场景。
+
+" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<link rel="canonical" href="https://yefeihonours.github.io/post/python/metaclass/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+
+
+
+
+
+<meta property="og:title" content="Python3 元类的使用" />
+<meta property="og:description" content="metaclass是Python中非常具有魔术性的对象，它可以改变类创建时的行为。这种强大的功能使用起来务必小心。
+
+本文介绍 python 元类的概念以及使用场景。
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yefeihonours.github.io/post/python/metaclass/" />
+
+
+
+<meta property="article:published_time" content="2017-12-19T12:00:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-12-10T12:00:00&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Python3 元类的使用">
+<meta itemprop="description" content="metaclass是Python中非常具有魔术性的对象，它可以改变类创建时的行为。这种强大的功能使用起来务必小心。
+
+本文介绍 python 元类的概念以及使用场景。
+
+">
+
+
+<meta itemprop="datePublished" content="2017-12-19T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2017-12-19T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="1663">
+
+
+
+<meta itemprop="keywords" content="python," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python3 元类的使用"/>
+<meta name="twitter:description" content="metaclass是Python中非常具有魔术性的对象，它可以改变类创建时的行为。这种强大的功能使用起来务必小心。
+
+本文介绍 python 元类的概念以及使用场景。
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HuangYefei</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HuangYefei</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Python3 元类的使用</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-12-19 </span>
+        <div class="post-category">
+            
+              <a href="/categories/python/"> Python </a>
+            
+          </div>
+        <span class="more-meta"> 约 1663 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-type">1. type()</a></li>
+<li><a href="#2-metaclass">2. metaclass</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>metaclass是Python中非常具有魔术性的对象，它可以改变类创建时的行为。这种强大的功能使用起来务必小心。</p>
+
+<p>本文介绍 python 元类的概念以及使用场景。</p>
+
+<p></p>
+
+<h2 id="1-type">1. type()</h2>
+
+<p>动态语言和静态语言最大的不同，就是函数和类的定义，不是编译时定义的，而是运行时动态创建的。</p>
+
+<p>比方说我们要定义一个Hello的class，就写一个hello.py模块：</p>
+
+<pre><code class="language-python">class Hello(object):
+    def hello(self, name='world'):
+        print('Hello, %s.' % name)
+</code></pre>
+
+<p>当Python解释器载入hello模块时，就会依次执行该模块的所有语句，执行结果就是动态创建出一个Hello的class对象，测试如下：</p>
+
+<pre><code class="language-shell">&gt;&gt;&gt; from hello import Hello
+&gt;&gt;&gt; h = Hello()
+&gt;&gt;&gt; h.hello()
+Hello, world.
+&gt;&gt;&gt; print(type(Hello))
+&lt;class 'type'&gt;
+&gt;&gt;&gt; print(type(h))
+&lt;class 'hello.Hello'&gt;
+</code></pre>
+
+<p>type()函数可以查看一个类型或变量的类型，Hello是一个class，它的类型就是type，而h是一个实例，它的类型就是class Hello。</p>
+
+<p>我们说class的定义是运行时动态创建的，而创建class的方法就是使用type()函数。</p>
+
+<p>type()函数既可以返回一个对象的类型，又可以创建出新的类型，比如，我们可以通过type()函数创建出Hello类，而无需通过class Hello(object)&hellip;的定义：</p>
+
+<pre><code class="language-shell">&gt;&gt;&gt; def fn(self, name='world'): # 先定义函数
+...     print('Hello, %s.' % name)
+...
+&gt;&gt;&gt; Hello = type('Hello', (object,), dict(hello=fn)) # 创建Hello class
+&gt;&gt;&gt; h = Hello()
+&gt;&gt;&gt; h.hello()
+Hello, world.
+&gt;&gt;&gt; print(type(Hello))
+&lt;class 'type'&gt;
+&gt;&gt;&gt; print(type(h))
+&lt;class '__main__.Hello'&gt;
+</code></pre>
+
+<p>要创建一个class对象，type()函数依次传入3个参数：</p>
+
+<ul>
+<li>class的名称；</li>
+<li>继承的父类集合，注意Python支持多重继承，如果只有一个父类，别忘了tuple的单元素写法；</li>
+<li>class的方法名称与函数绑定，这里我们把函数fn绑定到方法名hello上。</li>
+</ul>
+
+<p>通过type()函数创建的类和直接写class是完全一样的，因为Python解释器遇到class定义时，仅仅是扫描一下class定义的语法，然后调用type()函数创建出class。</p>
+
+<p>正常情况下，我们都用class Xxx&hellip;来定义类，但是，type()函数也允许我们动态创建出类来，也就是说，动态语言本身支持运行期动态创建类，这和静态语言有非常大的不同，要在静态语言运行期创建类，必须构造源代码字符串再调用编译器，或者借助一些工具生成字节码实现，本质上都是动态编译，会非常复杂。</p>
+
+<h2 id="2-metaclass">2. metaclass</h2>
+
+<p>除了使用type()动态创建类以外，要控制类的创建行为，还可以使用metaclass。</p>
+
+<p>metaclass，直译为元类，简单的解释就是：</p>
+
+<p>当我们定义了类以后，就可以根据这个类创建出实例，所以：先定义类，然后创建实例。</p>
+
+<p>但是如果我们想创建出类呢？那就必须根据metaclass创建出类，所以：先定义metaclass，然后创建类。</p>
+
+<p>连接起来就是：先定义metaclass，就可以创建类，最后创建实例。</p>
+
+<p>所以，metaclass允许你创建类或者修改类。换句话说，你可以把类看成是metaclass创建出来的“实例”。</p>
+
+<p>metaclass是Python面向对象里最难理解，也是最难使用的魔术代码。正常情况下，你不会碰到需要使用metaclass的情况，所以，以下内容看不懂也没关系，因为基本上你不会用到。</p>
+
+<p>我们先看一个简单的例子，这个metaclass可以给我们自定义的MyList增加一个add方法：</p>
+
+<p>定义ListMetaclass，按照默认习惯，metaclass的类名总是以Metaclass结尾，以便清楚地表示这是一个metaclass：</p>
+
+<pre><code class="language-python"># metaclass是类的模板，所以必须从`type`类型派生：
+class ListMetaclass(type):
+    def __new__(cls, name, bases, attrs):
+        attrs['add'] = lambda self, value: self.append(value)
+        return type.__new__(cls, name, bases, attrs)
+</code></pre>
+
+<p>有了ListMetaclass，我们在定义类的时候还要指示使用ListMetaclass来定制类，传入关键字参数metaclass：</p>
+
+<pre><code class="language-python">class MyList(list, metaclass=ListMetaclass):
+    pass
+</code></pre>
+
+<p>当我们传入关键字参数metaclass时，魔术就生效了，它指示Python解释器在创建MyList时，要通过ListMetaclass.<strong>new</strong>()来创建，在此，我们可以修改类的定义，比如，加上新的方法，然后，返回修改后的定义。</p>
+
+<p><strong>new</strong>()方法接收到的参数依次是：</p>
+
+<ul>
+<li><p>当前准备创建的类的对象；</p></li>
+
+<li><p>类的名字；</p></li>
+
+<li><p>类继承的父类集合；</p></li>
+
+<li><p>类的方法集合。</p></li>
+</ul>
+
+<p>测试一下MyList是否可以调用add()方法：</p>
+
+<pre><code class="language-shell">&gt;&gt;&gt; L = MyList()
+&gt;&gt;&gt; L.add(1)
+&gt;&gt; L
+[1]
+</code></pre>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">honour</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-12-10</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/python/">python</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/python/import/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Python3 如何动态导入模块</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/python/singleton/">
+            <span class="next-text nav-default">Python3 单例模式的实现</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:yefeihonours@gmail.com" class="iconfont icon-email" title="email"></a>
+  <a href="https://yefeihonours.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+    <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangyefei</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

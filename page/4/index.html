@@ -307,6 +307,36 @@
     
       <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/metaclass/">Python3 元类的使用</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-12-19 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 1663 字 </span>
+      <span class="more-meta"> 预计阅读 4 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>metaclass是Python中非常具有魔术性的对象，它可以改变类创建时的行为。这种强大的功能使用起来务必小心。</p>
+
+<p>本文介绍 python 元类的概念以及使用场景。</p>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/metaclass/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/python/singleton/">Python3 单例模式的实现</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2017-12-19 </span>
@@ -315,21 +345,53 @@
             <a href="/categories/python/"> Python </a>
           
         </div>
-      <span class="more-meta"> 约 153 字 </span>
+      <span class="more-meta"> 约 851 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="何为单例模式">何为单例模式</h2>
+
+<p><strong>单例模式（Singleton Pattern）是一种常用的软件设计模式</strong>，该模式的主要目的是确保某一个类只有一个实例存在。当你希望在整个系统中，某个类只能出现一个实例时，单例对象就能派上用场。</p>
+
+<p>比如，某个服务器程序的配置信息存放在一个文件中，客户端通过一个 AppConfig 的类来读取配置文件的信息。如果在程序运行期间，有很多地方都需要使用配置文件的内容，也就是说，很多地方都需要创建 AppConfig 对象的实例，这就导致系统中存在多个 AppConfig 的实例对象，而这样会严重浪费内存资源，尤其是在配置文件内容很多的情况下。事实上，类似 AppConfig 这样的类，我们希望在程序运行期间只存在一个实例对象。</p>
+
+<p>在 Python 中，我们可以用多种方法来实现单例模式</p>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/singleton/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/callable/">Python3 对象的调用</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-12-19 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 370 字 </span>
       <span class="more-meta"> 预计阅读 1 分钟 </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      <blockquote>
-<p>使用装饰器实现单例模式</p>
-</blockquote>
+      <p>Python中万物都可称为对象，但对象与对象之间也有差别。对象有可被调用和不可被调用之分。</p>
 
 <p></p>
     </div>
     <div class="read-more">
-      <a href="/post/python/singleton/" class="read-more-link">阅读更多</a>
+      <a href="/post/python/callable/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -405,66 +467,6 @@ d18d1d4fd831...a5bc378178
     </div>
     <div class="read-more">
       <a href="/post/python/use/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/switch/">Python 中 switch 方法的实现</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-11-28 </span>
-      <div class="post-category">
-          
-            <a href="/categories/python/"> Python </a>
-          
-        </div>
-      <span class="more-meta"> 约 493 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <blockquote>
-<p>在Python开发过程中，很多时候都需要使用到<code>switch</code>的结构形式，而大多在遇到这种情况的时候，开发人员都是使用<code>if...else...</code>结构来代替，但是过多的重复判断，会导致程序的可读性变差。</p>
-</blockquote>
-
-<p></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/python/switch/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/const/">Python中不可变常量的实现</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-11-28 </span>
-      <div class="post-category">
-          
-            <a href="/categories/python/"> Python </a>
-          
-        </div>
-      <span class="more-meta"> 约 219 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <blockquote>
-<p>在Python开发过程中，经常会有用到不可变常量的时候，但一般都是直接定义Python数据类型。但这并不安全，在以后的编码过程中，我们很有可能在自己不知道的情况下修改这个变量的值，但事实上并不希望如此。</p>
-</blockquote>
-
-<p></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/python/const/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

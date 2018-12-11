@@ -524,14 +524,42 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
     </item>
     
     <item>
+      <title>Python3 元类的使用</title>
+      <link>https://yefeihonours.github.io/post/python/metaclass/</link>
+      <pubDate>Tue, 19 Dec 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/metaclass/</guid>
+      <description>&lt;p&gt;metaclass是Python中非常具有魔术性的对象，它可以改变类创建时的行为。这种强大的功能使用起来务必小心。&lt;/p&gt;
+
+&lt;p&gt;本文介绍 python 元类的概念以及使用场景。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Python3 单例模式的实现</title>
       <link>https://yefeihonours.github.io/post/python/singleton/</link>
       <pubDate>Tue, 19 Dec 2017 12:00:00 +0800</pubDate>
       
       <guid>https://yefeihonours.github.io/post/python/singleton/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;使用装饰器实现单例模式&lt;/p&gt;
-&lt;/blockquote&gt;
+      <description>&lt;h2 id=&#34;何为单例模式&#34;&gt;何为单例模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;单例模式（Singleton Pattern）是一种常用的软件设计模式&lt;/strong&gt;，该模式的主要目的是确保某一个类只有一个实例存在。当你希望在整个系统中，某个类只能出现一个实例时，单例对象就能派上用场。&lt;/p&gt;
+
+&lt;p&gt;比如，某个服务器程序的配置信息存放在一个文件中，客户端通过一个 AppConfig 的类来读取配置文件的信息。如果在程序运行期间，有很多地方都需要使用配置文件的内容，也就是说，很多地方都需要创建 AppConfig 对象的实例，这就导致系统中存在多个 AppConfig 的实例对象，而这样会严重浪费内存资源，尤其是在配置文件内容很多的情况下。事实上，类似 AppConfig 这样的类，我们希望在程序运行期间只存在一个实例对象。&lt;/p&gt;
+
+&lt;p&gt;在 Python 中，我们可以用多种方法来实现单例模式&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python3 对象的调用</title>
+      <link>https://yefeihonours.github.io/post/python/callable/</link>
+      <pubDate>Tue, 19 Dec 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/callable/</guid>
+      <description>&lt;p&gt;Python中万物都可称为对象，但对象与对象之间也有差别。对象有可被调用和不可被调用之分。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
