@@ -81,6 +81,19 @@
     </item>
     
     <item>
+      <title>docker-compose 命令不存在、未找到命令</title>
+      <link>https://yefeihonours.github.io/post/docker/docker_compose/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/docker/docker_compose/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文介绍如何解决 docker-compose not found、docker-compose 命令不存在的问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>在 CentOS 7 上安装 Docker</title>
       <link>https://yefeihonours.github.io/post/linux/docker_setup/</link>
       <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>

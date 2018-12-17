@@ -57,7 +57,7 @@
 
 
 
-<meta property="og:updated_time" content="2018-06-03T12:00:00&#43;08:00"/>
+<meta property="og:updated_time" content="2018-06-13T12:00:00&#43;08:00"/>
 
 
 
@@ -141,6 +141,41 @@
   <section id="posts" class="posts">
     
     
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python/docker_python_web/">基于 docker 打包部署 python web 项目至 linux 服务器</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-13 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python/"> Python </a>
+          
+        </div>
+      <span class="more-meta"> 约 1309 字 </span>
+      <span class="more-meta"> 预计阅读 3 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h3 id="将python-web应用容器化"><strong>将Python Web应用容器化</strong></h3>
+
+<blockquote>
+<p>本文将讨论如何让“容器化”的Python Web应用跑在安全的沙箱里，严格的坚守在其各自的环境中（当然，除非你指定它们与其他应用进行“连接”）。
+</br>
+</br>
+以下将介绍两站方法如何创建一个Docker容器，如何用这个容器来跑我们的Python Web应用，以及如何用一个Dockerfile来描述整个构建过程以实现完整的自动化。</p>
+</blockquote>
+
+<p></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python/docker_python_web/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     
       <article class="post">
   <header class="post-header">
@@ -399,74 +434,27 @@
     
       <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/mongo/auth/">MongoDB户权限配置教程</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/python/decorator_wraps/">Python3 装饰器之 wraps</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2017-11-30 </span>
-      <div class="post-category">
-          
-            <a href="/categories/mongodb/"> MongoDB </a>
-          
-        </div>
-      <span class="more-meta"> 约 830 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h3 id="启动mongodb实例">启动MongoDb实例</h3>
-
-<blockquote>
-<p>本文以<code>Docker</code>启动<code>MongoDB</code>为例，省略服务器上MongoDB安装过程</p>
-</blockquote>
-
-<pre><code># Docker启动MongoDB实例，使用前确保电脑上已经安装docker
-
-$ docker pull mongo:3.0
-...
-
-# --auth 参数表示以权限验证模式启动
-$ docker run --name mongo_instance -p 0.0.0.0:27017:27017 -d mongo --auth
-d18d1d4fd831...a5bc378178
-
-</code></pre>
-
-<p></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/mongo/auth/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/use/">Python3 中实用的方法</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-11-28 </span>
+      <span class="post-time"> 2017-12-19 </span>
       <div class="post-category">
           
             <a href="/categories/python/"> Python </a>
           
         </div>
-      <span class="more-meta"> 约 345 字 </span>
+      <span class="more-meta"> 约 195 字 </span>
       <span class="more-meta"> 预计阅读 1 分钟 </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      <blockquote>
-<p>让目录或者zip文件成为可运行的脚本</p>
-
-<p>在书写python脚本的时候，往往会使用不止一个 python 代码文件，而将多个文件放在一个目录下或者zip包中，使目录或者zip包可以直接运行，这样使得多个python简脚本运行变得非常方便</p>
-</blockquote>
+      <p>我们在使用 Decorator 的过程中，难免会损失一些原本的功能信息。</p>
 
 <p></p>
     </div>
     <div class="read-more">
-      <a href="/post/python/use/" class="read-more-link">阅读更多</a>
+      <a href="/post/python/decorator_wraps/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

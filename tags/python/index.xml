@@ -244,6 +244,17 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
     </item>
     
     <item>
+      <title>Python3 装饰器之 wraps</title>
+      <link>https://yefeihonours.github.io/post/python/decorator_wraps/</link>
+      <pubDate>Tue, 19 Dec 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/decorator_wraps/</guid>
+      <description>&lt;p&gt;我们在使用 Decorator 的过程中，难免会损失一些原本的功能信息。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Python3 中实用的方法</title>
       <link>https://yefeihonours.github.io/post/python/use/</link>
       <pubDate>Tue, 28 Nov 2017 12:03:00 +0800</pubDate>

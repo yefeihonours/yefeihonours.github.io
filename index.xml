@@ -378,6 +378,19 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
     </item>
     
     <item>
+      <title>docker-compose 命令不存在、未找到命令</title>
+      <link>https://yefeihonours.github.io/post/docker/docker_compose/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/docker/docker_compose/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文介绍如何解决 docker-compose not found、docker-compose 命令不存在的问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>mac 在终端如何进入名称带空格的目录</title>
       <link>https://yefeihonours.github.io/post/mac/space_in_directory/</link>
       <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
@@ -569,6 +582,17 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
       
       <guid>https://yefeihonours.github.io/post/python/callable/</guid>
       <description>&lt;p&gt;Python中万物都可称为对象，但对象与对象之间也有差别。对象有可被调用和不可被调用之分。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python3 装饰器之 wraps</title>
+      <link>https://yefeihonours.github.io/post/python/decorator_wraps/</link>
+      <pubDate>Tue, 19 Dec 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/python/decorator_wraps/</guid>
+      <description>&lt;p&gt;我们在使用 Decorator 的过程中，难免会损失一些原本的功能信息。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
