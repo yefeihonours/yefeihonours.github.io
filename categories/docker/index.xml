@@ -81,6 +81,19 @@
     </item>
     
     <item>
+      <title>Dockerfile 命令详解</title>
+      <link>https://yefeihonours.github.io/post/docker/dockerfile/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/docker/dockerfile/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文介绍关于制作 Dockerfile 的全部命令&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>docker-compose 命令不存在、未找到命令</title>
       <link>https://yefeihonours.github.io/post/docker/docker_compose/</link>
       <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>

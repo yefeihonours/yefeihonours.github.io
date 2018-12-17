@@ -356,6 +356,19 @@ guincorn是支持wsgi协议的http server，gevent只是它支持的模式之一
     </item>
     
     <item>
+      <title>Dockerfile 命令详解</title>
+      <link>https://yefeihonours.github.io/post/docker/dockerfile/</link>
+      <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
+      
+      <guid>https://yefeihonours.github.io/post/docker/dockerfile/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文介绍关于制作 Dockerfile 的全部命令&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Linux 安装 python3.6 教程</title>
       <link>https://yefeihonours.github.io/post/linux/python_setup/</link>
       <pubDate>Fri, 22 Jun 2018 12:00:00 +0800</pubDate>
