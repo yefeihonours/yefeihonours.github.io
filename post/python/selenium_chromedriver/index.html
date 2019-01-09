@@ -92,7 +92,7 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
 
 <meta itemprop="datePublished" content="2018-06-25T12:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2018-06-25T12:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="518">
+<meta itemprop="wordCount" content="599">
 
 
 
@@ -182,7 +182,7 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
               <a href="/categories/python/"> Python </a>
             
           </div>
-        <span class="more-meta"> 约 518 字 </span>
+        <span class="more-meta"> 约 599 字 </span>
         <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -252,7 +252,7 @@ Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运�
 <p>否则在运行脚本时，会提示</p>
 
 <blockquote>
-<p>chromedriver executable needs to be in PATH错误</p>
+<p>chromedriver executable needs to be in PATH 错误</p>
 </blockquote>
 
 <h3 id="三-selenium-第一个脚本">三、selenium 第一个脚本</h3>
@@ -274,6 +274,27 @@ browser.get('http://www.baidu.com/')
 
 <p>下载地址请参见 <a href="http://rpmfind.net/linux/rpm2html/search.php?query=google-chrome-stable">http://rpmfind.net/linux/rpm2html/search.php?query=google-chrome-stable</a></p>
 
+<p>配置yum源脚本</p>
+
+<pre><code class="language-bash"># 备份原来的yum源
+
+cd /etc/yum.repos.d/
+
+mv CentOS-Base.repo CentOS-Base.repo_bak
+
+# 获取阿里云yum源
+
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+
+# 清除缓存
+
+yum clean all
+
+# 生成缓存
+
+yum makecache
+</code></pre>
+
 <p>安装脚本如下：</p>
 
 <pre><code class="language-bash"># 下载
@@ -284,6 +305,17 @@ yum localinstall google-chrome-stable-58.0.3029.110-1.x86_64.rpm
 # 升级chrome到当前最新版以避免老版本可能出现的一些bug
 yum -y upgrade google-chrome-stable
 
+</code></pre>
+
+<p>测试安装是否成功的python脚本</p>
+
+<pre><code class="language-python">from selenium.webdriver.chrome.options import Options
+
+options = Options()
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+# options.add_argument('--disable-dev-shm-usage')
+driver = webdriver.Chrome(executable_path=&quot;/root/chromedriver&quot;, chrome_options=options)
 </code></pre>
 
 <p>特别说明：无图形化界面的Linux系统上使用 selenium 和 ChromeDriver 请务必使用 headless 模式</p>
